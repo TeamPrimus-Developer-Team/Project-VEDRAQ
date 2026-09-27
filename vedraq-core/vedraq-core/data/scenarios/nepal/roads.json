@@ -1,0 +1,62 @@
+[
+  {
+    "id": "NR1", "from_node": "DEPOT", "to_node": "N05", "distance_km": 14.2, "status": "open", "travel_time_min": 28, "speed_kmh": 30, "geometry": [
+      [27.700, 85.350], [27.708, 85.380], [27.718, 85.415], [27.726, 85.440], [27.734, 85.465]
+    ]
+  },
+  {
+    "id": "NR2", "from_node": "DEPOT", "to_node": "N06", "distance_km": 9.8, "status": "open", "travel_time_min": 20, "speed_kmh": 29, "geometry": [
+      [27.700, 85.350], [27.690, 85.375], [27.680, 85.400], [27.671, 85.428]
+    ]
+  },
+  {
+    "id": "NR3", "from_node": "N05", "to_node": "N01", "distance_km": 18.5, "status": "open", "travel_time_min": 45, "speed_kmh": 25, "geometry": [
+      [27.734, 85.465], [27.760, 85.495], [27.785, 85.525], [27.810, 85.555], [27.832, 85.580]
+    ]
+  },
+  {
+    "id": "NR4", "from_node": "N05", "to_node": "N03", "distance_km": 26.0, "status": "open", "travel_time_min": 58, "speed_kmh": 27, "geometry": [
+      [27.734, 85.465], [27.745, 85.520], [27.760, 85.585], [27.772, 85.650], [27.784, 85.717]
+    ]
+  },
+  {
+    "id": "NR5", "from_node": "N03", "to_node": "N02", "distance_km": 6.8, "status": "open", "travel_time_min": 18, "speed_kmh": 23, "geometry": [
+      [27.784, 85.717], [27.778, 85.714], [27.771, 85.710]
+    ]
+  },
+  {
+    "id": "NR6", "from_node": "N01", "to_node": "N04", "distance_km": 21.0, "status": "open", "travel_time_min": 65, "speed_kmh": 19, "geometry": [
+      [27.832, 85.580], [27.875, 85.570], [27.920, 85.555], [27.975, 85.534]
+    ]
+  },
+  {
+    "id": "NR7", "from_node": "N06", "to_node": "N08", "distance_km": 12.4, "status": "open", "travel_time_min": 24, "speed_kmh": 31, "geometry": [
+      [27.671, 85.428], [27.655, 85.460], [27.640, 85.495], [27.632, 85.524]
+    ]
+  },
+  {
+    "id": "NR8", "from_node": "N08", "to_node": "N07", "distance_km": 4.5, "status": "open", "travel_time_min": 10, "speed_kmh": 27, "geometry": [
+      [27.632, 85.524], [27.625, 85.538], [27.618, 85.554]
+    ]
+  },
+  {
+    "id": "NR9", "from_node": "N07", "to_node": "N10", "distance_km": 8.1, "status": "open", "travel_time_min": 16, "speed_kmh": 30, "geometry": [
+      [27.618, 85.554], [27.635, 85.575], [27.662, 85.602]
+    ]
+  },
+  {
+    "id": "NR10", "from_node": "N10", "to_node": "N09", "distance_km": 42.0, "status": "open", "travel_time_min": 95, "speed_kmh": 26, "geometry": [
+      [27.662, 85.602], [27.740, 85.710], [27.820, 85.800], [27.900, 85.890], [27.968, 85.955]
+    ]
+  },
+  {
+    "id": "NR11", "from_node": "N06", "to_node": "N01", "distance_km": 24.5, "status": "open", "travel_time_min": 60, "speed_kmh": 24, "geometry": [
+      [27.671, 85.428], [27.715, 85.480], [27.770, 85.530], [27.832, 85.580]
+    ]
+  },
+  {
+    "id": "NR12", "from_node": "N08", "to_node": "N03", "distance_km": 29.0, "status": "open", "travel_time_min": 70, "speed_kmh": 25, "geometry": [
+      [27.632, 85.524], [27.680, 85.590], [27.730, 85.655], [27.784, 85.717]
+    ]
+  }
+]

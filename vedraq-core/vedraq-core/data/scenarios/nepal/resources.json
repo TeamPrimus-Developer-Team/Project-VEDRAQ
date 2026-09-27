@@ -1,0 +1,75 @@
+{
+  "inventory": {
+    "ambulance": {"total": 8, "available": 7, "label": "4x4 Mountain Ambulances", "icon": "🚑", "speed_kmh": 40, "avg_speed_kmh": 35},
+    "water_tanker": {"total": 8, "available": 7, "label": "Mountain Water Tankers", "icon": "💧", "speed_kmh": 30, "avg_speed_kmh": 26},
+    "food_unit": {"total": 8, "available": 7, "label": "Heavy Ration Trucks", "icon": "📦", "speed_kmh": 32, "avg_speed_kmh": 28},
+    "medical_team": {"total": 5, "available": 5, "label": "Mountain Trauma Teams", "icon": "🏥", "speed_kmh": 35, "avg_speed_kmh": 30},
+    "rescue_vehicle": {"total": 6, "available": 6, "label": "High-Clearance Rescue Vehicles", "icon": "🛟", "speed_kmh": 35, "avg_speed_kmh": 30},
+    "rescue_boat": {"total": 4, "available": 4, "label": "Swift-Water Inflatable Boats", "icon": "🛶", "speed_kmh": 18, "avg_speed_kmh": 14},
+    "helicopter": {"total": 4, "available": 4, "label": "High-Altitude Rescue Helicopters", "icon": "🚁", "speed_kmh": 240, "avg_speed_kmh": 200},
+    "bus": {"total": 4, "available": 4, "label": "4x4 Mountain Evacuation Buses", "icon": "🚌", "speed_kmh": 38, "avg_speed_kmh": 32},
+    "rescue_van": {"total": 5, "available": 5, "label": "All-Terrain Rescue Vans", "icon": "🚐", "speed_kmh": 42, "avg_speed_kmh": 36}
+  },
+  "units": [
+    {"id": "NA01", "type": "ambulance", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 4, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 40, "fuel_pct": 94, "crew": 3},
+    {"id": "NA02", "type": "ambulance", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 4, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 38, "fuel_pct": 88, "crew": 3},
+    {"id": "NA03", "type": "ambulance", "mode": "GROUND", "base": "Dhulikhel Base", "base_id": "DEPOT2", "capacity": 4, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 42, "fuel_pct": 90, "crew": 3},
+    {"id": "NA04", "type": "ambulance", "mode": "GROUND", "base": "Dhulikhel Base", "base_id": "DEPOT2", "capacity": 4, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 39, "fuel_pct": 82, "crew": 3},
+    {"id": "NA05", "type": "ambulance", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 4, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 41, "fuel_pct": 95, "crew": 2},
+    {"id": "NA06", "type": "ambulance", "mode": "GROUND", "base": "Dhulikhel Base", "base_id": "DEPOT2", "capacity": 4, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 40, "fuel_pct": 79, "crew": 3},
+    {"id": "NA07", "type": "ambulance", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 4, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 38, "fuel_pct": 85, "crew": 2},
+    {"id": "NA08", "type": "ambulance", "mode": "GROUND", "base": "Dhulikhel Base", "base_id": "DEPOT2", "capacity": 4, "status": "MAINTENANCE", "current_assignment": null, "speed_kmh": 36, "fuel_pct": 20, "crew": 0},
+
+    {"id": "NW01", "type": "water_tanker", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 10000, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 32, "fuel_pct": 92, "load_liters": 10000},
+    {"id": "NW02", "type": "water_tanker", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 10000, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 30, "fuel_pct": 78, "load_liters": 10000},
+    {"id": "NW03", "type": "water_tanker", "mode": "GROUND", "base": "Dhulikhel Base", "base_id": "DEPOT2", "capacity": 10000, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 31, "fuel_pct": 86, "load_liters": 10000},
+    {"id": "NW04", "type": "water_tanker", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 10000, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 29, "fuel_pct": 84, "load_liters": 10000},
+    {"id": "NW05", "type": "water_tanker", "mode": "GROUND", "base": "Dhulikhel Base", "base_id": "DEPOT2", "capacity": 10000, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 30, "fuel_pct": 72, "load_liters": 9000},
+    {"id": "NW06", "type": "water_tanker", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 10000, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 33, "fuel_pct": 96, "load_liters": 10000},
+    {"id": "NW07", "type": "water_tanker", "mode": "GROUND", "base": "Dhulikhel Base", "base_id": "DEPOT2", "capacity": 10000, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 28, "fuel_pct": 80, "load_liters": 8500},
+    {"id": "NW08", "type": "water_tanker", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 10000, "status": "MAINTENANCE", "current_assignment": null, "speed_kmh": 25, "fuel_pct": 15, "load_liters": 0},
+
+    {"id": "NF01", "type": "food_unit", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 1200, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 34, "fuel_pct": 91, "load_kg": 1200},
+    {"id": "NF02", "type": "food_unit", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 1200, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 32, "fuel_pct": 76, "load_kg": 1200},
+    {"id": "NF03", "type": "food_unit", "mode": "GROUND", "base": "Dhulikhel Base", "base_id": "DEPOT2", "capacity": 1200, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 33, "fuel_pct": 89, "load_kg": 1100},
+    {"id": "NF04", "type": "food_unit", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 1200, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 31, "fuel_pct": 85, "load_kg": 1200},
+    {"id": "NF05", "type": "food_unit", "mode": "GROUND", "base": "Dhulikhel Base", "base_id": "DEPOT2", "capacity": 1200, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 30, "fuel_pct": 74, "load_kg": 950},
+    {"id": "NF06", "type": "food_unit", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 1200, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 35, "fuel_pct": 94, "load_kg": 1200},
+    {"id": "NF07", "type": "food_unit", "mode": "GROUND", "base": "Dhulikhel Base", "base_id": "DEPOT2", "capacity": 1200, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 32, "fuel_pct": 88, "load_kg": 1050},
+    {"id": "NF08", "type": "food_unit", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 1200, "status": "MAINTENANCE", "current_assignment": null, "speed_kmh": 28, "fuel_pct": 12, "load_kg": 0},
+
+    {"id": "NM01", "type": "medical_team", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 8, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 36, "fuel_pct": 96, "crew": 6, "supplies_level": "full"},
+    {"id": "NM02", "type": "medical_team", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 8, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 34, "fuel_pct": 82, "crew": 6, "supplies_level": "full"},
+    {"id": "NM03", "type": "medical_team", "mode": "GROUND", "base": "Dhulikhel Base", "base_id": "DEPOT2", "capacity": 8, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 37, "fuel_pct": 90, "crew": 6, "supplies_level": "full"},
+    {"id": "NM04", "type": "medical_team", "mode": "GROUND", "base": "Dhulikhel Base", "base_id": "DEPOT2", "capacity": 8, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 35, "fuel_pct": 78, "crew": 5, "supplies_level": "high"},
+    {"id": "NM05", "type": "medical_team", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 8, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 38, "fuel_pct": 93, "crew": 6, "supplies_level": "full"},
+
+    {"id": "NRV01", "type": "rescue_vehicle", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 6, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 36, "fuel_pct": 92, "crew": 4, "winch_equipped": true},
+    {"id": "NRV02", "type": "rescue_vehicle", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 6, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 35, "fuel_pct": 85, "crew": 4, "winch_equipped": true},
+    {"id": "NRV03", "type": "rescue_vehicle", "mode": "GROUND", "base": "Dhulikhel Base", "base_id": "DEPOT2", "capacity": 6, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 37, "fuel_pct": 91, "crew": 4, "winch_equipped": true},
+    {"id": "NRV04", "type": "rescue_vehicle", "mode": "GROUND", "base": "Dhulikhel Base", "base_id": "DEPOT2", "capacity": 6, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 34, "fuel_pct": 80, "crew": 4, "winch_equipped": true},
+    {"id": "NRV05", "type": "rescue_vehicle", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 6, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 38, "fuel_pct": 95, "crew": 4, "winch_equipped": true},
+    {"id": "NRV06", "type": "rescue_vehicle", "mode": "GROUND", "base": "Dhulikhel Base", "base_id": "DEPOT2", "capacity": 6, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 33, "fuel_pct": 77, "crew": 4, "winch_equipped": true},
+
+    {"id": "NB01", "type": "rescue_boat", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 10, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 18, "fuel_pct": 95, "crew": 3},
+    {"id": "NB02", "type": "rescue_boat", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 10, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 17, "fuel_pct": 88, "crew": 3},
+    {"id": "NB03", "type": "rescue_boat", "mode": "GROUND", "base": "Dhulikhel Base", "base_id": "DEPOT2", "capacity": 10, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 19, "fuel_pct": 92, "crew": 3},
+    {"id": "NB04", "type": "rescue_boat", "mode": "GROUND", "base": "Dhulikhel Base", "base_id": "DEPOT2", "capacity": 10, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 16, "fuel_pct": 84, "crew": 3},
+
+    {"id": "NH01", "type": "helicopter", "mode": "AIR", "base": "Tribhuvan Heliport", "base_id": "AIR01", "capacity": 16, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 240, "fuel_pct": 98, "crew": 4, "model": "Mi-17 Heavy Lift"},
+    {"id": "NH02", "type": "helicopter", "mode": "AIR", "base": "Tribhuvan Heliport", "base_id": "AIR01", "capacity": 12, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 220, "fuel_pct": 90, "crew": 3, "model": "ALH Dhruv Rescue"},
+    {"id": "NH03", "type": "helicopter", "mode": "AIR", "base": "Dhulikhel Helipad", "base_id": "AIR02", "capacity": 12, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 230, "fuel_pct": 94, "crew": 3, "model": "ALH Dhruv Mountain"},
+    {"id": "NH04", "type": "helicopter", "mode": "AIR", "base": "Tribhuvan Heliport", "base_id": "AIR01", "capacity": 8, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 210, "fuel_pct": 86, "crew": 2, "model": "Eurocopter AS350 B3e"},
+
+    {"id": "NBUS01", "type": "bus", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 40, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 38, "fuel_pct": 92, "crew": 2},
+    {"id": "NBUS02", "type": "bus", "mode": "GROUND", "base": "Dhulikhel Base", "base_id": "DEPOT2", "capacity": 40, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 36, "fuel_pct": 86, "crew": 2},
+    {"id": "NBUS03", "type": "bus", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 40, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 37, "fuel_pct": 90, "crew": 2},
+    {"id": "NBUS04", "type": "bus", "mode": "GROUND", "base": "Dhulikhel Base", "base_id": "DEPOT2", "capacity": 40, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 35, "fuel_pct": 84, "crew": 2},
+
+    {"id": "NVAN01", "type": "rescue_van", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 15, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 42, "fuel_pct": 94, "crew": 2},
+    {"id": "NVAN02", "type": "rescue_van", "mode": "GROUND", "base": "Dhulikhel Base", "base_id": "DEPOT2", "capacity": 15, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 40, "fuel_pct": 88, "crew": 2},
+    {"id": "NVAN03", "type": "rescue_van", "mode": "GROUND", "base": "Tribhuvan Staging", "base_id": "DEPOT", "capacity": 15, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 41, "fuel_pct": 91, "crew": 2},
+    {"id": "NVAN04", "type": "rescue_van", "mode": "GROUND", "base": "Dhulikhel Base", "base_id": "DEPOT2", "capacity": 15, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 39, "fuel_pct": 85, "crew": 2},
+    {"id": "NVAN05", "type": "rescue_van", "mode": "GROUND", "base": "Dhulikhel Base", "base_id": "DEPOT2", "capacity": 15, "status": "AVAILABLE", "current_assignment": null, "speed_kmh": 40, "fuel_pct": 89, "crew": 2}
+  ]
+}

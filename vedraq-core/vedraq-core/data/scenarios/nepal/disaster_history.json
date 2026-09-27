@@ -1,0 +1,544 @@
+{
+  "N01": [
+    {
+      "year": 2017,
+      "type": "Alpine Flash Flood",
+      "severity": "High",
+      "description": "Melamchi river surge washed away suspension footbridges and flooded riverside terrace farms.",
+      "affectedPopulation": 3200,
+      "duration": "5 days",
+      "outcome": "Temporary ropeways installed by community"
+    },
+    {
+      "year": 2018,
+      "type": "Mountain Slope Landslide",
+      "severity": "Moderate",
+      "description": "Heavy monsoon rains triggered slope failure, blocking arterial road NR3 for 48 hours.",
+      "affectedPopulation": 2100,
+      "duration": "3 days",
+      "outcome": "Bulldozers cleared boulders and mud"
+    },
+    {
+      "year": 2019,
+      "type": "Winter Snowstorm & Freeze",
+      "severity": "Moderate",
+      "description": "Unseasonal heavy snowfall in upper catchment isolated upper pastures and disrupted communications.",
+      "affectedPopulation": 1500,
+      "duration": "6 days",
+      "outcome": "Winter relief supplies distributed via 4x4 convoys"
+    },
+    {
+      "year": 2021,
+      "type": "Catastrophic Debris Torrent",
+      "severity": "Critical",
+      "description": "Upstream glacial lake outburst and cloudburst triggered massive debris flow destroying 60 buildings.",
+      "affectedPopulation": 4200,
+      "duration": "14 days",
+      "outcome": "Army helicopter rescue operations and emergency shelter established"
+    },
+    {
+      "year": 2022,
+      "type": "Monsoon River Flood",
+      "severity": "High",
+      "description": "Melamchi river swelled again, eroding reinforced riverbanks and threatening valley school.",
+      "affectedPopulation": 2800,
+      "duration": "5 days",
+      "outcome": "Gabion wire mesh wall reinforced"
+    },
+    {
+      "year": 2024,
+      "type": "Cloudburst & Flash Flood",
+      "severity": "Critical",
+      "description": "Intense localized cloudburst dropped 140mm in 2 hours, cutting primary ground access entirely.",
+      "affectedPopulation": 4200,
+      "duration": "8 days",
+      "outcome": "Air corridor airlift activated for medical evacuees"
+    },
+    {
+      "year": 2025,
+      "type": "Seismic Tremor & Rockfall",
+      "severity": "Moderate",
+      "description": "Magnitude 5.1 tremor triggered rockfalls along upper canyon passes, blocking supply vehicles.",
+      "affectedPopulation": 1900,
+      "duration": "3 days",
+      "outcome": "Road cleared by Nepal Army engineers"
+    }
+  ],
+  "N02": [
+    {
+      "year": 2017,
+      "type": "Monsoon Landslide",
+      "severity": "High",
+      "description": "Steep hillside failure blocked road NR5 and damaged 18 residential stone homes.",
+      "affectedPopulation": 3600,
+      "duration": "6 days",
+      "outcome": "Displaced families sheltered in community hall"
+    },
+    {
+      "year": 2019,
+      "type": "Severe Hailstorm & Wind",
+      "severity": "Low",
+      "description": "Violent squall and hail damaged hillside terrace crops and tin roofs.",
+      "affectedPopulation": 1800,
+      "duration": "12 hours",
+      "outcome": "Emergency roofing sheets distributed"
+    },
+    {
+      "year": 2020,
+      "type": "River Flash Flood",
+      "severity": "High",
+      "description": "Torrential monsoon rains swollen mountain river, flooding riverside market stalls.",
+      "affectedPopulation": 4100,
+      "duration": "5 days",
+      "outcome": "River training work initiated"
+    },
+    {
+      "year": 2022,
+      "type": "Major Slope Slump",
+      "severity": "Critical",
+      "description": "Deep-seated slope reactivation threatened central market ridge with ground fissure movement.",
+      "affectedPopulation": 5100,
+      "duration": "10 days",
+      "outcome": "Partial evacuation to Chautara safe grounds"
+    },
+    {
+      "year": 2023,
+      "type": "Forest Fire Incident",
+      "severity": "Moderate",
+      "description": "Dry spring pine forest fire approached eastern fringe settlements before containment.",
+      "affectedPopulation": 2400,
+      "duration": "4 days",
+      "outcome": "Contained by fire-line cutting and aerial water bucket drop"
+    },
+    {
+      "year": 2024,
+      "type": "Monsoon Debris Flow",
+      "severity": "High",
+      "description": "Gully washout deposited tons of gravel and boulders across agricultural terraces.",
+      "affectedPopulation": 3800,
+      "duration": "5 days",
+      "outcome": "Heavy machinery cleared arterial paths"
+    }
+  ],
+  "N03": [
+    {
+      "year": 2018,
+      "type": "Hillside Mudslide",
+      "severity": "Moderate",
+      "description": "Continuous rain induced mudslide across foothill road NR4, delaying transit.",
+      "affectedPopulation": 2200,
+      "duration": "3 days",
+      "outcome": "Road cleared in 36 hours"
+    },
+    {
+      "year": 2020,
+      "type": "Pre-Monsoon Thunderstorm & Lightning",
+      "severity": "Low",
+      "description": "High-intensity lightning strikes knocked out ridge telecom repeater towers.",
+      "affectedPopulation": 1400,
+      "duration": "18 hours",
+      "outcome": "Telecom restored via solar backup generator"
+    },
+    {
+      "year": 2021,
+      "type": "Flash Flood & Stream Swell",
+      "severity": "Moderate",
+      "description": "Mountain stream breached culvert, eroding road edge near district hospital.",
+      "affectedPopulation": 2900,
+      "duration": "4 days",
+      "outcome": "Concrete retaining wall constructed"
+    },
+    {
+      "year": 2023,
+      "type": "Major Slope Landslide",
+      "severity": "High",
+      "description": "Heavy monsoon rains caused slope failure above settlement, requiring precautionary evacuation.",
+      "affectedPopulation": 3900,
+      "duration": "6 days",
+      "outcome": "Evacuated to Chautara multipurpose shelter"
+    },
+    {
+      "year": 2025,
+      "type": "Winter Cold Wave & Frost",
+      "severity": "Low",
+      "description": "Sub-zero cold spell caused water pipe freezing and agricultural frost damage.",
+      "affectedPopulation": 1700,
+      "duration": "8 days",
+      "outcome": "Blankets and firewood supplies mobilized"
+    }
+  ],
+  "N04": [
+    {
+      "year": 2017,
+      "type": "Winter Avalanche Threat",
+      "severity": "High",
+      "description": "High altitude snow avalanche severed mule trail and buried upper outpost storage shed.",
+      "affectedPopulation": 1100,
+      "duration": "8 days",
+      "outcome": "Trail reopened by mountain rescue teams"
+    },
+    {
+      "year": 2019,
+      "type": "Alpine Cloudburst",
+      "severity": "High",
+      "description": "Intense cloudburst washed away two pedestrian wooden bridges, isolating northern settlements.",
+      "affectedPopulation": 1600,
+      "duration": "6 days",
+      "outcome": "Airdrop of medical supplies conducted"
+    },
+    {
+      "year": 2021,
+      "type": "Mountain Torrent & Washout",
+      "severity": "Critical",
+      "description": "Glacial stream overflow destroyed road connection NR6, leaving the zone completely cut off.",
+      "affectedPopulation": 2100,
+      "duration": "12 days",
+      "outcome": "Helicopter airlift established as sole lifeline"
+    },
+    {
+      "year": 2022,
+      "type": "Severe Snowstorm & Blizzard",
+      "severity": "Moderate",
+      "description": "Three feet of snowfall halted all trekking routes and caused livestock losses.",
+      "affectedPopulation": 1400,
+      "duration": "5 days",
+      "outcome": "Snow clearance performed by local volunteers"
+    },
+    {
+      "year": 2024,
+      "type": "Massive Rockfall & Slide",
+      "severity": "Critical",
+      "description": "Seismic activity triggered cliff collapse, blocking the gorge and damaging 85% of infrastructure.",
+      "affectedPopulation": 2100,
+      "duration": "15 days",
+      "outcome": "High-altitude airlift of all vulnerable persons"
+    },
+    {
+      "year": 2025,
+      "type": "Flash Flood Inundation",
+      "severity": "High",
+      "description": "Rapid snowmelt coupled with rainfall eroded valley terrace foundations.",
+      "affectedPopulation": 1800,
+      "duration": "5 days",
+      "outcome": "Erosion prevention wire crates placed"
+    }
+  ],
+  "N05": [
+    {
+      "year": 2018,
+      "type": "Salinadi River Inundation",
+      "severity": "High",
+      "description": "Salinadi river burst banks, flooding historic peri-urban settlements and brick kilns.",
+      "affectedPopulation": 3800,
+      "duration": "4 days",
+      "outcome": "Rescue teams deployed boats for evacuation"
+    },
+    {
+      "year": 2019,
+      "type": "Monsoon Street Waterlogging",
+      "severity": "Moderate",
+      "description": "Drainage canal overflow inundated agricultural lowlands and connecting link road NR1.",
+      "affectedPopulation": 2900,
+      "duration": "3 days",
+      "outcome": "Drainage desilted post-monsoon"
+    },
+    {
+      "year": 2021,
+      "type": "Severe Thunderstorm & Lightning",
+      "severity": "Low",
+      "description": "Squall wind and lightning damaged electric feeder transformers.",
+      "affectedPopulation": 1200,
+      "duration": "12 hours",
+      "outcome": "Power restored within a day"
+    },
+    {
+      "year": 2023,
+      "type": "Flash Flood & Overflow",
+      "severity": "High",
+      "description": "Upstream torrential rains flooded 220 ground-floor houses and artisan workshops.",
+      "affectedPopulation": 4500,
+      "duration": "5 days",
+      "outcome": "Community schools served as temporary shelters"
+    },
+    {
+      "year": 2025,
+      "type": "Monsoon Waterlogging",
+      "severity": "Moderate",
+      "description": "Extended rainfall saturated agricultural basin, slowing outbound commodity transit.",
+      "affectedPopulation": 2700,
+      "duration": "4 days",
+      "outcome": "Emergency culverts opened"
+    }
+  ],
+  "N06": [
+    {
+      "year": 2017,
+      "type": "Hanumante River Overflow",
+      "severity": "High",
+      "description": "Hanumante river overflow flooded eastern cultural basin and market access routes.",
+      "affectedPopulation": 3600,
+      "duration": "5 days",
+      "outcome": "Dewatering pumps operated in heritage zones"
+    },
+    {
+      "year": 2019,
+      "type": "Urban Waterlogging",
+      "severity": "Moderate",
+      "description": "Intense 80mm rainfall caused street flooding and blocked low bridges.",
+      "affectedPopulation": 2800,
+      "duration": "3 days",
+      "outcome": "Civic authority cleared clogged culverts"
+    },
+    {
+      "year": 2021,
+      "type": "Flash Flood Inundation",
+      "severity": "High",
+      "description": "Basin water level rose rapidly, inundating pottery squares and ground floor shops.",
+      "affectedPopulation": 4100,
+      "duration": "4 days",
+      "outcome": "Emergency boat rescue deployed by Nepal Armed Police"
+    },
+    {
+      "year": 2022,
+      "type": "Thunderstorm Squall",
+      "severity": "Low",
+      "description": "High winds damaged temple restoration scaffolding and power poles.",
+      "affectedPopulation": 1100,
+      "duration": "14 hours",
+      "outcome": "Scaffolding dismantled safely"
+    },
+    {
+      "year": 2024,
+      "type": "Monsoon River Surge",
+      "severity": "Moderate",
+      "description": "River backflow flooded low-lying bus park and access highway NR2.",
+      "affectedPopulation": 3200,
+      "duration": "4 days",
+      "outcome": "Traffic diverted to high bypass road"
+    },
+    {
+      "year": 2026,
+      "type": "Urban Runoff Waterlogging",
+      "severity": "Moderate",
+      "description": "Pre-monsoon storm runoff caused basement inundations in residential wards.",
+      "affectedPopulation": 2400,
+      "duration": "2 days",
+      "outcome": "Dewatering pumps deployed"
+    }
+  ],
+  "N07": [
+    {
+      "year": 2018,
+      "type": "Hillside Soil Erosion & Slide",
+      "severity": "Moderate",
+      "description": "Heavy continuous rains caused roadside embankment erosion along highway NR8.",
+      "affectedPopulation": 2100,
+      "duration": "3 days",
+      "outcome": "Retaining bio-engineering planted"
+    },
+    {
+      "year": 2020,
+      "type": "Pre-Monsoon Lightning Strikes",
+      "severity": "Low",
+      "description": "Lightning damaged ridge telecom antennas and solar transmission hubs.",
+      "affectedPopulation": 1300,
+      "duration": "16 hours",
+      "outcome": "Repaired within 24 hours"
+    },
+    {
+      "year": 2022,
+      "type": "Monsoon Waterlogging & Silt",
+      "severity": "Moderate",
+      "description": "Runoff from northern ridge ponded in lower gateway roundabout.",
+      "affectedPopulation": 2400,
+      "duration": "3 days",
+      "outcome": "Road culverts cleared of silt"
+    },
+    {
+      "year": 2023,
+      "type": "Forest Fire Threat",
+      "severity": "Moderate",
+      "description": "Pine ridge fire threatened outer hotel and hospital zone perimeters.",
+      "affectedPopulation": 2800,
+      "duration": "3 days",
+      "outcome": "Controlled by community fire brigade"
+    },
+    {
+      "year": 2025,
+      "type": "Hillside Landslide",
+      "severity": "High",
+      "description": "Slope failure near highway junction obstructed emergency transport corridor.",
+      "affectedPopulation": 3200,
+      "duration": "4 days",
+      "outcome": "One-way alternating traffic maintained"
+    }
+  ],
+  "N08": [
+    {
+      "year": 2017,
+      "type": "Puniavati River Inundation",
+      "severity": "High",
+      "description": "Puniavati stream overflowed, submerging main trade highway NR7 and shops.",
+      "affectedPopulation": 3400,
+      "duration": "4 days",
+      "outcome": "Excavators widened river discharge mouth"
+    },
+    {
+      "year": 2019,
+      "type": "Urban Waterlogging",
+      "severity": "Moderate",
+      "description": "Monsoon cloudburst flooded low-lying Banepa bus terminal under 0.8m of water.",
+      "affectedPopulation": 2600,
+      "duration": "3 days",
+      "outcome": "Heavy suction pumps cleared water"
+    },
+    {
+      "year": 2021,
+      "type": "Severe Flash Flood",
+      "severity": "High",
+      "description": "Sudden torrential surge flooded 300 business premises and disrupted Kathmandu artery.",
+      "affectedPopulation": 3700,
+      "duration": "5 days",
+      "outcome": "Relief trucks deployed; highway restored"
+    },
+    {
+      "year": 2023,
+      "type": "Thunderstorm & Hail",
+      "severity": "Low",
+      "description": "Hail and high winds damaged greenhouse plastic tunnels and power cables.",
+      "affectedPopulation": 1100,
+      "duration": "10 hours",
+      "outcome": "Agricultural relief assessed"
+    },
+    {
+      "year": 2024,
+      "type": "Monsoon Street Flooding",
+      "severity": "Moderate",
+      "description": "Drainage overflow inundated market core, causing temporary commercial shutdown.",
+      "affectedPopulation": 3100,
+      "duration": "3 days",
+      "outcome": "Drainage deepened with stone lining"
+    }
+  ],
+  "N09": [
+    {
+      "year": 2017,
+      "type": "Gorge Landslide & Road Severance",
+      "severity": "Critical",
+      "description": "Major rockfall collapsed 120m of Araniko Highway NR10, completely cutting border access.",
+      "affectedPopulation": 2700,
+      "duration": "14 days",
+      "outcome": "Nepal Army deployed rock blasters to reopen trail"
+    },
+    {
+      "year": 2018,
+      "type": "Bhotekoshi Flash Flood",
+      "severity": "High",
+      "description": "Violent glacial river surge eroded road embankments and washed away border check-post stalls.",
+      "affectedPopulation": 2100,
+      "duration": "6 days",
+      "outcome": "Customs operations shifted to temporary tents"
+    },
+    {
+      "year": 2020,
+      "type": "Winter Snow Avalanche",
+      "severity": "Moderate",
+      "description": "Heavy snowfall induced chute avalanche, blocking Kodari mountain pass for 5 days.",
+      "affectedPopulation": 1600,
+      "duration": "5 days",
+      "outcome": "Snowplows reopened single lane corridor"
+    },
+    {
+      "year": 2021,
+      "type": "Debris Torrent & Rockfall",
+      "severity": "Critical",
+      "description": "Intense cloudburst unleashed massive boulder debris slide, flattening 14 transit warehouses.",
+      "affectedPopulation": 2700,
+      "duration": "12 days",
+      "outcome": "Air force helicopters evacuated stranded transport crews"
+    },
+    {
+      "year": 2023,
+      "type": "Seismic Tremor & Rockslide",
+      "severity": "High",
+      "description": "M4.9 localized tremor triggered widespread cliff fractures and rock falls on pass.",
+      "affectedPopulation": 2200,
+      "duration": "7 days",
+      "outcome": "Rockfall safety nets installed"
+    },
+    {
+      "year": 2024,
+      "type": "Catastrophic Monsoon Landslide",
+      "severity": "Critical",
+      "description": "Continuous 96-hour rain saturated gorge face, creating an impassable 300m mud barrier.",
+      "affectedPopulation": 2700,
+      "duration": "16 days",
+      "outcome": "Airlift corridor established to Kodari outpost"
+    },
+    {
+      "year": 2025,
+      "type": "Glacial Stream Washout",
+      "severity": "High",
+      "description": "Meltwater surge swept away temporary Bailey bridge, cutting northern border trade.",
+      "affectedPopulation": 2300,
+      "duration": "8 days",
+      "outcome": "Suspension footbridge restored"
+    }
+  ],
+  "N10": [
+    {
+      "year": 2018,
+      "type": "Floodplain Inundation",
+      "severity": "High",
+      "description": "Jhikhu Khola stream breached banks, submerging 400 hectares of commercial vegetable crops.",
+      "affectedPopulation": 2800,
+      "duration": "5 days",
+      "outcome": "Agricultural relief and subsidized seed distribution"
+    },
+    {
+      "year": 2019,
+      "type": "Severe Pre-Monsoon Dry Spell",
+      "severity": "Moderate",
+      "description": "Extended drought dropped irrigation canal discharge by 65% across valley farms.",
+      "affectedPopulation": 2200,
+      "duration": "24 days",
+      "outcome": "Rotational electric pump sharing implemented"
+    },
+    {
+      "year": 2021,
+      "type": "River Flash Flood",
+      "severity": "High",
+      "description": "High-intensity monsoon deluge caused fast-flowing floodwaters to inundate 180 valley houses.",
+      "affectedPopulation": 3000,
+      "duration": "5 days",
+      "outcome": "Community flood shelter activated"
+    },
+    {
+      "year": 2023,
+      "type": "Thunderstorm & Lightning",
+      "severity": "Low",
+      "description": "Lightning strikes killed farm livestock and disrupted local power transformer.",
+      "affectedPopulation": 950,
+      "duration": "14 hours",
+      "outcome": "Transformer replaced within 24 hours"
+    },
+    {
+      "year": 2024,
+      "type": "Seasonal River Surge",
+      "severity": "Moderate",
+      "description": "Stream overflow inundated link road NR9, slowing vegetable produce transport.",
+      "affectedPopulation": 2500,
+      "duration": "3 days",
+      "outcome": "Road cleared of mud once water receded"
+    },
+    {
+      "year": 2026,
+      "type": "Monsoon Waterlogging",
+      "severity": "Moderate",
+      "description": "Continuous rain caused standing water in low-elevation valley depressions.",
+      "affectedPopulation": 2100,
+      "duration": "4 days",
+      "outcome": "Natural percolation and drainage ditches opened"
+    }
+  ]
+}

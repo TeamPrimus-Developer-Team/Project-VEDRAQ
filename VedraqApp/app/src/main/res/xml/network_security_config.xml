@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!--
+      Permit cleartext HTTP traffic for local LAN development with VEDRAQ Core backend.
+      Enables communication across local Wi-Fi / LAN between MacBook and Android device/emulator.
+    -->
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

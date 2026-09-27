@@ -1,0 +1,56 @@
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore
+
+# Node / Frontend
+node_modules/
+dist/
+build/
+.next/
+.out/
+
+# Python & Virtual Environments
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+ENV/
+backend/venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE & Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+*.bak
+
+# Android & Gradle
+.gradle/
+build/
+app/build/
+local.properties
+.kotlin/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# OS & Temporary Metadata
+.DS_Store
+Thumbs.db
+__MACOSX/
+MACOSX/
+*.log
+logs/

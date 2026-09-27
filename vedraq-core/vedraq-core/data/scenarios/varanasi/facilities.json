@@ -1,0 +1,51 @@
+{
+  "hospitals": [
+    {"id": "H1", "name": "District Hospital Varanasi", "latitude": 25.358, "longitude": 83.074, "status": "functional", "capacity": 200, "zone_id": "Z02", "available_beds": 142, "specialization": "General, Emergency, Surgical"},
+    {"id": "H2", "name": "Durgakund Medical Centre", "latitude": 25.321, "longitude": 83.003, "status": "functional", "capacity": 350, "zone_id": "Z06", "available_beds": 265, "specialization": "Multi-Speciality, Cardiology"},
+    {"id": "H3", "name": "PHC Bhelpur", "latitude": 25.341, "longitude": 83.098, "status": "partial", "capacity": 80, "zone_id": "Z04", "available_beds": 45, "specialization": "Primary Healthcare, OPD"},
+    {"id": "H4", "name": "Lahartara Field Hospital", "latitude": 25.375, "longitude": 83.042, "status": "functional", "capacity": 60, "zone_id": "Z08", "available_beds": 38, "specialization": "Emergency, Field Trauma"},
+    {"id": "H5", "name": "Rajpur PHC", "latitude": 25.366, "longitude": 83.115, "status": "functional", "capacity": 50, "zone_id": "Z12", "available_beds": 32, "specialization": "Primary Healthcare"},
+    {"id": "H6", "name": "Chaukaghat Medical Unit", "latitude": 25.318, "longitude": 83.057, "status": "partial", "capacity": 45, "zone_id": "Z14", "available_beds": 20, "specialization": "OPD, First Aid"},
+    {"id": "H7", "name": "Sikandarpur Community Health", "latitude": 25.302, "longitude": 83.089, "status": "unavailable", "capacity": 35, "zone_id": "Z07", "available_beds": 0, "specialization": "Community Health"},
+    {"id": "H8", "name": "Phulpur Emergency Clinic", "latitude": 25.253, "longitude": 83.066, "status": "functional", "capacity": 25, "zone_id": "Z09", "available_beds": 8, "specialization": "Emergency, Stabilization"}
+  ],
+  "shelters": [
+    {"id": "S1", "name": "Govt School Chandpur", "latitude": 25.355, "longitude": 83.072, "capacity": 2500, "current_occupancy": 1200, "status": "open", "food_stock_days": 5, "water_supply": "functional"},
+    {"id": "S2", "name": "Durgakund Community Hall", "latitude": 25.323, "longitude": 83.001, "capacity": 2800, "current_occupancy": 1450, "status": "open", "food_stock_days": 7, "water_supply": "functional"},
+    {"id": "S3", "name": "Lahartara Flood Camp", "latitude": 25.373, "longitude": 83.040, "capacity": 2200, "current_occupancy": 880, "status": "open", "food_stock_days": 4, "water_supply": "functional"},
+    {"id": "S4", "name": "Rajpur Relief Camp", "latitude": 25.364, "longitude": 83.113, "capacity": 2000, "current_occupancy": 970, "status": "open", "food_stock_days": 3, "water_supply": "partial"},
+    {"id": "S5", "name": "Govindpur School Shelter", "latitude": 25.289, "longitude": 83.051, "capacity": 2300, "current_occupancy": 1100, "status": "open", "food_stock_days": 2, "water_supply": "none"},
+    {"id": "S6", "name": "Phulpur Transit Shelter", "latitude": 25.253, "longitude": 83.066, "capacity": 2100, "current_occupancy": 950, "status": "open", "food_stock_days": 1, "water_supply": "none"},
+    {"id": "S7", "name": "Khajuri Khas Relief Camp", "latitude": 25.281, "longitude": 83.109, "capacity": 2000, "current_occupancy": 740, "status": "open", "food_stock_days": 2, "water_supply": "partial"},
+    {"id": "S8", "name": "Madanpur Community Centre", "latitude": 25.334, "longitude": 83.125, "capacity": 2400, "current_occupancy": 1090, "status": "open", "food_stock_days": 5, "water_supply": "functional"},
+    {"id": "S9", "name": "Assi Ghat School Shelter", "latitude": 25.295, "longitude": 83.013, "capacity": 3000, "current_occupancy": 1410, "status": "open", "food_stock_days": 4, "water_supply": "partial"},
+    {"id": "S10", "name": "Narayanpur Kalan Emergency Camp", "latitude": 25.268, "longitude": 83.031, "capacity": 2000, "current_occupancy": 865, "status": "open", "food_stock_days": 1, "water_supply": "none"},
+    {"id": "S11", "name": "Baragaon School Camp", "latitude": 25.247, "longitude": 83.042, "capacity": 2150, "current_occupancy": 980, "status": "open", "food_stock_days": 2, "water_supply": "partial"},
+    {"id": "S12", "name": "Rampur Tanda Multipurpose Shelter", "latitude": 25.312, "longitude": 83.012, "capacity": 2600, "current_occupancy": 1210, "status": "open", "food_stock_days": 3, "water_supply": "functional"}
+  ],
+  "water_stations": [
+    {"id": "W1", "name": "Water Depot Central", "latitude": 25.325, "longitude": 83.021, "status": "functional", "capacity_liters": 120000, "stock_liters": 85000},
+    {"id": "W2", "name": "PHC Water Point Bhelpur", "latitude": 25.340, "longitude": 83.096, "status": "functional", "capacity_liters": 40000, "stock_liters": 22000},
+    {"id": "W3", "name": "Chandpur Water Tower", "latitude": 25.358, "longitude": 83.075, "status": "partial", "capacity_liters": 60000, "stock_liters": 18000},
+    {"id": "W4", "name": "Lahartara Booster Station", "latitude": 25.375, "longitude": 83.043, "status": "functional", "capacity_liters": 50000, "stock_liters": 38000}
+  ],
+  "depots": [
+    {"id": "DEPOT", "name": "NDRF Resource Depot 01 — Central", "latitude": 25.332, "longitude": 83.025, "capacity": 500, "water_stock_units": 8, "food_stock_units": 12, "medical_stock_units": 6},
+    {"id": "DEPOT2", "name": "NDRF Resource Depot 02 — East", "latitude": 25.355, "longitude": 83.082, "capacity": 450, "water_stock_units": 6, "food_stock_units": 10, "medical_stock_units": 5},
+    {"id": "DEPOT3", "name": "NDRF Resource Depot 03 — Southeast", "latitude": 25.310, "longitude": 83.070, "capacity": 380, "water_stock_units": 5, "food_stock_units": 8, "medical_stock_units": 4},
+    {"id": "DEPOT4", "name": "NDRF Resource Depot 04 — South", "latitude": 25.270, "longitude": 83.080, "capacity": 320, "water_stock_units": 4, "food_stock_units": 7, "medical_stock_units": 3},
+    {"id": "DEPOT5", "name": "NDRF Resource Depot 05 — North", "latitude": 25.385, "longitude": 83.050, "capacity": 360, "water_stock_units": 5, "food_stock_units": 9, "medical_stock_units": 4}
+  ],
+  "helicopter_bases": [
+    {"id": "AIR01", "name": "Air Response Base 01 — Central", "latitude": 25.328, "longitude": 83.032, "helipad_count": 2, "fuel_liters": 8000},
+    {"id": "AIR02", "name": "Air Response Base 02 — North East", "latitude": 25.369, "longitude": 83.082, "helipad_count": 1, "fuel_liters": 5000},
+    {"id": "AIR03", "name": "Air Response Base 03 — South", "latitude": 25.265, "longitude": 83.050, "helipad_count": 1, "fuel_liters": 4000}
+  ],
+  "depot": {
+    "id": "DEPOT",
+    "name": "NDRF Resource Depot 01 — Central",
+    "latitude": 25.332,
+    "longitude": 83.025,
+    "description": "Central resource staging area"
+  }
+}

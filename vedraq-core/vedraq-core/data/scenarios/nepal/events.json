@@ -1,0 +1,8 @@
+[
+  {"id":"EN01","label":"Block Road NR3 (Melamchi Highway Landslide)","type":"ROAD_BLOCK","road_id":"NR3"},
+  {"id":"EN02","label":"Block Road NR6 (Helambu Bridge Washout)","type":"ROAD_BLOCK","road_id":"NR6"},
+  {"id":"EN03","label":"Block Road NR10 (Kodari Pass Landslide)","type":"ROAD_BLOCK","road_id":"NR10"},
+  {"id":"EN04","label":"Sindhupalchok Hospital HN3 Offline","type":"HOSPITAL_OFFLINE","facility_id":"HN3"},
+  {"id":"EN05","label":"Melamchi Relief Camp SN1 Full","type":"SHELTER_FULL","shelter_id":"SN1"},
+  {"id":"EN06","label":"Dhulikhel Spring Reservoir WN2 Offline","type":"WATER_OFFLINE","zone_id":"N07"}
+]

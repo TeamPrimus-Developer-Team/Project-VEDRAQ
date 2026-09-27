@@ -1,0 +1,860 @@
+{
+  "Z01": [
+    {
+      "year": 2017,
+      "type": "Monsoon Riverine Flood",
+      "severity": "High",
+      "description": "Ganga backflow submerged lower riparian agriculture plots and flooded primary access roads.",
+      "affectedPopulation": 2400,
+      "duration": "6 days",
+      "outcome": "Water subsided; relief boats deployed"
+    },
+    {
+      "year": 2018,
+      "type": "Severe Heatwave",
+      "severity": "Moderate",
+      "description": "Prolonged 45°C temperatures led to acute drinking water shortages across tube-well clusters.",
+      "affectedPopulation": 1800,
+      "duration": "12 days",
+      "outcome": "Municipal water tankers mobilized"
+    },
+    {
+      "year": 2019,
+      "type": "Urban Waterlogging",
+      "severity": "Moderate",
+      "description": "Intense pre-monsoon shower inundated low-lying settlements for over 48 hours.",
+      "affectedPopulation": 1500,
+      "duration": "3 days",
+      "outcome": "Drainage pumps installed"
+    },
+    {
+      "year": 2021,
+      "type": "Flash Inundation",
+      "severity": "High",
+      "description": "Unprecedented 180mm 24-hour rainfall overwhelmed local canals and cut off northern hamlets.",
+      "affectedPopulation": 3100,
+      "duration": "5 days",
+      "outcome": "Evacuation to higher ground completed"
+    },
+    {
+      "year": 2022,
+      "type": "Severe Thunderstorm & Lightning",
+      "severity": "Low",
+      "description": "Squall wind gusting at 75 km/h knocked down feeder power lines and damaged kutcha dwellings.",
+      "affectedPopulation": 750,
+      "duration": "14 hours",
+      "outcome": "Power grid restored in 24 hours"
+    },
+    {
+      "year": 2024,
+      "type": "River Flood",
+      "severity": "Critical",
+      "description": "Ganga surpassed danger mark by 1.2m, completely submerging 40% of residential structures.",
+      "affectedPopulation": 3800,
+      "duration": "8 days",
+      "outcome": "Mass evacuation and community relief camp set up"
+    },
+    {
+      "year": 2025,
+      "type": "Urban Flooding",
+      "severity": "High",
+      "description": "Monsoon surge inundated internal connecting roads, stranding school buses and commuters.",
+      "affectedPopulation": 2600,
+      "duration": "4 days",
+      "outcome": "Temporary bypass operationalized"
+    }
+  ],
+  "Z02": [
+    {
+      "year": 2017,
+      "type": "Drainage Overflow",
+      "severity": "Moderate",
+      "description": "Silt build-up in primary storm drain caused knee-deep inundation in western marketplaces.",
+      "affectedPopulation": 2800,
+      "duration": "3 days",
+      "outcome": "Desilting conducted post-event"
+    },
+    {
+      "year": 2019,
+      "type": "Severe Heatwave",
+      "severity": "High",
+      "description": "Extended heatwave with thermal heat-index exceeding 48°C triggered power grid overloads.",
+      "affectedPopulation": 4500,
+      "duration": "14 days",
+      "outcome": "Cooling centers and hydration posts established"
+    },
+    {
+      "year": 2020,
+      "type": "Urban Flooding",
+      "severity": "Moderate",
+      "description": "Heavy monsoon downpour inundated low-lying housing blocks and basement warehouses.",
+      "affectedPopulation": 3200,
+      "duration": "4 days",
+      "outcome": "Submersible dewatering pumps deployed"
+    },
+    {
+      "year": 2022,
+      "type": "Electrical Fire Incident",
+      "severity": "Moderate",
+      "description": "Transformer burst during heat spike triggered localized commercial hub fire.",
+      "affectedPopulation": 1100,
+      "duration": "8 hours",
+      "outcome": "Contained by fire tenders with zero casualties"
+    },
+    {
+      "year": 2023,
+      "type": "Monsoon Waterlogging",
+      "severity": "High",
+      "description": "Continuous 72-hour rain caused extensive stagnation along main transport arteries.",
+      "affectedPopulation": 5200,
+      "duration": "5 days",
+      "outcome": "Traffic rerouted to peripheral corridors"
+    },
+    {
+      "year": 2025,
+      "type": "Thunderstorm Squall",
+      "severity": "Low",
+      "description": "High velocity windstorm uprooted trees and disrupted telecommunication lines.",
+      "affectedPopulation": 1400,
+      "duration": "18 hours",
+      "outcome": "Rapid debris clearance by civic teams"
+    }
+  ],
+  "Z03": [
+    {
+      "year": 2018,
+      "type": "Waterlogging & Road Block",
+      "severity": "Moderate",
+      "description": "Monsoon overflow inundated connecting link road R4, isolating southern farming hamlets.",
+      "affectedPopulation": 1200,
+      "duration": "4 days",
+      "outcome": "Temporary gravel bund built"
+    },
+    {
+      "year": 2019,
+      "type": "Severe Drought-like Conditions",
+      "severity": "Moderate",
+      "description": "Delayed monsoon caused ground-water depletion and borewell drying across agricultural tracts.",
+      "affectedPopulation": 1400,
+      "duration": "25 days",
+      "outcome": "Emergency tanker distribution organized"
+    },
+    {
+      "year": 2021,
+      "type": "Riverine Inundation",
+      "severity": "High",
+      "description": "Tributary backflow breached village perimeter embankment, flooding homes up to 1 meter.",
+      "affectedPopulation": 1850,
+      "duration": "6 days",
+      "outcome": "Civilians evacuated to Govindpur community hall"
+    },
+    {
+      "year": 2023,
+      "type": "Thunderstorm & Lightning Strike",
+      "severity": "Low",
+      "description": "Severe pre-monsoon thunderstorm damaged rooftop solar installations and cattle sheds.",
+      "affectedPopulation": 450,
+      "duration": "6 hours",
+      "outcome": "Local veterinary and emergency support provided"
+    },
+    {
+      "year": 2024,
+      "type": "Urban Flooding",
+      "severity": "High",
+      "description": "Torrential monsoon spell overwhelmed primary storm channel, stranding over 70% of residents.",
+      "affectedPopulation": 1900,
+      "duration": "5 days",
+      "outcome": "Rescue rafts deployed for dry ration delivery"
+    }
+  ],
+  "Z04": [
+    {
+      "year": 2017,
+      "type": "Severe Heatwave",
+      "severity": "High",
+      "description": "Intense urban heat island effect drove ambient temperatures to 46.5°C in dense settlements.",
+      "affectedPopulation": 4800,
+      "duration": "10 days",
+      "outcome": "Public health emergency advisories issued"
+    },
+    {
+      "year": 2019,
+      "type": "Commercial Substation Fire",
+      "severity": "Moderate",
+      "description": "Short circuit at commercial grid junction triggered localized power loss and smoke hazards.",
+      "affectedPopulation": 1900,
+      "duration": "12 hours",
+      "outcome": "Successfully doused; circuit breakers replaced"
+    },
+    {
+      "year": 2020,
+      "type": "Urban Flash Waterlogging",
+      "severity": "Moderate",
+      "description": "Cloudburst-like 95mm downpour inundated main bazaar basements within 90 minutes.",
+      "affectedPopulation": 3400,
+      "duration": "2 days",
+      "outcome": "High-capacity diesel pumps deployed"
+    },
+    {
+      "year": 2022,
+      "type": "Monsoon Street Flooding",
+      "severity": "High",
+      "description": "Prolonged monsoon spell submerged Bhelpur crossing and halted secondary emergency transit.",
+      "affectedPopulation": 3900,
+      "duration": "4 days",
+      "outcome": "Ambulance routes diverted to outer ring"
+    },
+    {
+      "year": 2024,
+      "type": "Thunderstorm Squall",
+      "severity": "Low",
+      "description": "Gale winds damaged commercial hoardings and caused brief power interruptions.",
+      "affectedPopulation": 1200,
+      "duration": "10 hours",
+      "outcome": "Safety audit ordered for high-rise hoardings"
+    },
+    {
+      "year": 2026,
+      "type": "Urban Flooding",
+      "severity": "Moderate",
+      "description": "Early monsoon storm waterlogging caused traffic gridlock across hospital approaches.",
+      "affectedPopulation": 2700,
+      "duration": "3 days",
+      "outcome": "Traffic police coordinated alternate access corridors"
+    }
+  ],
+  "Z05": [
+    {
+      "year": 2017,
+      "type": "Monsoon River Flood",
+      "severity": "High",
+      "description": "River swelling submerged lower agricultural fields and isolated 80 households.",
+      "affectedPopulation": 1100,
+      "duration": "7 days",
+      "outcome": "Motorized rescue boats deployed by NDRF"
+    },
+    {
+      "year": 2019,
+      "type": "Severe Water Shortage & Heatwave",
+      "severity": "Moderate",
+      "description": "Extreme summer heat caused local groundwater drawdown and agricultural distress.",
+      "affectedPopulation": 900,
+      "duration": "18 days",
+      "outcome": "Emergency water tankers deployed"
+    },
+    {
+      "year": 2020,
+      "type": "Tributary Flood Inundation",
+      "severity": "High",
+      "description": "Overflow from minor river basin submerged primary access road R6 under 1.5m water.",
+      "affectedPopulation": 1300,
+      "duration": "8 days",
+      "outcome": "Helicopter airdrop of essentials conducted"
+    },
+    {
+      "year": 2022,
+      "type": "Monsoon Storm Surge",
+      "severity": "Critical",
+      "description": "Unprecedented waterlogging and road breach left the zone completely inaccessible by ground.",
+      "affectedPopulation": 1450,
+      "duration": "11 days",
+      "outcome": "Air-corridor airlift mission initiated"
+    },
+    {
+      "year": 2023,
+      "type": "Pre-Monsoon Lightning Strikes",
+      "severity": "Low",
+      "description": "Intense lightning activity damaged agricultural pump sets and temporary shelters.",
+      "affectedPopulation": 320,
+      "duration": "8 hours",
+      "outcome": "Lightning arrestor installation proposed"
+    },
+    {
+      "year": 2024,
+      "type": "Severe River Flood",
+      "severity": "Critical",
+      "description": "Ganga and tributary confluence surge submerged 85% of village residential plots.",
+      "affectedPopulation": 1450,
+      "duration": "9 days",
+      "outcome": "Total population moved to Safe Zone S03"
+    },
+    {
+      "year": 2025,
+      "type": "Urban Runoff Waterlogging",
+      "severity": "Moderate",
+      "description": "Late monsoon excess runoff ponded in settlement depressions for five days.",
+      "affectedPopulation": 850,
+      "duration": "5 days",
+      "outcome": "Dewatering canals dredged"
+    }
+  ],
+  "Z06": [
+    {
+      "year": 2017,
+      "type": "Severe Heatwave",
+      "severity": "High",
+      "description": "Prolonged heat spell pushed community clinic admissions to historic peaks.",
+      "affectedPopulation": 5800,
+      "duration": "15 days",
+      "outcome": "Hospital surge capacity activated"
+    },
+    {
+      "year": 2018,
+      "type": "Monsoon Waterlogging",
+      "severity": "Moderate",
+      "description": "Overnight 120mm downpour caused road ponding around temple complex and schools.",
+      "affectedPopulation": 4200,
+      "duration": "3 days",
+      "outcome": "Municipal drainage cleared"
+    },
+    {
+      "year": 2020,
+      "type": "Electrical Feeder Fire",
+      "severity": "Low",
+      "description": "Overheated sub-station transformer sparked localized fire near commercial strip.",
+      "affectedPopulation": 1600,
+      "duration": "6 hours",
+      "outcome": "Fire neutralized; backup grid routed"
+    },
+    {
+      "year": 2021,
+      "type": "Urban Flooding",
+      "severity": "High",
+      "description": "Severe monsoon downpour inundated residential apartment basements and internal roads.",
+      "affectedPopulation": 6400,
+      "duration": "5 days",
+      "outcome": "Emergency dewatering pumps run continuously"
+    },
+    {
+      "year": 2023,
+      "type": "Thunderstorm Squall",
+      "severity": "Low",
+      "description": "High winds snapped telecom lines and damaged roadside merchant stalls.",
+      "affectedPopulation": 1900,
+      "duration": "12 hours",
+      "outcome": "Civic maintenance teams restored access"
+    },
+    {
+      "year": 2024,
+      "type": "Extreme Heat Surge",
+      "severity": "High",
+      "description": "Day temperatures touched 47.1°C with severe water pressure drop in municipal mains.",
+      "affectedPopulation": 7200,
+      "duration": "11 days",
+      "outcome": "Rotational water distribution enforced"
+    },
+    {
+      "year": 2025,
+      "type": "Monsoon Street Flooding",
+      "severity": "Moderate",
+      "description": "Clogged storm drains caused 2-foot water accumulation on key transit nodes.",
+      "affectedPopulation": 3800,
+      "duration": "3 days",
+      "outcome": "Rapid clearance of drainage gullies"
+    }
+  ],
+  "Z07": [
+    {
+      "year": 2018,
+      "type": "Monsoon Flooding",
+      "severity": "High",
+      "description": "Backwater from drainage canal overflowed into eastern residential settlements.",
+      "affectedPopulation": 2400,
+      "duration": "6 days",
+      "outcome": "Temporary embankments reinforced with sandbags"
+    },
+    {
+      "year": 2019,
+      "type": "Severe Heatwave",
+      "severity": "Moderate",
+      "description": "High humidity heat wave caused widespread thermal distress among informal workers.",
+      "affectedPopulation": 1800,
+      "duration": "10 days",
+      "outcome": "Community shaded rest shelters set up"
+    },
+    {
+      "year": 2021,
+      "type": "Flash Waterlogging",
+      "severity": "Moderate",
+      "description": "Torrential rain submerged Sikandarpur market area and stalled local vehicles.",
+      "affectedPopulation": 1950,
+      "duration": "3 days",
+      "outcome": "Portable dewatering pumps deployed"
+    },
+    {
+      "year": 2022,
+      "type": "Lightning & Heavy Rain",
+      "severity": "Low",
+      "description": "Multiple lightning strikes accompanied by heavy squall damaged local power poles.",
+      "affectedPopulation": 820,
+      "duration": "16 hours",
+      "outcome": "Power infrastructure repaired promptly"
+    },
+    {
+      "year": 2024,
+      "type": "River Inundation & Overflow",
+      "severity": "High",
+      "description": "Canal breached embankments following upstream discharge, flooding 120 houses.",
+      "affectedPopulation": 2800,
+      "duration": "7 days",
+      "outcome": "Displaced families accommodated in Sikandarpur primary school"
+    },
+    {
+      "year": 2025,
+      "type": "Urban Runoff Flooding",
+      "severity": "Moderate",
+      "description": "Surface runoff from northern slopes submerged local link road R5.",
+      "affectedPopulation": 1700,
+      "duration": "4 days",
+      "outcome": "Drainage gradient deepened"
+    }
+  ],
+  "Z08": [
+    {
+      "year": 2017,
+      "type": "Monsoon Waterlogging",
+      "severity": "Moderate",
+      "description": "Railway underpass flooded, blocking vehicular passage between eastern and western sectors.",
+      "affectedPopulation": 2100,
+      "duration": "3 days",
+      "outcome": "Automated pump sump activated"
+    },
+    {
+      "year": 2019,
+      "type": "Severe Heatwave",
+      "severity": "Moderate",
+      "description": "Dry heat conditions triggered peak demand on water supply and clinic OPDs.",
+      "affectedPopulation": 1950,
+      "duration": "9 days",
+      "outcome": "Water tanker trips doubled"
+    },
+    {
+      "year": 2021,
+      "type": "Urban Flooding",
+      "severity": "Moderate",
+      "description": "Heavy rainfall caused temporary waterlogging across several low-lying railway quarters.",
+      "affectedPopulation": 2160,
+      "duration": "3 days",
+      "outcome": "Drains cleared by municipal railway authority"
+    },
+    {
+      "year": 2023,
+      "type": "Thunderstorm Squall",
+      "severity": "Low",
+      "description": "Gusty winds brought down tree branches and billboard structures along R2 highway.",
+      "affectedPopulation": 900,
+      "duration": "12 hours",
+      "outcome": "Highway cleared within 4 hours"
+    },
+    {
+      "year": 2024,
+      "type": "Heavy Monsoon Downpour",
+      "severity": "Moderate",
+      "description": "Water accumulated in railway colony open yards with temporary power blackouts.",
+      "affectedPopulation": 1750,
+      "duration": "2 days",
+      "outcome": "Submersible pumps drained floodwater"
+    }
+  ],
+  "Z09": [
+    {
+      "year": 2017,
+      "type": "Monsoon Riverine Flood",
+      "severity": "High",
+      "description": "Lowland paddy fields and rural road R7 submerged under 1.2m of muddy backwater.",
+      "affectedPopulation": 2200,
+      "duration": "7 days",
+      "outcome": "Relief camps operationalized; cattle moved to bund"
+    },
+    {
+      "year": 2019,
+      "type": "Severe Drought-like Conditions",
+      "severity": "Moderate",
+      "description": "Pre-monsoon dry spell dried village ponds and dropped water table by 4 meters.",
+      "affectedPopulation": 1600,
+      "duration": "22 days",
+      "outcome": "Emergency borewell deepening undertaken"
+    },
+    {
+      "year": 2021,
+      "type": "Flash Flood Inundation",
+      "severity": "High",
+      "description": "Sudden cloudburst over basin resulted in swift torrent cutting off southern approach.",
+      "affectedPopulation": 2450,
+      "duration": "6 days",
+      "outcome": "NDRF inflatable boats used for evacuation"
+    },
+    {
+      "year": 2022,
+      "type": "Pre-Monsoon Thunderstorm & Lightning",
+      "severity": "Low",
+      "description": "Lightning strikes destroyed two transformers and killed livestock in open pastures.",
+      "affectedPopulation": 650,
+      "duration": "14 hours",
+      "outcome": "Disaster compensation distributed"
+    },
+    {
+      "year": 2024,
+      "type": "Critical River Flood",
+      "severity": "Critical",
+      "description": "Embankment breach submerged 73% of village homes, knocking out all road connections.",
+      "affectedPopulation": 2600,
+      "duration": "10 days",
+      "outcome": "Total zone evacuation to Safe Zone Delta"
+    },
+    {
+      "year": 2025,
+      "type": "Monsoon Waterlogging",
+      "severity": "High",
+      "description": "Stagnant floodwater blocked sanitation access and contaminated drinking wells.",
+      "affectedPopulation": 2100,
+      "duration": "6 days",
+      "outcome": "Chlorination tablets and mobile RO units distributed"
+    }
+  ],
+  "Z10": [
+    {
+      "year": 2018,
+      "type": "Urban Waterlogging",
+      "severity": "Moderate",
+      "description": "Excess rainfall clogged roadside ditches, submerging Madanpur Khurd main road.",
+      "affectedPopulation": 2600,
+      "duration": "3 days",
+      "outcome": "Excavators deployed to clear drainage blockages"
+    },
+    {
+      "year": 2019,
+      "type": "Severe Heatwave",
+      "severity": "Moderate",
+      "description": "Prolonged high ambient heat affected construction and market workforce.",
+      "affectedPopulation": 2200,
+      "duration": "11 days",
+      "outcome": "Working hours shifted to early morning / evening"
+    },
+    {
+      "year": 2021,
+      "type": "Monsoon Flooding",
+      "severity": "High",
+      "description": "Overflow from nearby irrigation channel submerged 350 ground-floor residences.",
+      "affectedPopulation": 3360,
+      "duration": "5 days",
+      "outcome": "Dewatering pumps operated around the clock"
+    },
+    {
+      "year": 2023,
+      "type": "Severe Thunderstorm",
+      "severity": "Low",
+      "description": "Gale winds uprooted trees along R8 highway and severed power feeds.",
+      "affectedPopulation": 1100,
+      "duration": "15 hours",
+      "outcome": "Clearance teams restored traffic by dawn"
+    },
+    {
+      "year": 2024,
+      "type": "Monsoon Waterlogging",
+      "severity": "Moderate",
+      "description": "Inundation of peripheral access roads slowed vehicular movement for 72 hours.",
+      "affectedPopulation": 2800,
+      "duration": "4 days",
+      "outcome": "Traffic redirected through bypass lanes"
+    },
+    {
+      "year": 2026,
+      "type": "Urban Flooding",
+      "severity": "Moderate",
+      "description": "Early pre-monsoon storm flooded market basements and low-lying courtyards.",
+      "affectedPopulation": 2400,
+      "duration": "3 days",
+      "outcome": "Portable pumping units deployed"
+    }
+  ],
+  "Z11": [
+    {
+      "year": 2017,
+      "type": "Riverine Flood",
+      "severity": "High",
+      "description": "Ganga high-tide overflow submerged riverbank hamlets and disrupted road R9.",
+      "affectedPopulation": 1500,
+      "duration": "7 days",
+      "outcome": "Villagers relocated to flood shelter"
+    },
+    {
+      "year": 2019,
+      "type": "Extreme Heatwave",
+      "severity": "Moderate",
+      "description": "Peak summer temperature of 46°C caused borehole yield to drop drastically.",
+      "affectedPopulation": 1200,
+      "duration": "13 days",
+      "outcome": "Emergency water tankers deployed daily"
+    },
+    {
+      "year": 2020,
+      "type": "Monsoon Flash Flood",
+      "severity": "High",
+      "description": "Torrential run-off breached agricultural bunds, flooding 60% of settlements.",
+      "affectedPopulation": 1600,
+      "duration": "6 days",
+      "outcome": "Rescue boats distributed rations and medical kits"
+    },
+    {
+      "year": 2022,
+      "type": "Lightning & Squall",
+      "severity": "Low",
+      "description": "Sudden thunderstorm damaged power distribution transformers.",
+      "affectedPopulation": 550,
+      "duration": "10 hours",
+      "outcome": "Repaired within 18 hours"
+    },
+    {
+      "year": 2024,
+      "type": "Catastrophic River Flood",
+      "severity": "Critical",
+      "description": "Record flood surge completely isolated Khajuri Khas, making road access impassable.",
+      "affectedPopulation": 1710,
+      "duration": "9 days",
+      "outcome": "Evacuation executed via river rescue flotilla"
+    },
+    {
+      "year": 2025,
+      "type": "Waterlogging & Siltation",
+      "severity": "High",
+      "description": "Post-flood silt blocked natural drainage, leaving standing water for over a week.",
+      "affectedPopulation": 1400,
+      "duration": "8 days",
+      "outcome": "Heavy earthmovers engaged for channel dredging"
+    }
+  ],
+  "Z12": [
+    {
+      "year": 2018,
+      "type": "Severe Heatwave",
+      "severity": "High",
+      "description": "Extended heatwave caused widespread dehydration cases and cattle distress.",
+      "affectedPopulation": 2400,
+      "duration": "16 days",
+      "outcome": "Veterinary and medical relief camps organized"
+    },
+    {
+      "year": 2020,
+      "type": "Monsoon Waterlogging",
+      "severity": "Moderate",
+      "description": "Temporary inundation of low-lying agricultural fields and peripheral road.",
+      "affectedPopulation": 1500,
+      "duration": "3 days",
+      "outcome": "Natural drainage into depression completed"
+    },
+    {
+      "year": 2021,
+      "type": "Drought-like Dry Spell",
+      "severity": "Moderate",
+      "description": "Prolonged dry interval during monsoon stunted kharif crop growth.",
+      "affectedPopulation": 1800,
+      "duration": "20 days",
+      "outcome": "Subsidized electricity provided for tube-wells"
+    },
+    {
+      "year": 2023,
+      "type": "Thunderstorm & Hail",
+      "severity": "Low",
+      "description": "Isolated hailstorm damaged vegetable orchards and asbestos roofing.",
+      "affectedPopulation": 750,
+      "duration": "8 hours",
+      "outcome": "Damage assessments conducted for relief"
+    },
+    {
+      "year": 2025,
+      "type": "Urban Runoff Waterlogging",
+      "severity": "Moderate",
+      "description": "Heavy monsoon shower caused brief waterlogging along R8 highway junction.",
+      "affectedPopulation": 1800,
+      "duration": "2 days",
+      "outcome": "Drainage outfall cleared by road authority"
+    }
+  ],
+  "Z13": [
+    {
+      "year": 2017,
+      "type": "Heavy Rainfall & Waterlogging",
+      "severity": "Moderate",
+      "description": "Monsoon downpour submerged village market square and link road R10.",
+      "affectedPopulation": 1600,
+      "duration": "4 days",
+      "outcome": "Excavator cleared culvert debris"
+    },
+    {
+      "year": 2019,
+      "type": "Severe Heatwave",
+      "severity": "Moderate",
+      "description": "Scorching temperatures dried community ponds and affected dairy farming.",
+      "affectedPopulation": 1400,
+      "duration": "12 days",
+      "outcome": "Water supply augmented with mobile tankers"
+    },
+    {
+      "year": 2020,
+      "type": "Flash Inundation",
+      "severity": "High",
+      "description": "Drainage breach from highway culvert flooded low-lying residential clusters.",
+      "affectedPopulation": 1950,
+      "duration": "6 days",
+      "outcome": "Sandbag dykes erected by village youth"
+    },
+    {
+      "year": 2022,
+      "type": "Severe Lightning Storm",
+      "severity": "Moderate",
+      "description": "Series of intense lightning strikes damaged telecom tower and rural power lines.",
+      "affectedPopulation": 950,
+      "duration": "14 hours",
+      "outcome": "Restored within 24 hours"
+    },
+    {
+      "year": 2024,
+      "type": "Riverine Backflow Flood",
+      "severity": "Critical",
+      "description": "Ganga tributary backwater submerged 76% of agricultural land and 300 homes.",
+      "affectedPopulation": 2100,
+      "duration": "8 days",
+      "outcome": "Residents moved to Baragaon intermediate school shelter"
+    },
+    {
+      "year": 2025,
+      "type": "Monsoon Waterlogging",
+      "severity": "Moderate",
+      "description": "Continuous 48-hour rain left water stagnant in unpaved lanes.",
+      "affectedPopulation": 1300,
+      "duration": "4 days",
+      "outcome": "De-watering pumps deployed"
+    }
+  ],
+  "Z14": [
+    {
+      "year": 2017,
+      "type": "Varuna River Flood",
+      "severity": "High",
+      "description": "Varuna river overflow submerged Chaukaghat bridge approaches and riverside wards.",
+      "affectedPopulation": 4200,
+      "duration": "6 days",
+      "outcome": "Traffic closed on low bridge; rescue boats deployed"
+    },
+    {
+      "year": 2018,
+      "type": "Severe Heatwave",
+      "severity": "Moderate",
+      "description": "High humidity heat wave affected dense urban colonies along the river corridor.",
+      "affectedPopulation": 3500,
+      "duration": "10 days",
+      "outcome": "Civic drinking water kiosks opened"
+    },
+    {
+      "year": 2020,
+      "type": "Urban Waterlogging",
+      "severity": "Moderate",
+      "description": "Torrential rain waterlogged major transit crossing, stranding commercial transport.",
+      "affectedPopulation": 3900,
+      "duration": "3 days",
+      "outcome": "Traffic police coordinated alternate routing"
+    },
+    {
+      "year": 2021,
+      "type": "Varuna River Overflow",
+      "severity": "High",
+      "description": "Rapid water level rise inundated hundreds of ground-floor residences and workshops.",
+      "affectedPopulation": 4750,
+      "duration": "7 days",
+      "outcome": "Evacuation carried out to Chaukaghat cultural center"
+    },
+    {
+      "year": 2023,
+      "type": "Commercial Fire Outbreak",
+      "severity": "Moderate",
+      "description": "Fire in timber depot near bridge required 6 fire tenders to prevent residential spread.",
+      "affectedPopulation": 1800,
+      "duration": "10 hours",
+      "outcome": "Fire fully controlled with no loss of life"
+    },
+    {
+      "year": 2024,
+      "type": "Monsoon Flood Inundation",
+      "severity": "High",
+      "description": "Simultaneous Ganga and Varuna swelling caused backflow flooding in 12 colonies.",
+      "affectedPopulation": 4750,
+      "duration": "6 days",
+      "outcome": "Relief camps distributed ready-to-eat meals"
+    },
+    {
+      "year": 2026,
+      "type": "Thunderstorm Squall",
+      "severity": "Low",
+      "description": "Gale winds knocked down commercial hoardings and caused brief traffic blockage.",
+      "affectedPopulation": 1600,
+      "duration": "12 hours",
+      "outcome": "Prompt road clearance by municipal crews"
+    }
+  ],
+  "Z15": [
+    {
+      "year": 2017,
+      "type": "Ganga Peak Inundation",
+      "severity": "High",
+      "description": "Ganga water rose up to Assi Ghat steps and flooded lower residential lanes.",
+      "affectedPopulation": 4800,
+      "duration": "7 days",
+      "outcome": "Boat services suspended; riverside evacuation completed"
+    },
+    {
+      "year": 2018,
+      "type": "Urban Waterlogging",
+      "severity": "Moderate",
+      "description": "Heavy localized monsoon downpour overwhelmed drainage outfalls into the river.",
+      "affectedPopulation": 3600,
+      "duration": "4 days",
+      "outcome": "Drain gates cleared of polythene waste"
+    },
+    {
+      "year": 2019,
+      "type": "Severe Heatwave",
+      "severity": "Moderate",
+      "description": "Severe heat wave affected religious pilgrims, tourists, and resident population.",
+      "affectedPopulation": 4100,
+      "duration": "11 days",
+      "outcome": "Emergency medical tents set up on ghat approaches"
+    },
+    {
+      "year": 2021,
+      "type": "Major Ghat Overflow",
+      "severity": "Critical",
+      "description": "Ganga overflowed by 2 meters, submerging primary ghat markets and entering homes.",
+      "affectedPopulation": 5760,
+      "duration": "9 days",
+      "outcome": "Mass evacuation to upper university hostels"
+    },
+    {
+      "year": 2022,
+      "type": "Severe Thunderstorm Squall",
+      "severity": "Low",
+      "description": "High-velocity river winds capsized anchored dinghies and damaged heritage awnings.",
+      "affectedPopulation": 1400,
+      "duration": "8 hours",
+      "outcome": "Water police recovered all boats"
+    },
+    {
+      "year": 2024,
+      "type": "Monsoon River Flood",
+      "severity": "Critical",
+      "description": "Sustained flood discharge from upstream barrages submerged Assi corridor for over a week.",
+      "affectedPopulation": 5760,
+      "duration": "8 days",
+      "outcome": "Disaster rescue boats ferried essential provisions"
+    },
+    {
+      "year": 2025,
+      "type": "Post-Monsoon Water Stagnation",
+      "severity": "Moderate",
+      "description": "Residual floodwaters in low alleys caused mosquito breeding concerns and access delays.",
+      "affectedPopulation": 2900,
+      "duration": "5 days",
+      "outcome": "Anti-larval fogging and rapid pumping executed"
+    }
+  ]
+}

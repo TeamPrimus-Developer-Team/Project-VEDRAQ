@@ -1,0 +1,36 @@
+{
+  "hospitals": [
+    {"id": "HN1", "name": "Tribhuvan University Teaching Hospital", "latitude": 27.737, "longitude": 85.331, "status": "functional", "capacity": 450, "zone_id": "N05", "available_beds": 310, "specialization": "Trauma, Multi-Speciality, Surgery"},
+    {"id": "HN2", "name": "Dhulikhel Hospital & Trauma Centre", "latitude": 27.618, "longitude": 85.554, "status": "functional", "capacity": 300, "zone_id": "N07", "available_beds": 220, "specialization": "Emergency, Field Trauma"},
+    {"id": "HN3", "name": "Sindhupalchok District Hospital", "latitude": 27.784, "longitude": 85.717, "status": "functional", "capacity": 80, "zone_id": "N03", "available_beds": 35, "specialization": "Primary & Emergency Care"},
+    {"id": "HN4", "name": "Bhaktapur Hospital", "latitude": 27.671, "longitude": 85.428, "status": "functional", "capacity": 150, "zone_id": "N06", "available_beds": 95, "specialization": "General, First Aid"}
+  ],
+  "shelters": [
+    {"id": "SN1", "name": "Melamchi Secondary School Relief Camp", "latitude": 27.830, "longitude": 85.578, "capacity": 2400, "current_occupancy": 1120, "status": "open", "food_stock_days": 4, "water_supply": "functional"},
+    {"id": "SN2", "name": "Chautara Municipal Relief Staging", "latitude": 27.782, "longitude": 85.715, "capacity": 2800, "current_occupancy": 1390, "status": "open", "food_stock_days": 6, "water_supply": "functional"},
+    {"id": "SN3", "name": "Dhulikhel Community Shelter", "latitude": 27.619, "longitude": 85.552, "capacity": 2500, "current_occupancy": 1050, "status": "open", "food_stock_days": 7, "water_supply": "functional"},
+    {"id": "SN4", "name": "Sankhu Transit Camp", "latitude": 27.732, "longitude": 85.462, "capacity": 2100, "current_occupancy": 890, "status": "open", "food_stock_days": 3, "water_supply": "partial"},
+    {"id": "SN5", "name": "Bhaktapur Relief Pavilion", "latitude": 27.670, "longitude": 85.426, "capacity": 3000, "current_occupancy": 1420, "status": "open", "food_stock_days": 5, "water_supply": "functional"},
+    {"id": "SN6", "name": "Helambu Community Outpost", "latitude": 27.973, "longitude": 85.532, "capacity": 2000, "current_occupancy": 695, "status": "open", "food_stock_days": 2, "water_supply": "none"}
+  ],
+  "water_stations": [
+    {"id": "WN1", "name": "Kathmandu Central Water Hub", "latitude": 27.705, "longitude": 85.340, "status": "functional", "capacity_liters": 150000, "stock_liters": 110000},
+    {"id": "WN2", "name": "Dhulikhel Spring Reservoir", "latitude": 27.620, "longitude": 85.550, "status": "functional", "capacity_liters": 80000, "stock_liters": 55000},
+    {"id": "WN3", "name": "Sankhu Water Supply Plant", "latitude": 27.735, "longitude": 85.460, "status": "partial", "capacity_liters": 45000, "stock_liters": 18000}
+  ],
+  "depots": [
+    {"id": "DEPOT", "name": "UN WFP / Nepal Red Cross Staging Hub (Tribhuvan)", "latitude": 27.700, "longitude": 85.350, "capacity": 600, "water_stock_units": 10, "food_stock_units": 15, "medical_stock_units": 8},
+    {"id": "DEPOT2", "name": "Nepal Army Eastern Forward Base (Dhulikhel)", "latitude": 27.618, "longitude": 85.554, "capacity": 400, "water_stock_units": 6, "food_stock_units": 8, "medical_stock_units": 5}
+  ],
+  "helicopter_bases": [
+    {"id": "AIR01", "name": "Nepal Army Air Wing — Tribhuvan Heliport", "latitude": 27.695, "longitude": 85.360, "helipad_count": 3, "fuel_liters": 12000},
+    {"id": "AIR02", "name": "Dhulikhel High-Altitude Helipad", "latitude": 27.620, "longitude": 85.558, "helipad_count": 1, "fuel_liters": 6000}
+  ],
+  "depot": {
+    "id": "DEPOT",
+    "name": "UN WFP / Nepal Red Cross Staging Hub (Tribhuvan)",
+    "latitude": 27.700,
+    "longitude": 85.350,
+    "description": "Central humanitarian air and ground staging area"
+  }
+}

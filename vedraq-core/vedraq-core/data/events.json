@@ -1,0 +1,8 @@
+[
+  {"id":"E01","label":"Block Road R3","type":"ROAD_BLOCK","road_id":"R3"},
+  {"id":"E02","label":"Block Road R6","type":"ROAD_BLOCK","road_id":"R6"},
+  {"id":"E03","label":"Block Road R7","type":"ROAD_BLOCK","road_id":"R7"},
+  {"id":"E04","label":"Hospital H02 Offline","type":"HOSPITAL_OFFLINE","facility_id":"H2"},
+  {"id":"E05","label":"Shelter S01 Full","type":"SHELTER_FULL","shelter_id":"S1"},
+  {"id":"E06","label":"Water Source Z07 Offline","type":"WATER_OFFLINE","zone_id":"Z07"}
+]

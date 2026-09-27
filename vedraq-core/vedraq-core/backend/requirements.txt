@@ -1,0 +1,13 @@
+# LIFELINE Backend — Python 3.13+ Compatible
+# ============================================
+# Pinned versions updated for Python 3.14 compatibility.
+# pydantic >= 2.9 ships pydantic-core wheels for cp314.
+# fastapi/uvicorn loosened to pick up compatible releases.
+
+fastapi>=0.111.0
+uvicorn>=0.29.0
+pydantic>=2.9.0
+pytest>=8.3,<10
+groq>=0.9.0
+python-dotenv>=1.0.0
+httpx>=0.27.0
