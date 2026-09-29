@@ -34,6 +34,9 @@ from app.services.routing import (
 )
 from app.services.resource_optimizer import build_recommendations
 from app.services.simulation import SimulationState
+from app.services import gee_service
+from app.services.weather_service import weather_service
+from app.services.risk_engine import risk_engine
 from app.services.groq_service import (
     build_systemic_risk_context,
     analyze_systemic_risk,
@@ -91,6 +94,17 @@ AUTONOMOUS_SESSION: Dict[str, Any] = {
 DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data"
 
 AVAILABLE_SCENARIOS: Dict[str, Dict[str, Any]] = {
+    "west_bengal": {
+        "id": "west_bengal",
+        "name": "West Bengal Coastal Cyclone & Surge",
+        "region": "Coastal West Bengal & Northern Bay of Bengal, India",
+        "description": "Tropical cyclonic storm, 0-5m storm surge inundation, and estuarine flooding across vulnerable coastal communities (Sundarbans, Sagar Island, Kakdwip, Haldia, Digha)",
+        "data_dir": DATA_DIR / "scenarios" / "west_bengal",
+        "center": [21.95, 88.15],
+        "zoom": 10,
+        "zones_count": 15,
+        "disclaimer": "Synthetic Demo Data — Calibrated for coastal Bengal disaster operations and GDG demonstration."
+    },
     "varanasi": {
         "id": "varanasi",
         "name": "Varanasi District Flood",
@@ -115,10 +129,10 @@ AVAILABLE_SCENARIOS: Dict[str, Dict[str, Any]] = {
     }
 }
 
-CURRENT_SCENARIO_ID = "varanasi"
+CURRENT_SCENARIO_ID = "west_bengal"
 
 def _load_scenario_json(scenario_id: str, filename: str) -> Any:
-    sc_info = AVAILABLE_SCENARIOS.get(scenario_id, AVAILABLE_SCENARIOS["varanasi"])
+    sc_info = AVAILABLE_SCENARIOS.get(scenario_id, AVAILABLE_SCENARIOS["west_bengal"])
     sc_dir = sc_info["data_dir"]
     path = sc_dir / filename
     if not path.exists():
@@ -144,7 +158,7 @@ def reload_current_scenario_baseline(scenario_id: str = None) -> None:
         RESOURCES_BASELINE,
     )
 
-reload_current_scenario_baseline("varanasi")
+reload_current_scenario_baseline("west_bengal")
 ROAD_GEOMETRY_CACHE: Dict[str, Dict[str, Any]] = {}
 DISPATCHED_VEHICLES: Dict[str, Dict[str, Any]] = {}
 ACTIVE_EVACUATION_PLANS: Dict[str, Dict[str, Any]] = {}
@@ -459,8 +473,10 @@ def get_disaster_history(zone_id: str, scenario_id: Optional[str] = None):
     req_sc = (scenario_id or CURRENT_SCENARIO_ID).lower()
     if "nepal" in req_sc:
         target_sc = "nepal"
-    else:
+    elif "varanasi" in req_sc:
         target_sc = "varanasi"
+    else:
+        target_sc = "west_bengal"
 
     try:
         history_data = _load_scenario_json(target_sc, "disaster_history.json")
@@ -468,10 +484,12 @@ def get_disaster_history(zone_id: str, scenario_id: Optional[str] = None):
         logger.warning(f"Failed to load disaster history for {target_sc}: {e}")
         history_data = {}
 
-    # Strict isolation between India (Varanasi) and Nepal
-    if target_sc == "varanasi" and zone_id.startswith("N"):
+    # Strict isolation between scenarios
+    if target_sc == "west_bengal" and not zone_id.startswith("WB"):
         zone_history = []
-    elif target_sc == "nepal" and zone_id.startswith("Z"):
+    elif target_sc == "varanasi" and not zone_id.startswith("Z"):
+        zone_history = []
+    elif target_sc == "nepal" and not zone_id.startswith("N"):
         zone_history = []
     else:
         zone_history = history_data.get(zone_id, [])
@@ -1763,3 +1781,141 @@ def autonomous_simulation_reset(req: Optional[AutonomousResetRequest] = None):
         "active_conditions": session["selected_conditions"],
         "initial_state": session["initial_state"],
     }
+
+
+# =====================================================================
+# GOOGLE EARTH ENGINE (GEE) SATELLITE & GEOSPATIAL INTELLIGENCE
+# =====================================================================
+
+@app.get("/api/gee/status")
+def get_earth_engine_status():
+    """Returns Google Earth Engine connectivity, active auth method, and dataset capabilities."""
+    return gee_service.get_gee_status()
+
+
+@app.get("/api/gee/elevation")
+def get_elevation_analytics(
+    min_lng: Optional[float] = None,
+    min_lat: Optional[float] = None,
+    max_lng: Optional[float] = None,
+    max_lat: Optional[float] = None
+):
+    """
+    SRTM Digital Elevation Model (30m) analysis.
+    Identifies low-lying coastal terrain (<3m) exposed to cyclonic storm surge inundation.
+    """
+    kwargs = {}
+    if min_lng is not None: kwargs["min_lng"] = min_lng
+    if min_lat is not None: kwargs["min_lat"] = min_lat
+    if max_lng is not None: kwargs["max_lng"] = max_lng
+    if max_lat is not None: kwargs["max_lat"] = max_lat
+    return gee_service.get_elevation_data(**kwargs)
+
+
+@app.get("/api/gee/land-cover")
+def get_land_cover_analytics(
+    min_lng: Optional[float] = None,
+    min_lat: Optional[float] = None,
+    max_lng: Optional[float] = None,
+    max_lat: Optional[float] = None,
+    date_start: Optional[str] = "2024-01-01",
+    date_end: Optional[str] = "2024-12-31"
+):
+    """
+    Dynamic World (10m Near Real-Time) Land Use & Land Cover classification.
+    Evaluates mangrove bio-shields, exposed built-up settlements, and water bodies.
+    """
+    kwargs = {"date_start": date_start, "date_end": date_end}
+    if min_lng is not None: kwargs["min_lng"] = min_lng
+    if min_lat is not None: kwargs["min_lat"] = min_lat
+    if max_lng is not None: kwargs["max_lng"] = max_lng
+    if max_lat is not None: kwargs["max_lat"] = max_lat
+    return gee_service.get_land_cover_data(**kwargs)
+
+
+@app.get("/api/gee/rainfall")
+def get_rainfall_analytics(
+    min_lng: Optional[float] = None,
+    min_lat: Optional[float] = None,
+    max_lng: Optional[float] = None,
+    max_lat: Optional[float] = None
+):
+    """
+    CHIRPS Daily Precipitation and historical rainfall anomaly analysis.
+    Monitors cyclonic cloudburst precipitation and estuarine flash-flood potential.
+    """
+    kwargs = {}
+    if min_lng is not None: kwargs["min_lng"] = min_lng
+    if min_lat is not None: kwargs["min_lat"] = min_lat
+    if max_lng is not None: kwargs["max_lng"] = max_lng
+    if max_lat is not None: kwargs["max_lat"] = max_lat
+    return gee_service.get_rainfall_data(**kwargs)
+
+
+@app.get("/api/gee/layers")
+def get_gee_map_layers():
+    """Returns available satellite raster and vector layers for Leaflet GIS visualization."""
+    return gee_service.get_map_layers()
+
+
+# ═════════════════════════════════════════════════════════════════════
+# METEOROLOGICAL & PREDICTIVE GEO-RISK ENGINE (PHASE 2)
+# ═════════════════════════════════════════════════════════════════════
+
+@app.get("/api/weather/current")
+def get_current_meteorological_telemetry(
+    lat: Optional[float] = None,
+    lon: Optional[float] = None
+):
+    """
+    Returns real-time or calibrated meteorological telemetry for Bay of Bengal.
+    Includes barometric pressure, wind gusts, rainfall rate, and coastal station readings.
+    """
+    kwargs = {}
+    if lat is not None: kwargs["lat"] = lat
+    if lon is not None: kwargs["lon"] = lon
+    return weather_service.get_current_weather(**kwargs)
+
+
+@app.get("/api/weather/forecast")
+def get_cyclone_forecast_timeline(
+    lat: Optional[float] = None,
+    lon: Optional[float] = None
+):
+    """
+    Returns 24h-72h cyclonic projection, estimated landfall timing, and peak surge outlook.
+    """
+    kwargs = {}
+    if lat is not None: kwargs["lat"] = lat
+    if lon is not None: kwargs["lon"] = lon
+    return weather_service.get_weather_forecast(**kwargs)
+
+
+@app.get("/api/weather/stations")
+def get_coastal_weather_stations():
+    """Returns observation telemetry across all coastal West Bengal meteorological stations."""
+    return {"stations": weather_service.get_station_readings()}
+
+
+@app.get("/api/risk/assessment")
+def get_geo_risk_assessment():
+    """
+    Computes multi-criteria predictive risk across all active scenario zones:
+    Risk = (0.40 * Hazard) + (0.35 * Exposure) + (0.25 * Vulnerability).
+    Integrates GEE SRTM Elevation, Dynamic World LULC, and live meteorological feeds.
+    """
+    zones = getattr(sim, "zones", [])
+    roads = getattr(sim, "roads", [])
+    return risk_engine.assess_all_zones(zones, roads)
+
+
+@app.get("/api/risk/hazard-map")
+def get_hazard_map_geojson():
+    """
+    Returns standard GeoJSON FeatureCollection for rendering risk heat-zones on Leaflet.
+    """
+    zones = getattr(sim, "zones", [])
+    roads = getattr(sim, "roads", [])
+    return risk_engine.get_hazard_geojson(zones, roads)
+
+

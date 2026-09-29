@@ -1,0 +1,38 @@
+[
+  {
+    "id": "WBE01",
+    "label": "Cyclone Remal Surge: Inundate Sagar Island (WBR01 blocked)",
+    "type": "ROAD_BLOCK",
+    "road_id": "WBR01"
+  },
+  {
+    "id": "WBE02",
+    "label": "Muriganga Estuary Breach: Cut off Bakkhali (WBR05 blocked)",
+    "type": "ROAD_BLOCK",
+    "road_id": "WBR05"
+  },
+  {
+    "id": "WBE03",
+    "label": "Matla River Tidal Surge: Block Gosaba Access (WBR10 blocked)",
+    "type": "ROAD_BLOCK",
+    "road_id": "WBR10"
+  },
+  {
+    "id": "WBE04",
+    "label": "Kakdwip Sub-Divisional Hospital Grid Failure",
+    "type": "HOSPITAL_OFFLINE",
+    "facility_id": "WBH3"
+  },
+  {
+    "id": "WBE05",
+    "label": "Diamond Harbour MPCS Shelter Saturated",
+    "type": "SHELTER_FULL",
+    "shelter_id": "WBS1"
+  },
+  {
+    "id": "WBE06",
+    "label": "Saline Infiltration: Kakdwip Desalination Offline",
+    "type": "WATER_OFFLINE",
+    "zone_id": "WB02"
+  }
+]
