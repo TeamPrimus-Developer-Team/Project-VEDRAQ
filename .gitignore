@@ -53,4 +53,9 @@ Thumbs.db
 __MACOSX/
 MACOSX/
 *.log
-logs/
+logs/
+
+# Local Context & Roadmap Documentation
+PROJECT_CONTEXT.md
+roadmap.md
+roadmap*.md
