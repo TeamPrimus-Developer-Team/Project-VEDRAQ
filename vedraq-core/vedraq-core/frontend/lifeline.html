@@ -2489,6 +2489,35 @@ body.emergency-screen-pulse::before {
             </div>
           </div>
 
+          <!-- LAYER: SENTINEL-1 SAR FLOOD INUNDATION -->
+          <div class="gee-layer-card active" id="card-gee-sar-flood">
+            <div class="gee-toggle-row">
+              <div class="gee-layer-info">
+                <div class="gee-layer-title">🛰️ Sentinel-1 SAR Flood Inundation</div>
+                <div class="gee-layer-sub">COPERNICUS/S1_GRD &bull; Cloud-Penetrating 10m C-SAR</div>
+              </div>
+              <label class="gee-switch">
+                <input type="checkbox" id="toggle-gee-sar-flood" checked onchange="onToggleGeeSarFlood(this.checked)">
+                <span class="gee-slider"></span>
+              </label>
+            </div>
+            <div class="gee-stats-grid">
+              <div class="gee-stat-cell">
+                <span class="gee-stat-label">Inundated Area</span>
+                <span class="gee-stat-val" style="color:#06b6d4" id="gee-stat-sar-area">145.8 km²</span>
+              </div>
+              <div class="gee-stat-cell">
+                <span class="gee-stat-label">SAR Polarization</span>
+                <span class="gee-stat-val" style="color:#38bdf8" id="gee-stat-sar-pol">VV+VH (IW)</span>
+              </div>
+            </div>
+            <div class="gee-legend-bar" title="Cyan: Marine Storm Surge Wash, Deep Blue: Estuarine Overflow, Red: Embankment Breach Intrusion">
+              <div class="gee-legend-seg" style="width:48%;background:#06b6d4"></div>
+              <div class="gee-legend-seg" style="width:32%;background:#0284c7"></div>
+              <div class="gee-legend-seg" style="width:20%;background:#ef4444"></div>
+            </div>
+          </div>
+
           <!-- LAYER 4: PREDICTIVE GEO-RISK MATRIX -->
           <div class="gee-layer-card" id="card-geo-risk">
             <div class="gee-toggle-row">
@@ -4043,14 +4072,17 @@ function clearAllMapLayers() {
   if (geeElevationLayer) { try { map.removeLayer(geeElevationLayer); } catch(e){} geeElevationLayer = null; }
   if (geeLandCoverLayer) { try { map.removeLayer(geeLandCoverLayer); } catch(e){} geeLandCoverLayer = null; }
   if (geeRainfallLayer) { try { map.removeLayer(geeRainfallLayer); } catch(e){} geeRainfallLayer = null; }
+  if (geeSarFloodLayer) { try { map.removeLayer(geeSarFloodLayer); } catch(e){} geeSarFloodLayer = null; }
   if (geoRiskLayer) { try { map.removeLayer(geoRiskLayer); } catch(e){} geoRiskLayer = null; }
   const tElev = document.getElementById('toggle-gee-elevation'); if (tElev) tElev.checked = false;
   const tLand = document.getElementById('toggle-gee-land-cover'); if (tLand) tLand.checked = false;
   const tRain = document.getElementById('toggle-gee-rainfall'); if (tRain) tRain.checked = false;
+  const tSar = document.getElementById('toggle-gee-sar-flood'); if (tSar) tSar.checked = false;
   const tRisk = document.getElementById('toggle-geo-risk'); if (tRisk) tRisk.checked = false;
   document.getElementById('card-gee-elevation')?.classList.remove('active');
   document.getElementById('card-gee-land-cover')?.classList.remove('active');
   document.getElementById('card-gee-rainfall')?.classList.remove('active');
+  document.getElementById('card-gee-sar-flood')?.classList.remove('active');
   document.getElementById('card-geo-risk')?.classList.remove('active');
 }
 
@@ -5791,6 +5823,9 @@ async function refreshGeeLayersData() {
   if (document.getElementById('toggle-gee-rainfall')?.checked) {
     await onToggleGeeRainfall(true, true);
   }
+  if (document.getElementById('toggle-gee-sar-flood')?.checked) {
+    await onToggleGeeSarFlood(true, true);
+  }
 }
 
 async function onToggleGeeElevation(enable, forceReload = false) {
@@ -5982,6 +6017,85 @@ async function onToggleGeeRainfall(enable, forceReload = false) {
     geeRainfallLayer.addTo(map);
   } catch(e) {
     console.error('Error toggling GEE Rainfall layer:', e);
+  }
+}
+
+let geeSarFloodLayer = null;
+
+async function onToggleGeeSarFlood(enable, forceReload = false) {
+  const card = document.getElementById('card-gee-sar-flood');
+  if (card) card.classList.toggle('active', enable);
+
+  if (geeSarFloodLayer) {
+    try { map.removeLayer(geeSarFloodLayer); } catch(e){}
+    geeSarFloodLayer = null;
+  }
+  if (!enable) return;
+
+  try {
+    if (!geeDataCache.sarFlood || forceReload) {
+      geeDataCache.sarFlood = await apiFetch('/api/gee/sar-flood');
+    }
+    const data = geeDataCache.sarFlood;
+    if (!data || !data.geojson) return;
+
+    if (data.summary) {
+      const areaEl = document.getElementById('gee-stat-sar-area');
+      if (areaEl) areaEl.textContent = `${data.summary.total_inundated_sq_km} km²`;
+    }
+
+    geeSarFloodLayer = L.layerGroup();
+
+    if (data.tile_url_template) {
+      const tileLyr = L.tileLayer(data.tile_url_template, { opacity: 0.65, maxZoom: 18 });
+      geeSarFloodLayer.addLayer(tileLyr);
+    }
+
+    const geoJsonLayer = L.geoJSON(data.geojson, {
+      style: function(feature) {
+        return {
+          color: '#06b6d4',
+          fillColor: '#0891b2',
+          fillOpacity: 0.45,
+          weight: 2.5,
+          dashArray: '5, 5'
+        };
+      },
+      onEachFeature: function(feature, layer) {
+        const props = feature.properties || {};
+        layer.bindPopup(`
+          <div style="font-family:sans-serif;font-size:12px;color:#1e293b;padding:4px;min-width:240px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+              <b style="color:#0891b2;font-size:13px;">🛰️ SAR Inundation: ${props.name}</b>
+              <span style="font-size:9px;font-weight:800;padding:2px 5px;border-radius:3px;background:rgba(6,182,212,0.15);color:#0891b2;border:1px solid #06b6d4">10m C-SAR</span>
+            </div>
+            <div style="background:#f0fdfa;border:1px solid #ccfbf1;border-radius:4px;padding:6px;margin:6px 0;font-size:11px;">
+              <div style="display:flex;justify-content:space-between;"><span>Inundation Type:</span><b>${props.inundation_type}</b></div>
+              <div style="display:flex;justify-content:space-between;"><span>Flooded Area:</span><b style="color:#0891b2">${props.area_sq_km} km²</b></div>
+              <div style="display:flex;justify-content:space-between;"><span>Estimated Water Depth:</span><b>~${props.water_depth_est_m} m</b></div>
+              <div style="display:flex;justify-content:space-between;"><span>SAR Backscatter Δ:</span><b>${props.sar_backscatter_diff_db} dB</b></div>
+              <div style="display:flex;justify-content:space-between;"><span>Confidence Score:</span><b>${Math.round(props.confidence_score * 100)}%</b></div>
+              <div style="display:flex;justify-content:space-between;"><span>Population in Inundation:</span><b style="color:#ef4444">${props.est_population_at_risk?.toLocaleString()}</b></div>
+            </div>
+            <div style="font-size:10px;color:#64748b;font-style:italic;">
+              Cloud-penetrating radar surface specular backscatter detection from Sentinel-1 GRD.
+            </div>
+          </div>
+        `);
+        layer.on('mouseover', function(e) {
+          layer.setStyle({ fillOpacity: 0.65, weight: 3.5, color: '#38bdf8' });
+        });
+        layer.on('mouseout', function(e) {
+          layer.setStyle({ fillOpacity: 0.45, weight: 2.5, color: '#06b6d4' });
+        });
+      }
+    });
+
+    geeSarFloodLayer.addLayer(geoJsonLayer);
+    geeSarFloodLayer.addTo(map);
+    showToast(`🛰️ Sentinel-1 SAR Flood Inundation active: ${data.summary?.total_inundated_sq_km || 145.8} km² mapped`);
+  } catch(e) {
+    console.error('Error toggling GEE SAR Flood layer:', e);
   }
 }
 

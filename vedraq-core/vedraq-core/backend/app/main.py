@@ -1449,6 +1449,7 @@ def list_scenarios():
 
 
 @app.post("/api/scenario/switch")
+@app.post("/api/scenarios/switch")
 def switch_active_scenario(req: ScenarioSwitchRequest):
     return switch_scenario(req.scenario_id)
 
@@ -1926,6 +1927,25 @@ def get_rainfall_analytics(
     if max_lng is not None: kwargs["max_lng"] = max_lng
     if max_lat is not None: kwargs["max_lat"] = max_lat
     return gee_service.get_rainfall_data(**kwargs)
+
+
+@app.get("/api/gee/sar-flood")
+def get_sar_flood_analytics(
+    min_lng: Optional[float] = None,
+    min_lat: Optional[float] = None,
+    max_lng: Optional[float] = None,
+    max_lat: Optional[float] = None
+):
+    """
+    Sentinel-1 C-band Synthetic Aperture Radar (SAR) flood inundation change detection.
+    Cloud-penetrating 10m radar surface water mapping for coastal storm surge and estuarine floods.
+    """
+    kwargs = {}
+    if min_lng is not None: kwargs["min_lng"] = min_lng
+    if min_lat is not None: kwargs["min_lat"] = min_lat
+    if max_lng is not None: kwargs["max_lng"] = max_lng
+    if max_lat is not None: kwargs["max_lat"] = max_lat
+    return gee_service.get_sar_flood_inundation(**kwargs)
 
 
 @app.get("/api/gee/layers")
