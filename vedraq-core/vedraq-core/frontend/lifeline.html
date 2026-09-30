@@ -103,6 +103,43 @@ html,body{height:100%;width:100%;margin:0;padding:0;overflow:hidden;overflow-x:h
 .ops-badge.critical{background:rgba(239,68,68,0.25);color:#f87171;border-color:#dc2626;box-shadow:0 0 10px rgba(239,68,68,0.5);animation:opsPulse 1.8s infinite;}
 @keyframes opsPulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.12);opacity:.85;}}
 
+/* Google Earth Engine Geospatial Overlay Button & Popover */
+.gee-btn{position:absolute;top:14px;right:340px;z-index:500;background:rgba(10,24,28,0.94);border:1px solid rgba(16,185,129,0.45);border-radius:8px;padding:6px 12px;color:#f8fafc;display:flex;align-items:center;gap:8px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.55);backdrop-filter:blur(8px);transition:all .2s cubic-bezier(0.4,0,0.2,1);outline:none;user-select:none;}
+.gee-btn:hover{background:rgba(16,36,40,0.98);border-color:rgba(16,185,129,0.85);box-shadow:0 6px 20px rgba(16,185,129,0.3);transform:translateY(-1px);}
+.gee-btn.open{background:rgba(12,38,36,0.98);border-color:#10b981;box-shadow:0 0 16px rgba(16,185,129,0.5);}
+.gee-icon{font-size:14px;line-height:1;filter:drop-shadow(0 0 4px #10b981);}
+.gee-btn-label{font-size:11px;font-weight:700;letter-spacing:.6px;color:#a7f3d0;text-transform:uppercase;}
+.gee-badge{font-size:10px;font-weight:800;min-width:20px;height:20px;border-radius:10px;padding:0 6px;display:inline-flex;align-items:center;justify-content:center;background:#064e3b;color:#6ee7b7;border:1px solid #059669;transition:all .2s ease;}
+.gee-badge.active{background:rgba(16,185,129,0.25);color:#34d399;box-shadow:0 0 8px rgba(16,185,129,0.4);}
+
+.gee-popover{position:absolute;top:54px;right:340px;width:370px;max-width:calc(100% - 28px);max-height:calc(100% - 75px);z-index:501;background:rgba(8,20,24,0.98);border:1px solid rgba(16,185,129,0.35);border-radius:10px;box-shadow:0 12px 36px rgba(0,0,0,0.75),0 0 1px 1px rgba(255,255,255,0.05);backdrop-filter:blur(12px);display:flex;flex-direction:column;overflow:hidden;transition:opacity .2s ease,transform .2s ease,visibility .2s;}
+.gee-popover.hidden{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-8px) scale(0.98);}
+.gee-popover-header{padding:10px 14px;border-bottom:1px solid rgba(16,185,129,0.25);display:flex;align-items:center;justify-content:space-between;background:rgba(6,16,19,0.85);}
+.gee-popover-title{font-size:11px;font-weight:700;letter-spacing:.8px;color:#34d399;display:flex;align-items:center;gap:6px;text-transform:uppercase;}
+.gee-popover-body{padding:12px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;}
+
+.gee-layer-card{background:rgba(14,28,32,0.7);border:1px solid rgba(16,185,129,0.2);border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:8px;transition:all .2s ease;}
+.gee-layer-card:hover{border-color:rgba(16,185,129,0.45);background:rgba(18,36,42,0.85);}
+.gee-layer-card.active{border-color:#10b981;box-shadow:0 0 10px rgba(16,185,129,0.2);}
+.gee-toggle-row{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.gee-layer-info{display:flex;flex-direction:column;gap:2px;}
+.gee-layer-title{font-size:12px;font-weight:700;color:#f8fafc;display:flex;align-items:center;gap:6px;}
+.gee-layer-sub{font-size:10px;color:#94a3b8;}
+
+.gee-switch{position:relative;display:inline-block;width:38px;height:20px;flex-shrink:0;}
+.gee-switch input{opacity:0;width:0;height:0;}
+.gee-slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background-color:#1e293b;transition:.3s;border-radius:20px;border:1px solid #334155;}
+.gee-slider:before{position:absolute;content:"";height:14px;width:14px;left:2px;bottom:2px;background-color:#94a3b8;transition:.3s;border-radius:50%;}
+input:checked + .gee-slider{background-color:#059669;border-color:#10b981;}
+input:checked + .gee-slider:before{transform:translateX(18px);background-color:#f8fafc;}
+
+.gee-stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.gee-stat-cell{background:rgba(6,16,20,0.6);border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:6px 8px;display:flex;flex-direction:column;gap:2px;}
+.gee-stat-label{font-size:9px;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px;}
+.gee-stat-val{font-size:12px;font-weight:700;color:#34d399;}
+.gee-legend-bar{display:flex;height:6px;border-radius:3px;overflow:hidden;margin-top:4px;}
+.gee-legend-seg{height:100%;}
+
 /* Operations Combined Popover */
 .operations-popover{position:absolute;top:54px;right:14px;width:350px;max-width:calc(100% - 28px);max-height:calc(100% - 75px);z-index:501;background:rgba(14,20,32,0.98);border:1px solid rgba(56,189,248,0.3);border-radius:10px;box-shadow:0 12px 36px rgba(0,0,0,0.75),0 0 1px 1px rgba(255,255,255,0.05);backdrop-filter:blur(12px);display:flex;flex-direction:column;overflow:hidden;transition:opacity .2s ease,transform .2s ease,visibility .2s;}
 .operations-popover.hidden{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-8px) scale(0.98);}
@@ -1892,6 +1929,315 @@ body.emergency-screen-pulse::before {
   background: var(--bg-card2);
   border-color: var(--accent2);
 }
+/* ─── GOOGLE EARTH ENGINE SATELLITE LAYERS CONTROL ─── */
+.gee-layers-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(10, 15, 29, 0.92);
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  border-radius: 8px;
+  padding: 8px 14px;
+  color: #38bdf8;
+  font-size: 11.5px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6), 0 0 12px rgba(56, 189, 248, 0.2);
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+}
+.gee-layers-btn:hover {
+  background: rgba(14, 23, 42, 0.98);
+  border-color: #38bdf8;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.8), 0 0 16px rgba(56, 189, 248, 0.4);
+}
+.gee-badge {
+  background: linear-gradient(135deg, #0284c7, #06b6d4);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 900;
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+.gee-layers-popover {
+  position: absolute;
+  top: 54px;
+  right: 14px;
+  z-index: 550;
+  width: 320px;
+  background: rgba(10, 15, 29, 0.96);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 10px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modalPopIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gee-layers-popover.hidden {
+  display: none;
+}
+.gee-layer-toggle-card {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+  transition: border-color 0.15s ease;
+}
+.gee-layer-toggle-card:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+}
+.gee-toggle-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+}
+.gee-toggle-row input[type="checkbox"] {
+  margin-top: 3px;
+  accent-color: #0ea5e9;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+}
+.gee-toggle-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.gee-toggle-title {
+  font-size: 11px;
+  font-weight: 800;
+  color: #f1f5f9;
+}
+.gee-toggle-sub {
+  font-size: 9.5px;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+/* Weather Strip Pill & Weather Modal (Phase 2) */
+.strip-weather-pill {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(14,24,38,0.9);
+  border: 1px solid rgba(56,189,248,0.35);
+  border-radius: 6px;
+  padding: 3px 10px;
+  cursor: pointer;
+  transition: all .2s ease;
+  user-select: none;
+  flex-shrink: 0;
+}
+.strip-weather-pill:hover {
+  background: rgba(22,38,60,0.98);
+  border-color: #38bdf8;
+  box-shadow: 0 0 12px rgba(56,189,248,0.35);
+  transform: translateY(-1px);
+}
+.weather-dot {
+  background: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+}
+.weather-txt {
+  font-size: 10px;
+  font-weight: 700;
+  color: #f8fafc;
+  letter-spacing: .5px;
+}
+.weather-sub {
+  font-size: 9.5px;
+  font-weight: 600;
+  color: #38bdf8;
+}
+.weather-badge {
+  font-size: 8.5px;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: rgba(239,68,68,0.25);
+  color: #f87171;
+  border: 1px solid rgba(239,68,68,0.5);
+  letter-spacing: .4px;
+}
+
+/* ─── GOOGLE GEMINI EARLY WARNING ADVISORY ─── */
+.strip-advisory-pill {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(30,16,48,0.92);
+  border: 1px solid rgba(168,85,247,0.45);
+  border-radius: 6px;
+  padding: 3px 10px;
+  cursor: pointer;
+  transition: all .2s ease;
+  user-select: none;
+  flex-shrink: 0;
+}
+.strip-advisory-pill:hover {
+  background: rgba(45,24,75,0.98);
+  border-color: #c084fc;
+  box-shadow: 0 0 14px rgba(168,85,247,0.45);
+  transform: translateY(-1px);
+}
+.advisory-dot {
+  background: #c084fc;
+  box-shadow: 0 0 8px #c084fc;
+}
+.advisory-txt {
+  font-size: 10px;
+  font-weight: 700;
+  color: #faf5ff;
+  letter-spacing: .5px;
+}
+.advisory-badge {
+  font-size: 8.5px;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: rgba(168,85,247,0.25);
+  color: #e9d5ff;
+  border: 1px solid rgba(168,85,247,0.5);
+  letter-spacing: .4px;
+}
+.advisory-modal-container {
+  width: 760px;
+  max-width: 95vw;
+  background: rgba(13, 16, 28, 0.98);
+  border: 1px solid rgba(168,85,247,0.45);
+  border-radius: 12px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.85), 0 0 24px rgba(168,85,247,0.2);
+  backdrop-filter: blur(16px);
+  color: #f8fafc;
+  overflow: hidden;
+}
+.advisory-alert-banner {
+  padding: 14px 16px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: 1px solid;
+}
+.advisory-alert-banner.RED_ALERT {
+  background: rgba(239,68,68,0.12);
+  border-color: rgba(239,68,68,0.5);
+  box-shadow: 0 0 20px rgba(239,68,68,0.15);
+}
+.advisory-alert-banner.ORANGE_ALERT {
+  background: rgba(249,115,22,0.12);
+  border-color: rgba(249,115,22,0.5);
+}
+.advisory-alert-banner.YELLOW_ADVISORY {
+  background: rgba(234,179,8,0.12);
+  border-color: rgba(234,179,8,0.5);
+}
+.advisory-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+}
+.advisory-lang-tabs {
+  display: flex;
+  gap: 4px;
+  background: rgba(10,14,24,0.6);
+  padding: 3px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.advisory-lang-tab {
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  background: transparent;
+  color: #94a3b8;
+  border: none;
+  transition: all .2s ease;
+}
+.advisory-lang-tab.active {
+  background: rgba(168,85,247,0.3);
+  color: #f3e8ff;
+  border: 1px solid rgba(168,85,247,0.5);
+}
+.advisory-hazard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.advisory-hazard-item {
+  background: rgba(18,24,38,0.7);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 6px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  color: #cbd5e1;
+}
+.advisory-shelter-card {
+  background: rgba(20,28,45,0.75);
+  border: 1px solid rgba(56,189,248,0.25);
+  border-radius: 6px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.weather-modal-container {
+  width: 680px;
+  max-width: 95vw;
+  background: rgba(10,18,30,0.96);
+  border: 1px solid rgba(56,189,248,0.35);
+  border-radius: 12px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.85);
+  backdrop-filter: blur(16px);
+  color: #f8fafc;
+}
+.weather-metric-card {
+  background: rgba(14,24,40,0.7);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.weather-m-lbl { font-size: 9.5px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; }
+.weather-m-val { font-size: 15px; font-weight: 800; }
+.weather-m-sub { font-size: 9px; color: #64748b; }
+.weather-station-table th, .weather-station-table td { padding: 6px 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.weather-timeline-container { display: flex; flex-direction: column; gap: 6px; }
+.weather-timeline-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  background: rgba(14,24,36,0.6);
+  border-radius: 6px;
+  border-left: 3px solid #38bdf8;
+  font-size: 10.5px;
+}
 </style>
 </head>
 <body>
@@ -1907,6 +2253,7 @@ body.emergency-screen-pulse::before {
     <div class="scenario-selector-container">
       <span class="scenario-selector-label">Scenario:</span>
       <select id="scenario-selector" class="scenario-select" onchange="onScenarioChanged(this.value)">
+        <option value="west_bengal" selected>🌀 West Bengal Coastal Cyclone &amp; Surge (Bay of Bengal)</option>
         <option value="varanasi">🌊 Varanasi District Flood (15 Zones)</option>
         <option value="nepal">🏔️ Nepal Alpine Disaster (10 Zones)</option>
       </select>
@@ -1922,13 +2269,13 @@ body.emergency-screen-pulse::before {
     <div class="stat-pill info"><span class="val" id="stat-pop">—</span><span class="lbl">Affected</span></div>
     <div class="stat-pill"><span class="val" id="stat-zones">—</span><span class="lbl">Zones</span></div>
     <div class="stat-pill ok"><span class="val" id="stat-resources">—</span><span class="lbl">Reachable</span></div>
-    <div id="disclaimer">⚠ Synthetic Demo Data — Not Real NDEM Data</div>
+    <div id="disclaimer">⚠ Synthetic Demo Data — Calibrated for Coastal Bengal Operations</div>
   </div>
 
   <!-- ACTIVE EMERGENCY STATUS STRIP -->
   <div id="emergency-strip">
     <div class="emergency-badge"><span class="pulse-dot"></span> ACTIVE EMERGENCY</div>
-    <div class="strip-scenario" id="strip-scenario-name">🌊 Varanasi District Flood &bull; CRITICAL</div>
+    <div class="strip-scenario" id="strip-scenario-name">🌀 West Bengal Coastal Cyclone &bull; CRITICAL</div>
     <div class="strip-divider"></div>
     <div class="strip-pills">
       <div class="strip-pill critical"><span class="val" id="strip-crit-val">—</span> Critical Zones</div>
@@ -1937,6 +2284,22 @@ body.emergency-screen-pulse::before {
       <div class="strip-pill warn"><span class="val" id="strip-incidents-val">—</span> Blocked Roads</div>
       <div class="strip-pill ok"><span class="val" id="strip-dispatches-val">—</span> Active Evacuations</div>
       <div class="strip-pill neutral"><span class="val" id="strip-routes-val">—</span> Open Routes</div>
+    </div>
+    <div class="strip-divider"></div>
+    <!-- METEOROLOGICAL TELEMETRY PILL -->
+    <div class="strip-weather-pill" id="strip-weather-pill" onclick="openWeatherModal()" title="View Bay of Bengal Cyclone Telemetry & Landfall Projection">
+      <span class="pulse-dot weather-dot"></span>
+      <span class="weather-icon">🌀</span>
+      <span class="weather-txt" id="strip-weather-wind">GUSTS 128 KM/H</span>
+      <span class="weather-sub" id="strip-weather-pressure">974.5 hPa</span>
+      <span class="weather-badge" id="strip-weather-alert">RED ALERT</span>
+    </div>
+    <!-- GOOGLE GEMINI EARLY WARNING ADVISORY PILL -->
+    <div class="strip-advisory-pill" id="strip-advisory-pill" onclick="openAdvisoryModal()" title="View Google Gemini Multimodal Early Warning & Community Advisory">
+      <span class="pulse-dot advisory-dot"></span>
+      <span style="font-size:12px;">📢</span>
+      <span class="advisory-txt">GEMINI ADVISORY</span>
+      <span class="advisory-badge" id="strip-advisory-badge">AI LIVE</span>
     </div>
     <div class="strip-status"><span class="status-indicator"></span> SYSTEM: ONLINE</div>
   </div>
@@ -1997,6 +2360,152 @@ body.emergency-screen-pulse::before {
       </div>
     </nav>
     <div id="map-container">
+      <!-- GOOGLE EARTH ENGINE SATELLITE LAYERS BUTTON -->
+      <button id="gee-layers-btn" class="gee-btn" onclick="toggleGeePanel(event)" title="Google Earth Engine Satellite Geospatial Layers">
+        <span class="gee-icon">🛰️</span>
+        <span class="gee-btn-label">EARTH ENGINE</span>
+        <span id="gee-badge" class="gee-badge">GEE</span>
+      </button>
+
+      <!-- GOOGLE EARTH ENGINE POPOVER -->
+      <div id="gee-popover" class="gee-popover hidden" onclick="event.stopPropagation()">
+        <div class="gee-popover-header">
+          <div class="gee-popover-title">
+            <span style="font-size:14px;filter:drop-shadow(0 0 6px #10b981)">🛰️</span>
+            <span>GOOGLE EARTH ENGINE LAYERS</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px">
+            <span id="gee-status-badge" class="gee-badge" style="font-size:9px;padding:2px 8px;">CONNECTING...</span>
+            <button class="ops-popover-close" onclick="closeGeePanel()">&times;</button>
+          </div>
+        </div>
+        <div class="gee-popover-body">
+          <div style="font-size:11px;color:#94a3b8;line-height:1.4;">
+            Multi-spectral earth observation feeds for Bay of Bengal &amp; delta exposure analysis.
+          </div>
+
+          <!-- LAYER 1: SRTM ELEVATION & STORM SURGE -->
+          <div class="gee-layer-card" id="card-gee-elevation">
+            <div class="gee-toggle-row">
+              <div class="gee-layer-info">
+                <div class="gee-layer-title">🏔️ SRTM Elevation &amp; Storm Surge</div>
+                <div class="gee-layer-sub">USGS/SRTMGL1_003 &bull; 30m Coastal DEM</div>
+              </div>
+              <label class="gee-switch">
+                <input type="checkbox" id="toggle-gee-elevation" onchange="onToggleGeeElevation(this.checked)">
+                <span class="gee-slider"></span>
+              </label>
+            </div>
+            <div class="gee-stats-grid">
+              <div class="gee-stat-cell">
+                <span class="gee-stat-label">Coastal Mean Elev</span>
+                <span class="gee-stat-val" id="gee-stat-mean-elev">3.4 m</span>
+              </div>
+              <div class="gee-stat-cell">
+                <span class="gee-stat-label">Surge &lt;3m Exposure</span>
+                <span class="gee-stat-val" style="color:#ef4444" id="gee-stat-surge-pct">42.5%</span>
+              </div>
+            </div>
+            <div class="gee-legend-bar" title="Red: &lt;3m (Critical Surge), Orange: 3-6m, Yellow: 6-10m, Green: &gt;10m">
+              <div class="gee-legend-seg" style="width:42.5%;background:#ef4444"></div>
+              <div class="gee-legend-seg" style="width:33%;background:#f97316"></div>
+              <div class="gee-legend-seg" style="width:18.5%;background:#eab308"></div>
+              <div class="gee-legend-seg" style="width:6%;background:#22c55e"></div>
+            </div>
+          </div>
+
+          <!-- LAYER 2: DYNAMIC WORLD LAND COVER -->
+          <div class="gee-layer-card" id="card-gee-land-cover">
+            <div class="gee-toggle-row">
+              <div class="gee-layer-info">
+                <div class="gee-layer-title">🌿 Dynamic World Land Cover</div>
+                <div class="gee-layer-sub">GOOGLE/DYNAMICWORLD/V1 &bull; Sentinel-2 LULC</div>
+              </div>
+              <label class="gee-switch">
+                <input type="checkbox" id="toggle-gee-land-cover" onchange="onToggleGeeLandCover(this.checked)">
+                <span class="gee-slider"></span>
+              </label>
+            </div>
+            <div class="gee-stats-grid">
+              <div class="gee-stat-cell">
+                <span class="gee-stat-label">Mangrove Buffer</span>
+                <span class="gee-stat-val" style="color:#34d399" id="gee-stat-mangroves">4,260 km²</span>
+              </div>
+              <div class="gee-stat-cell">
+                <span class="gee-stat-label">Built Exposure</span>
+                <span class="gee-stat-val" style="color:#f59e0b" id="gee-stat-built">9.6%</span>
+              </div>
+            </div>
+            <div class="gee-legend-bar" title="Blue: Water, Green: Mangroves/Trees, Orange: Crops, Red: Built">
+              <div class="gee-legend-seg" style="width:28.4%;background:#419bdf"></div>
+              <div class="gee-legend-seg" style="width:34.2%;background:#397d49"></div>
+              <div class="gee-legend-seg" style="width:22.8%;background:#e49635"></div>
+              <div class="gee-legend-seg" style="width:9.6%;background:#c4281b"></div>
+              <div class="gee-legend-seg" style="width:5%;background:#a59b8f"></div>
+            </div>
+          </div>
+
+          <!-- LAYER 3: CHIRPS PRECIPITATION & RUNOFF -->
+          <div class="gee-layer-card" id="card-gee-rainfall">
+            <div class="gee-toggle-row">
+              <div class="gee-layer-info">
+                <div class="gee-layer-title">🌧️ CHIRPS Daily Precipitation</div>
+                <div class="gee-layer-sub">UCSB-CHG/CHIRPS/DAILY &bull; Cyclone Outer Bands</div>
+              </div>
+              <label class="gee-switch">
+                <input type="checkbox" id="toggle-gee-rainfall" onchange="onToggleGeeRainfall(this.checked)">
+                <span class="gee-slider"></span>
+              </label>
+            </div>
+            <div class="gee-stats-grid">
+              <div class="gee-stat-cell">
+                <span class="gee-stat-label">24h Rainfall</span>
+                <span class="gee-stat-val" style="color:#38bdf8" id="gee-stat-rainfall">165.4 mm</span>
+              </div>
+              <div class="gee-stat-cell">
+                <span class="gee-stat-label">Soil Saturation</span>
+                <span class="gee-stat-val" style="color:#a855f7" id="gee-stat-saturation">92.5%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- LAYER 4: PREDICTIVE GEO-RISK MATRIX -->
+          <div class="gee-layer-card" id="card-geo-risk">
+            <div class="gee-toggle-row">
+              <div class="gee-layer-info">
+                <div class="gee-layer-title">🎯 Predictive Geo-Risk Engine</div>
+                <div class="gee-layer-sub">Hazard &bull; Exposure &bull; Vulnerability Composite</div>
+              </div>
+              <label class="gee-switch">
+                <input type="checkbox" id="toggle-geo-risk" onchange="onToggleGeoRisk(this.checked)">
+                <span class="gee-slider"></span>
+              </label>
+            </div>
+            <div class="gee-stats-grid">
+              <div class="gee-stat-cell">
+                <span class="gee-stat-label">Critical Zones</span>
+                <span class="gee-stat-val" style="color:#ef4444" id="gee-stat-risk-critical">—</span>
+              </div>
+              <div class="gee-stat-cell">
+                <span class="gee-stat-label">High Risk Pop</span>
+                <span class="gee-stat-val" style="color:#f97316" id="gee-stat-risk-pop">—</span>
+              </div>
+            </div>
+            <div class="gee-legend-bar" title="Red: Critical (>=75), Orange: High (55-74), Yellow: Moderate (35-54), Green: Low (<35)">
+              <div class="gee-legend-seg" style="width:25%;background:#ef4444"></div>
+              <div class="gee-legend-seg" style="width:35%;background:#f97316"></div>
+              <div class="gee-legend-seg" style="width:25%;background:#eab308"></div>
+              <div class="gee-legend-seg" style="width:15%;background:#22c55e"></div>
+            </div>
+          </div>
+
+          <div style="font-size:9.5px;color:#64748b;display:flex;align-items:center;justify-content:space-between;padding-top:4px;">
+            <span>Source: Earth Engine Analysis Pipeline</span>
+            <button onclick="refreshGeeLayersData()" style="background:none;border:none;color:#10b981;cursor:pointer;font-size:9.5px;text-decoration:underline;">Sync Feeds</button>
+          </div>
+        </div>
+      </div>
+
       <!-- INCIDENTS FLOATING ACTION BUTTON -->
       <button id="incidents-btn" class="incidents-btn" onclick="toggleIncidentsPanel(event)" title="Live Emergency Field Incidents">
         <span class="inc-icon">🚨</span>
@@ -2221,6 +2730,204 @@ body.emergency-screen-pulse::before {
     </div>
   </div>
 
+  <!-- METEOROLOGICAL RADAR & CYCLONE MODAL -->
+  <div id="weather-modal" class="modal-backdrop hidden" onclick="closeWeatherModal()">
+    <div class="weather-modal-container" onclick="event.stopPropagation()">
+      <div class="ops-popover-header" style="border-bottom:1px solid rgba(56,189,248,0.3);padding:14px 18px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:22px;filter:drop-shadow(0 0 6px #38bdf8)">🌀</span>
+          <div>
+            <div style="font-size:13px;font-weight:800;color:#38bdf8;letter-spacing:.6px;">BAY OF BENGAL METEOROLOGICAL RADAR</div>
+            <div style="font-size:10px;color:#94a3b8;" id="weather-modal-source">Open-Meteo Real-Time Telemetry &bull; Severe Cyclonic Storm Model</div>
+          </div>
+        </div>
+        <button class="ops-popover-close" onclick="closeWeatherModal()">&times;</button>
+      </div>
+      <div style="padding:16px;display:flex;flex-direction:column;gap:14px;max-height:75vh;overflow-y:auto;">
+        <!-- Top Storm Metric Cards -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
+          <div class="weather-metric-card">
+            <span class="weather-m-lbl">Current Peak Gusts</span>
+            <span class="weather-m-val" style="color:#ef4444" id="m-gusts">128.5 km/h</span>
+            <span class="weather-m-sub">Gale Category 3-4</span>
+          </div>
+          <div class="weather-metric-card">
+            <span class="weather-m-lbl">Central Pressure</span>
+            <span class="weather-m-val" style="color:#38bdf8" id="m-pressure">974.5 hPa</span>
+            <span class="weather-m-sub">Eye Wall Depression</span>
+          </div>
+          <div class="weather-metric-card">
+            <span class="weather-m-lbl">Storm Surge Outlook</span>
+            <span class="weather-m-val" style="color:#f59e0b" id="m-surge">3.8 - 4.5 m</span>
+            <span class="weather-m-sub">Coincident High Tide</span>
+          </div>
+          <div class="weather-metric-card">
+            <span class="weather-m-lbl">Estimated Landfall</span>
+            <span class="weather-m-val" style="color:#a855f7" id="m-landfall">T+06 Hours</span>
+            <span class="weather-m-sub">Sagar Island Sector</span>
+          </div>
+        </div>
+
+        <!-- Observation Station Telemetry Table -->
+        <div style="background:rgba(10,18,30,0.8);border:1px solid rgba(56,189,248,0.25);border-radius:8px;padding:12px;">
+          <div style="font-size:11px;font-weight:700;color:#e2e8f0;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">
+            <span>📡 COASTAL OBSERVATION STATIONS</span>
+            <span style="font-size:9.5px;color:#38bdf8;">Real-Time Sensor Telemetry</span>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="weather-station-table" style="width:100%;font-size:11px;border-collapse:collapse;color:#cbd5e1;">
+              <thead>
+                <tr style="border-bottom:1px solid rgba(255,255,255,0.1);text-align:left;color:#94a3b8;font-size:9.5px;">
+                  <th style="padding:6px 8px;">STATION</th>
+                  <th style="padding:6px 8px;">PRESSURE</th>
+                  <th style="padding:6px 8px;">WIND / GUSTS</th>
+                  <th style="padding:6px 8px;">RAIN RATE</th>
+                  <th style="padding:6px 8px;">STATUS</th>
+                </tr>
+              </thead>
+              <tbody id="weather-station-rows">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 48-Hour Landfall Timeline -->
+        <div style="background:rgba(10,18,30,0.8);border:1px solid rgba(56,189,248,0.25);border-radius:8px;padding:12px;">
+          <div style="font-size:11px;font-weight:700;color:#e2e8f0;margin-bottom:10px;">
+            ⏱️ 48-HOUR CYCLONE LANDFALL &amp; SURGE TIMELINE
+          </div>
+          <div class="weather-timeline-container" id="weather-timeline-list">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GOOGLE GEMINI MULTIMODAL EARLY WARNING ADVISORY MODAL -->
+  <div id="advisory-modal" class="modal-backdrop hidden" onclick="closeAdvisoryModal()">
+    <div class="advisory-modal-container" onclick="event.stopPropagation()">
+      <div class="ops-popover-header" style="border-bottom:1px solid rgba(168,85,247,0.35);padding:14px 18px;background:rgba(20,12,35,0.85);display:flex;align-items:center;justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:24px;filter:drop-shadow(0 0 8px #c084fc)">📢</span>
+          <div>
+            <div style="font-size:13.5px;font-weight:800;color:#f3e8ff;letter-spacing:.6px;display:flex;align-items:center;gap:8px;">
+              <span>EARLY WARNING &amp; DISASTER ADVISORY</span>
+              <span id="adv-engine-badge" style="font-size:9.5px;font-weight:800;padding:2px 7px;border-radius:4px;background:rgba(168,85,247,0.25);color:#d8b4fe;border:1px solid rgba(168,85,247,0.5);">GOOGLE GEMINI 2.5 FLASH</span>
+            </div>
+            <div style="font-size:10px;color:#a855f7;">Bilingual Multimodal Decision Support &bull; West Bengal State Disaster Authority</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="display:flex;align-items:center;gap:6px;">
+            <label style="font-size:10px;color:#94a3b8;font-weight:600;">ZONE:</label>
+            <select id="advisory-zone-select" onchange="fetchGeminiAdvisory(this.value)" style="background:rgba(15,23,42,0.9);color:#f8fafc;border:1px solid rgba(168,85,247,0.4);border-radius:5px;padding:3px 8px;font-size:11px;font-weight:700;outline:none;">
+              <!-- Dynamically populated with West Bengal zones -->
+            </select>
+          </div>
+          <button class="ops-popover-close" onclick="closeAdvisoryModal()">&times;</button>
+        </div>
+      </div>
+
+      <div style="padding:16px;display:flex;flex-direction:column;gap:14px;max-height:78vh;overflow-y:auto;">
+        <!-- Alert Level Banner -->
+        <div id="adv-banner" class="advisory-alert-banner RED_ALERT">
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span id="adv-tag" class="advisory-tag" style="background:#ef4444;color:#fff;">🚨 RED ALERT</span>
+              <span id="adv-urgency" style="font-size:11px;font-weight:800;color:#f87171;letter-spacing:.5px;">IMMEDIATE EVACUATION ORDER</span>
+            </div>
+            <div class="advisory-lang-tabs">
+              <button id="adv-tab-en" class="advisory-lang-tab active" onclick="switchAdvisoryLang('en')">English</button>
+              <button id="adv-tab-bn" class="advisory-lang-tab" onclick="switchAdvisoryLang('bn')">বাংলা (Bengali)</button>
+              <button id="adv-tab-both" class="advisory-lang-tab" onclick="switchAdvisoryLang('both')">Dual View</button>
+            </div>
+          </div>
+
+          <!-- English Headline & Summary View -->
+          <div id="adv-view-en" style="margin-top:6px;">
+            <div id="adv-headline-en" style="font-size:13.5px;font-weight:800;color:#f8fafc;line-height:1.4;">
+              EMERGENCY EVACUATION ORDER: Severe Storm Surge & Gale-Force Winds
+            </div>
+            <div id="adv-summary-en" style="font-size:11.5px;color:#cbd5e1;line-height:1.5;margin-top:6px;">
+              SRTM elevation indicates this coastal zone lies below 3.0m elevation. Immediate evacuation required.
+            </div>
+          </div>
+
+          <!-- Bengali Headline & Summary View -->
+          <div id="adv-view-bn" style="margin-top:6px;display:none;">
+            <div id="adv-headline-bn" style="font-size:14px;font-weight:800;color:#fef08a;line-height:1.4;">
+              জরুরী উচ্ছেদ নির্দেশিকা: মারাত্মক জলোচ্ছ্বাস ও ধ্বংসাত্মক ঘূর্ণিঝড়
+            </div>
+            <div id="adv-summary-bn" style="font-size:12px;color:#f1f5f9;line-height:1.6;margin-top:6px;">
+              উপকূলীয় কাঁচা বাঁধের নিকটবর্তী সকল বাসিন্দাকে অবিলম্বে পাকা সাইক্লোন শেল্টারে আশ্রয় নিতে নির্দেশ দেওয়া হচ্ছে।
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Key Hazard Drivers Grid -->
+        <div>
+          <div style="font-size:10px;font-weight:800;color:#a855f7;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;">
+            CRITICAL HAZARD &amp; VULNERABILITY DRIVERS
+          </div>
+          <div class="advisory-hazard-grid" id="adv-hazard-drivers">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Evacuation Directive & Shelters -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <!-- Evacuation Directive -->
+          <div style="background:rgba(15,23,42,0.7);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:12px;">
+            <div style="font-size:10px;font-weight:800;color:#38bdf8;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;">
+              CIVILIAN EVACUATION DIRECTIVE
+            </div>
+            <div id="adv-directive" style="font-size:11.5px;color:#e2e8f0;line-height:1.5;">
+              Move inland immediately along designated high-ridge embankments.
+            </div>
+            <div id="adv-directive-bn" style="font-size:11.5px;color:#fef08a;line-height:1.5;margin-top:8px;padding-top:8px;border-top:1px dashed rgba(255,255,255,0.1);">
+              উঁচু সড়ক ও বাঁধ ধরে অবিলম্বে নিরাপদ আশ্রয়ে যান।
+            </div>
+          </div>
+
+          <!-- Safe Cyclone Shelters (MPCS) -->
+          <div style="background:rgba(15,23,42,0.7);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:12px;">
+            <div style="font-size:10px;font-weight:800;color:#22c55e;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;">
+              RECOMMENDED REINFORCED SHELTERS
+            </div>
+            <div id="adv-shelter-list" style="display:flex;flex-direction:column;gap:6px;">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+
+        <!-- First Responder Tactical Notes -->
+        <div style="background:rgba(24,18,36,0.75);border:1px solid rgba(168,85,247,0.3);border-radius:8px;padding:12px;">
+          <div style="font-size:10px;font-weight:800;color:#c084fc;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;">
+            TACTICAL FIRST RESPONDER DIRECTIVE (NDRF / SDRF / COAST GUARD)
+          </div>
+          <div id="adv-responder-notes" style="font-size:11.5px;color:#cbd5e1;line-height:1.5;">
+            Stage inflatable rescue boats at high school depot. Pre-position dewatering pumps.
+          </div>
+        </div>
+
+        <!-- Action Footer -->
+        <div style="display:flex;align-items:center;justify-content:space-between;padding-top:6px;border-top:1px solid rgba(255,255,255,0.08);">
+          <div style="font-size:10px;color:#94a3b8;" id="adv-timestamp">Generated just now</div>
+          <div style="display:flex;gap:8px;">
+            <button class="ai-btn" onclick="broadcastAdvisoryAlert()" style="background:rgba(239,68,68,0.2);border-color:#ef4444;color:#fca5a5;">
+              📢 Broadcast Community Alert
+            </button>
+            <button class="ai-btn" onclick="fetchGeminiAdvisory(document.getElementById('advisory-zone-select').value)">
+              ↺ Re-Evaluate (Gemini)
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- DRAWER BACKDROP -->
   <div id="drawer-backdrop" class="drawer-backdrop hidden" onclick="closeAllDrawers()"></div>
 
@@ -2319,8 +3026,8 @@ body.emergency-screen-pulse::before {
 // CONFIG
 // ═══════════════════════════════════════════════════════
 const API = window.location.origin;
-const CENTER = [25.315, 83.065];
-const ZOOM = 12;
+const CENTER = [21.95, 88.15];
+const ZOOM = 10;
 
 // ═══════════════════════════════════════════════════════
 // STATE
@@ -2974,9 +3681,19 @@ window._origAnimateEvacuationTransit = window._origAnimateEvacuationTransit || n
 
 const DISPATCH_TYPES = ['bus','rescue_van','ambulance','rescue_boat','helicopter','medical_team','water_tanker','food_unit'];
 
-let currentScenario = 'varanasi';
+let currentScenario = 'west_bengal';
 let dynamicWhatIfOptions = [];
 const STATIC_WHAT_IF_OPTIONS_MAP = {
+  west_bengal: [
+    { key:'PRIMARY_ROAD_BLOCKED',   label:'🌊 Cyclone Surge Washout (WBR01 Sagar)',    event:{type:'PRIMARY_ROAD_BLOCKED', road_id:'WBR01'} },
+    { key:'ALTERNATE_ROAD_BLOCKED', label:'🚧 Embankment Breach (WBR05 Bakkhali)',     event:{type:'ALTERNATE_ROAD_BLOCKED', road_id:'WBR05'} },
+    { key:'SAFE_ZONE_FULL',         label:'🛡️ MPCS Shelter Full (WBS1 Diamond Harbour)', event:{type:'SAFE_ZONE_FULL', safe_zone_id:'WBS1', shelter_id:'WBS1'} },
+    { key:'SAFE_ZONE_UNAVAILABLE',  label:'⛔ Kakdwip Shelter Offline / Flooded',       event:{type:'SAFE_ZONE_UNAVAILABLE', safe_zone_id:'WBS2', shelter_id:'WBS2'} },
+    { key:'VEHICLE_BREAKDOWN',      label:'🔧 Rescue Convoy Engine Breakdown',          event:{type:'VEHICLE_BREAKDOWN'} },
+    { key:'POPULATION_SURGE',       label:'👥 Surge Inundation (+35% At Risk)',         event:{type:'POPULATION_SURGE', surge_pct:35} },
+    { key:'COMMUNICATION_FAILURE',  label:'📡 Cyclone Tower Grid Failure',              event:{type:'COMMUNICATION_FAILURE'} },
+    { key:'SEVERE_WEATHER',         label:'🌀 Category 4 Gale Winds (Speeds -50%)',    event:{type:'SEVERE_WEATHER', speed_multiplier:0.5} },
+  ],
   varanasi: [
     { key:'PRIMARY_ROAD_BLOCKED',   label:'🚧 Primary Road Blocked (R11)',       event:{type:'PRIMARY_ROAD_BLOCKED', road_id:'R11'} },
     { key:'ALTERNATE_ROAD_BLOCKED', label:'⚠️ Alternate Road Blocked (R13)',     event:{type:'ALTERNATE_ROAD_BLOCKED', road_id:'R13'} },
@@ -3002,7 +3719,7 @@ const STATIC_WHAT_IF_OPTIONS_MAP = {
 
 function getWhatIfOptions() {
   const map = new Map();
-  const staticOpts = STATIC_WHAT_IF_OPTIONS_MAP[currentScenario] || STATIC_WHAT_IF_OPTIONS_MAP['varanasi'];
+  const staticOpts = STATIC_WHAT_IF_OPTIONS_MAP[currentScenario] || STATIC_WHAT_IF_OPTIONS_MAP['west_bengal'] || STATIC_WHAT_IF_OPTIONS_MAP['varanasi'];
   staticOpts.forEach(opt => map.set(opt.key, opt));
   dynamicWhatIfOptions.forEach(opt => map.set(opt.key, opt));
   Object.keys(activeEvents).forEach(k => {
@@ -3076,12 +3793,12 @@ async function init() {
         if (selector) selector.value = currentScenario;
         const activeSc = (scData.scenarios || []).find(s => s.id === currentScenario);
         if (activeSc) {
-          if (activeSc.center && activeSc.zoom && currentScenario !== 'varanasi') {
+          if (activeSc.center && activeSc.zoom) {
             map.setView(activeSc.center, activeSc.zoom);
           }
           const badge = document.getElementById('scenario-label');
           if (badge) {
-            const emoji = currentScenario === 'nepal' ? '🏔️' : '🌊';
+            const emoji = currentScenario === 'nepal' ? '🏔️' : (currentScenario === 'west_bengal' ? '🌀' : '🌊');
             badge.textContent = `${emoji} ${activeSc.name} — Demo Scenario`;
           }
           const regionEl = document.getElementById('ops-scenario-region');
@@ -3118,6 +3835,13 @@ async function init() {
     // Initialize Real-time Incidents polling
     pollIncidents();
     setInterval(pollIncidents, 3500);
+
+    // Initialize Google Earth Engine status
+    loadGeeStatus();
+
+    // Initialize Real-time Weather Telemetry
+    pollWeather();
+    setInterval(pollWeather, 12000);
   } catch(e) {
     console.error(e);
     document.getElementById('loading').innerHTML = `
@@ -3210,6 +3934,19 @@ function clearAllMapLayers() {
     (layers || []).forEach(l => { try { map.removeLayer(l); } catch(e){} });
   });
   dispatchRouteTrails = {};
+
+  if (geeElevationLayer) { try { map.removeLayer(geeElevationLayer); } catch(e){} geeElevationLayer = null; }
+  if (geeLandCoverLayer) { try { map.removeLayer(geeLandCoverLayer); } catch(e){} geeLandCoverLayer = null; }
+  if (geeRainfallLayer) { try { map.removeLayer(geeRainfallLayer); } catch(e){} geeRainfallLayer = null; }
+  if (geoRiskLayer) { try { map.removeLayer(geoRiskLayer); } catch(e){} geoRiskLayer = null; }
+  const tElev = document.getElementById('toggle-gee-elevation'); if (tElev) tElev.checked = false;
+  const tLand = document.getElementById('toggle-gee-land-cover'); if (tLand) tLand.checked = false;
+  const tRain = document.getElementById('toggle-gee-rainfall'); if (tRain) tRain.checked = false;
+  const tRisk = document.getElementById('toggle-geo-risk'); if (tRisk) tRisk.checked = false;
+  document.getElementById('card-gee-elevation')?.classList.remove('active');
+  document.getElementById('card-gee-land-cover')?.classList.remove('active');
+  document.getElementById('card-gee-rainfall')?.classList.remove('active');
+  document.getElementById('card-geo-risk')?.classList.remove('active');
 }
 
 async function onScenarioChanged(scenarioId) {
@@ -3778,9 +4515,73 @@ function renderCityLabels() {
     try { cityLabelsLayer.clearLayers(); } catch(e){}
   }
 
-  const isNepal = (currentScenario === 'nepal') || (state && state.scenario_id === 'nepal');
+  const scKey = ((state && state.scenario_id) || currentScenario || 'west_bengal').toLowerCase();
+  const isNepal = scKey === 'nepal';
+  const isVaranasi = scKey === 'varanasi';
+  const isWestBengal = !isNepal && !isVaranasi;
 
-  if (!isNepal) {
+  if (isWestBengal) {
+    // 1. Regional Command Anchor: DIAMOND HARBOUR / S24P
+    const wbAnchorIcon = L.divIcon({
+      className: 'map-label-major-city-container',
+      html: `<div class="map-label-major-city">
+               <span class="major-city-badge">COASTAL COMMAND SECTOR</span>
+               <span class="major-city-name">DIAMOND HARBOUR / S24P</span>
+             </div>`,
+      iconSize: [240, 48],
+      iconAnchor: [120, 24]
+    });
+    L.marker([22.195, 88.190], { icon: wbAnchorIcon, interactive: false }).addTo(cityLabelsLayer);
+
+    // 2. Waterway Landmark: BAY OF BENGAL
+    const bayIcon = L.divIcon({
+      className: 'map-label-waterway-container',
+      html: `<div class="map-label-waterway">
+               <span class="water-icon">🌊</span>
+               <span>NORTHERN BAY OF BENGAL</span>
+             </div>`,
+      iconSize: [230, 26],
+      iconAnchor: [115, 13]
+    });
+    L.marker([21.550, 88.100], { icon: bayIcon, interactive: false }).addTo(cityLabelsLayer);
+
+    // 3. Estuary Landmark: SUNDARBANS MANGROVE DELTA
+    const sundarbanIcon = L.divIcon({
+      className: 'map-label-waterway-container',
+      html: `<div class="map-label-waterway">
+               <span class="water-icon">🌿</span>
+               <span>SUNDARBANS DELTA BIOSPHERE</span>
+             </div>`,
+      iconSize: [240, 26],
+      iconAnchor: [120, 13]
+    });
+    L.marker([22.120, 88.750], { icon: sundarbanIcon, interactive: false }).addTo(cityLabelsLayer);
+
+    // 4. Surrounding Coastal Localities
+    const wbLocalities = [
+      { name: 'SAGAR ISLAND', coords: [21.645, 88.085] },
+      { name: 'KAKDWIP PORT', coords: [21.875, 88.188] },
+      { name: 'BAKKHALI SEAFRONT', coords: [21.564, 88.256] },
+      { name: 'GOSABA CORE', coords: [22.164, 88.805] },
+      { name: 'CANNING GATEWAY', coords: [22.312, 88.665] },
+      { name: 'HALDIA PORT', coords: [22.062, 88.068] },
+      { name: 'DIGHA SEAFRONT', coords: [21.628, 87.512] },
+      { name: 'CONTAI BUFFER', coords: [21.782, 87.755] }
+    ];
+
+    wbLocalities.forEach(loc => {
+      const locIcon = L.divIcon({
+        className: 'map-label-locality-container',
+        html: `<div class="map-label-locality">
+                 <span class="locality-dot"></span>
+                 <span>${loc.name}</span>
+               </div>`,
+        iconSize: [140, 24],
+        iconAnchor: [70, 12]
+      });
+      L.marker(loc.coords, { icon: locIcon, interactive: false }).addTo(cityLabelsLayer);
+    });
+  } else if (isVaranasi) {
     // 1. Major City Anchor: VARANASI
     const varanasiIcon = L.divIcon({
       className: 'map-label-major-city-container',
@@ -4783,6 +5584,633 @@ async function dispatchResource(zoneId, resourceType) {
   }
 }
 
+// ═══════════════════════════════════════════════════════
+// GOOGLE EARTH ENGINE GEOSPATIAL INTELLIGENCE LAYERS
+// ═══════════════════════════════════════════════════════
+let geeStatus = null;
+let geeElevationLayer = null;
+let geeLandCoverLayer = null;
+let geeRainfallLayer = null;
+let geeDataCache = { elevation: null, landCover: null, rainfall: null };
+
+function toggleGeePanel(e) {
+  if (e) e.stopPropagation();
+  const panel = document.getElementById('gee-popover');
+  if (!panel) return;
+  if (panel.classList.contains('hidden')) {
+    openGeePanel();
+  } else {
+    closeGeePanel();
+  }
+}
+
+function openGeePanel() {
+  const panel = document.getElementById('gee-popover');
+  const btn = document.getElementById('gee-layers-btn');
+  if (!panel) return;
+  panel.classList.remove('hidden');
+  if (btn) btn.classList.add('open');
+  if (!geeStatus) {
+    loadGeeStatus();
+  }
+}
+
+function closeGeePanel() {
+  const panel = document.getElementById('gee-popover');
+  const btn = document.getElementById('gee-layers-btn');
+  if (!panel) return;
+  panel.classList.add('hidden');
+  if (btn) btn.classList.remove('open');
+}
+
+async function loadGeeStatus() {
+  const badge = document.getElementById('gee-status-badge');
+  const btnBadge = document.getElementById('gee-badge');
+  try {
+    const res = await apiFetch('/api/gee/status');
+    geeStatus = res;
+    if (res && res.connected) {
+      if (badge) {
+        badge.textContent = 'ONLINE (LIVE GEE)';
+        badge.style.background = 'rgba(16,185,129,0.25)';
+        badge.style.color = '#34d399';
+        badge.style.borderColor = '#10b981';
+      }
+      if (btnBadge) {
+        btnBadge.textContent = 'LIVE';
+        btnBadge.classList.add('active');
+      }
+    } else {
+      if (badge) {
+        badge.textContent = 'CALIBRATED BASELINE';
+        badge.style.background = 'rgba(56,189,248,0.2)';
+        badge.style.color = '#38bdf8';
+        badge.style.borderColor = '#0284c7';
+      }
+      if (btnBadge) {
+        btnBadge.textContent = 'GEE';
+        btnBadge.classList.remove('active');
+      }
+    }
+  } catch(e) {
+    console.warn('GEE status check fallback:', e);
+    if (badge) {
+      badge.textContent = 'SIMULATED (OFFLINE)';
+      badge.style.background = 'rgba(234,179,8,0.2)';
+      badge.style.color = '#fde047';
+    }
+  }
+}
+
+async function refreshGeeLayersData() {
+  const badge = document.getElementById('gee-status-badge');
+  if (badge) badge.textContent = 'SYNCING...';
+  await loadGeeStatus();
+  if (document.getElementById('toggle-gee-elevation')?.checked) {
+    await onToggleGeeElevation(true, true);
+  }
+  if (document.getElementById('toggle-gee-land-cover')?.checked) {
+    await onToggleGeeLandCover(true, true);
+  }
+  if (document.getElementById('toggle-gee-rainfall')?.checked) {
+    await onToggleGeeRainfall(true, true);
+  }
+}
+
+async function onToggleGeeElevation(enable, forceReload = false) {
+  const card = document.getElementById('card-gee-elevation');
+  if (card) card.classList.toggle('active', enable);
+
+  if (geeElevationLayer) {
+    try { map.removeLayer(geeElevationLayer); } catch(e){}
+    geeElevationLayer = null;
+  }
+  if (!enable) return;
+
+  try {
+    if (!geeDataCache.elevation || forceReload) {
+      geeDataCache.elevation = await apiFetch('/api/gee/elevation');
+    }
+    const data = geeDataCache.elevation;
+    if (!data) return;
+
+    if (data.summary) {
+      const el = document.getElementById('gee-stat-mean-elev');
+      if (el) el.textContent = `${data.summary.mean_elevation_m} m`;
+    }
+    if (data.surge_vulnerability?.very_high_0_3m) {
+      const el = document.getElementById('gee-stat-surge-pct');
+      if (el) el.textContent = `${data.surge_vulnerability.very_high_0_3m.pct}%`;
+    }
+
+    geeElevationLayer = L.layerGroup();
+
+    if (data.tile_url) {
+      const tileLyr = L.tileLayer(data.tile_url, { opacity: 0.65, maxZoom: 18 });
+      geeElevationLayer.addLayer(tileLyr);
+    }
+
+    if (data.zones) {
+      Object.entries(data.zones).forEach(([zid, zinfo]) => {
+        const zoneObj = (state && state.zones || []).find(z => z.id === zid);
+        if (zoneObj && zoneObj.lat && zoneObj.lon) {
+          const elev = zinfo.elevation_m;
+          const color = elev < 2.0 ? '#ef4444' : (elev < 4.0 ? '#f97316' : (elev < 7.0 ? '#eab308' : '#22c55e'));
+          const radius = elev < 2.0 ? 3200 : (elev < 4.0 ? 2500 : 1800);
+          const circle = L.circle([zoneObj.lat, zoneObj.lon], {
+            radius: radius,
+            color: color,
+            fillColor: color,
+            fillOpacity: 0.22,
+            weight: 2,
+            dashArray: '4, 4'
+          });
+          circle.bindPopup(`
+            <div style="font-size:12px;font-family:sans-serif;color:#1e293b;padding:4px;">
+              <b style="color:${color};font-size:13px;">🌊 GEE SRTM Elevation: ${zinfo.name}</b><br/>
+              <b>Elevation:</b> ${elev} m ASL<br/>
+              <b>Surge Risk:</b> <span style="font-weight:700;color:${color};">${zinfo.surge_risk}</span><br/>
+              <b>Model:</b> USGS/SRTMGL1_003 30m Coastal DEM
+            </div>
+          `);
+          geeElevationLayer.addLayer(circle);
+        }
+      });
+    }
+
+    geeElevationLayer.addTo(map);
+  } catch(e) {
+    console.error('Error toggling GEE Elevation layer:', e);
+  }
+}
+
+async function onToggleGeeLandCover(enable, forceReload = false) {
+  const card = document.getElementById('card-gee-land-cover');
+  if (card) card.classList.toggle('active', enable);
+
+  if (geeLandCoverLayer) {
+    try { map.removeLayer(geeLandCoverLayer); } catch(e){}
+    geeLandCoverLayer = null;
+  }
+  if (!enable) return;
+
+  try {
+    if (!geeDataCache.landCover || forceReload) {
+      geeDataCache.landCover = await apiFetch('/api/gee/land-cover');
+    }
+    const data = geeDataCache.landCover;
+    if (!data) return;
+
+    if (data.mangrove_buffer_km2) {
+      const el = document.getElementById('gee-stat-mangroves');
+      if (el) el.textContent = `${data.mangrove_buffer_km2.toLocaleString()} km²`;
+    }
+    if (data.built_exposure_pct) {
+      const el = document.getElementById('gee-stat-built');
+      if (el) el.textContent = `${data.built_exposure_pct}%`;
+    }
+
+    geeLandCoverLayer = L.layerGroup();
+
+    if (data.tile_url) {
+      const tileLyr = L.tileLayer(data.tile_url, { opacity: 0.65, maxZoom: 18 });
+      geeLandCoverLayer.addLayer(tileLyr);
+    }
+
+    const sundarbanPolygon = L.polygon([
+      [22.25, 88.40],
+      [22.35, 88.95],
+      [21.75, 89.15],
+      [21.55, 88.60],
+      [21.65, 88.25],
+      [22.05, 88.35]
+    ], {
+      color: '#397d49',
+      fillColor: '#397d49',
+      fillOpacity: 0.28,
+      weight: 2
+    });
+    sundarbanPolygon.bindPopup(`
+      <div style="font-size:12px;font-family:sans-serif;color:#1e293b;padding:4px;">
+        <b style="color:#2d6a4f;font-size:13px;">🌿 GEE Dynamic World: Sundarbans Mangrove Buffer</b><br/>
+        <b>Area:</b> 4,260 km² Biosphere Reserve<br/>
+        <b>Wave Attenuation:</b> Up to 66% tidal energy reduction<br/>
+        <b>Dataset:</b> GOOGLE/DYNAMICWORLD/V1 Sentinel-2
+      </div>
+    `);
+    geeLandCoverLayer.addLayer(sundarbanPolygon);
+
+    geeLandCoverLayer.addTo(map);
+  } catch(e) {
+    console.error('Error toggling GEE Land Cover layer:', e);
+  }
+}
+
+async function onToggleGeeRainfall(enable, forceReload = false) {
+  const card = document.getElementById('card-gee-rainfall');
+  if (card) card.classList.toggle('active', enable);
+
+  if (geeRainfallLayer) {
+    try { map.removeLayer(geeRainfallLayer); } catch(e){}
+    geeRainfallLayer = null;
+  }
+  if (!enable) return;
+
+  try {
+    if (!geeDataCache.rainfall || forceReload) {
+      geeDataCache.rainfall = await apiFetch('/api/gee/rainfall');
+    }
+    const data = geeDataCache.rainfall;
+    if (!data) return;
+
+    if (data.rainfall_24h_mm) {
+      const el = document.getElementById('gee-stat-rainfall');
+      if (el) el.textContent = `${data.rainfall_24h_mm} mm`;
+    }
+    if (data.soil_saturation_pct) {
+      const el = document.getElementById('gee-stat-saturation');
+      if (el) el.textContent = `${data.soil_saturation_pct}%`;
+    }
+
+    geeRainfallLayer = L.layerGroup();
+
+    if (data.tile_url) {
+      const tileLyr = L.tileLayer(data.tile_url, { opacity: 0.65, maxZoom: 18 });
+      geeRainfallLayer.addLayer(tileLyr);
+    }
+
+    if (data.station_readings) {
+      data.station_readings.forEach(st => {
+        const val = st.rainfall_mm;
+        const color = val > 150 ? '#9333ea' : (val > 100 ? '#2563eb' : '#06b6d4');
+        const marker = L.circleMarker([st.lat, st.lon], {
+          radius: 12 + Math.min(18, val / 15),
+          color: color,
+          fillColor: color,
+          fillOpacity: 0.35,
+          weight: 2
+        });
+        marker.bindPopup(`
+          <div style="font-size:12px;font-family:sans-serif;color:#1e293b;padding:4px;">
+            <b style="color:${color};font-size:13px;">🌧️ CHIRPS Rainfall: ${st.station}</b><br/>
+            <b>24h Precipitation:</b> ${st.rainfall_mm} mm<br/>
+            <b>72h Cumulative:</b> ${st.rainfall_72h_mm} mm<br/>
+            <b>Soil Moisture Saturation:</b> ${st.soil_moisture_pct}%<br/>
+            <b>Dataset:</b> UCSB-CHG/CHIRPS/DAILY
+          </div>
+        `);
+        geeRainfallLayer.addLayer(marker);
+      });
+    }
+
+    geeRainfallLayer.addTo(map);
+  } catch(e) {
+    console.error('Error toggling GEE Rainfall layer:', e);
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+// METEOROLOGICAL TELEMETRY & PREDICTIVE GEO-RISK ENGINE (PHASE 2)
+// ═══════════════════════════════════════════════════════
+let geoRiskLayer = null;
+let liveWeatherData = null;
+let liveForecastData = null;
+let geoRiskCache = null;
+
+async function pollWeather() {
+  try {
+    const data = await apiFetch('/api/weather/current');
+    if (!data) return;
+    liveWeatherData = data;
+
+    const windEl = document.getElementById('strip-weather-wind');
+    const pressEl = document.getElementById('strip-weather-pressure');
+    const alertEl = document.getElementById('strip-weather-alert');
+
+    if (windEl) {
+      const gust = data.wind_gusts_kmh || (data.wind_speed_kmh ? data.wind_speed_kmh * 1.3 : 110);
+      windEl.textContent = `GUSTS ${Math.round(gust)} KM/H`;
+    }
+    if (pressEl) {
+      pressEl.textContent = `${data.surface_pressure_hpa || 974.5} hPa`;
+    }
+    if (alertEl && data.cyclonic_intensity?.warning_level) {
+      alertEl.textContent = data.cyclonic_intensity.warning_level.replace('_', ' ');
+      alertEl.style.background = data.cyclonic_intensity.warning_level === 'RED_ALERT' ? 'rgba(239,68,68,0.25)' : 'rgba(245,158,11,0.25)';
+      alertEl.style.color = data.cyclonic_intensity.warning_level === 'RED_ALERT' ? '#f87171' : '#fde047';
+    }
+  } catch(e) {
+    console.warn('Weather poll fallback:', e);
+  }
+}
+
+async function openWeatherModal() {
+  const modal = document.getElementById('weather-modal');
+  if (!modal) return;
+  modal.classList.remove('hidden');
+
+  try {
+    const [current, forecast, stations] = await Promise.all([
+      apiFetch('/api/weather/current'),
+      apiFetch('/api/weather/forecast'),
+      apiFetch('/api/weather/stations')
+    ]);
+
+    liveWeatherData = current;
+    liveForecastData = forecast;
+
+    if (current) {
+      const srcEl = document.getElementById('weather-modal-source');
+      if (srcEl) srcEl.textContent = `${current.source || 'Bay of Bengal Telemetry'} • Cyclone Analysis Active`;
+      const gustEl = document.getElementById('m-gusts');
+      if (gustEl) gustEl.textContent = `${current.wind_gusts_kmh || 128.5} km/h`;
+      const pressEl = document.getElementById('m-pressure');
+      if (pressEl) pressEl.textContent = `${current.surface_pressure_hpa || 974.5} hPa`;
+      const surgeEl = document.getElementById('m-surge');
+      if (surgeEl) surgeEl.textContent = current.cyclonic_intensity?.surge_height_est_m ? `${current.cyclonic_intensity.surge_height_est_m} m` : '3.8 - 4.5 m';
+      const landEl = document.getElementById('m-landfall');
+      if (landEl && forecast?.estimated_landfall_time) landEl.textContent = forecast.estimated_landfall_time;
+    }
+
+    const tbody = document.getElementById('weather-station-rows');
+    if (tbody && stations?.stations) {
+      tbody.innerHTML = stations.stations.map(st => {
+        const statusColor = st.status === 'CRITICAL_GALE' ? '#ef4444' : (st.status === 'HIGH_GALE' ? '#f97316' : '#22c55e');
+        return `
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+            <td style="padding:6px 8px;font-weight:700;color:#f8fafc;">${st.name}</td>
+            <td style="padding:6px 8px;color:#38bdf8;">${st.surface_pressure_hpa} hPa</td>
+            <td style="padding:6px 8px;">${st.wind_speed_kmh} / <b style="color:#ef4444;">${st.wind_gusts_kmh} km/h</b></td>
+            <td style="padding:6px 8px;color:#06b6d4;">${st.precipitation_rate_mm_h} mm/h</td>
+            <td style="padding:6px 8px;"><span style="font-size:8.5px;padding:2px 6px;border-radius:3px;background:${statusColor}22;color:${statusColor};border:1px solid ${statusColor}55;">${st.status}</span></td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    const tlContainer = document.getElementById('weather-timeline-list');
+    if (tlContainer && forecast?.forecast_timeline) {
+      tlContainer.innerHTML = forecast.forecast_timeline.map(item => `
+        <div class="weather-timeline-row">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-weight:800;color:#38bdf8;min-width:65px;">${item.time}</span>
+            <span style="color:#e2e8f0;font-weight:600;">${item.stage}</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:10px;">
+            <span>Gusts: <b style="color:#ef4444;">${item.wind_gusts_kmh} km/h</b></span>
+            <span>Surge: <b style="color:#f59e0b;">${item.surge_height_m}m</b></span>
+            <span>Rain: <b style="color:#38bdf8;">+${item.rain_accum_mm}mm</b></span>
+          </div>
+        </div>
+      `).join('');
+    }
+  } catch(e) {
+    console.error('Error rendering weather modal:', e);
+  }
+}
+
+function closeWeatherModal() {
+  const modal = document.getElementById('weather-modal');
+  if (modal) modal.classList.add('hidden');
+}
+
+// ═══════════════════════════════════════════════════════
+// GOOGLE GEMINI MULTIMODAL EARLY WARNING ADVISORY SYSTEM
+// ═══════════════════════════════════════════════════════
+let activeAdvisoryData = null;
+let currentAdvisoryLang = 'en';
+
+async function openAdvisoryModal(targetZoneId = null) {
+  const modal = document.getElementById('advisory-modal');
+  if (!modal) return;
+  modal.classList.remove('hidden');
+
+  // Populate zones select dropdown
+  const sel = document.getElementById('advisory-zone-select');
+  if (sel && state.zones && state.zones.length > 0) {
+    const prevVal = sel.value;
+    sel.innerHTML = state.zones.map(z => 
+      `<option value="${z.id}" ${z.id === (targetZoneId || selectedZoneId || prevVal || state.zones[0].id) ? 'selected' : ''}>${z.name} (${z.id})</option>`
+    ).join('');
+  }
+
+  const zoneToFetch = targetZoneId || (sel ? sel.value : (selectedZoneId || (state.zones && state.zones[0]?.id)));
+  await fetchGeminiAdvisory(zoneToFetch);
+}
+
+function closeAdvisoryModal() {
+  const modal = document.getElementById('advisory-modal');
+  if (modal) modal.classList.add('hidden');
+}
+
+function switchAdvisoryLang(lang) {
+  currentAdvisoryLang = lang;
+  const btnEn = document.getElementById('adv-tab-en');
+  const btnBn = document.getElementById('adv-tab-bn');
+  const btnBoth = document.getElementById('adv-tab-both');
+  const viewEn = document.getElementById('adv-view-en');
+  const viewBn = document.getElementById('adv-view-bn');
+
+  if (btnEn) btnEn.classList.toggle('active', lang === 'en');
+  if (btnBn) btnBn.classList.toggle('active', lang === 'bn');
+  if (btnBoth) btnBoth.classList.toggle('active', lang === 'both');
+
+  if (lang === 'en') {
+    if (viewEn) viewEn.style.display = 'block';
+    if (viewBn) viewBn.style.display = 'none';
+  } else if (lang === 'bn') {
+    if (viewEn) viewEn.style.display = 'none';
+    if (viewBn) viewBn.style.display = 'block';
+  } else {
+    if (viewEn) viewEn.style.display = 'block';
+    if (viewBn) {
+      viewBn.style.display = 'block';
+      viewBn.style.marginTop = '10px';
+      viewBn.style.paddingTop = '10px';
+      viewBn.style.borderTop = '1px dashed rgba(255,255,255,0.15)';
+    }
+  }
+}
+
+async function fetchGeminiAdvisory(zoneId) {
+  try {
+    const headlineEn = document.getElementById('adv-headline-en');
+    if (headlineEn) headlineEn.innerHTML = `<span style="color:#c084fc;">⚡ Synthesizing Gemini 2.5 Flash Advisory for Zone ${zoneId || ''}...</span>`;
+
+    const data = await apiPost('/api/ai/advisory', { zone_id: zoneId });
+    if (!data) return;
+    activeAdvisoryData = data;
+
+    // Badge engine
+    const badgeEl = document.getElementById('adv-engine-badge');
+    if (badgeEl) badgeEl.textContent = (data.source_engine || 'GOOGLE GEMINI 2.5 FLASH').toUpperCase();
+
+    // Banner & alert level
+    const banner = document.getElementById('adv-banner');
+    const tag = document.getElementById('adv-tag');
+    const urgency = document.getElementById('adv-urgency');
+    const alertLevel = data.alert_level || 'RED_ALERT';
+
+    if (banner) {
+      banner.className = `advisory-alert-banner ${alertLevel}`;
+    }
+    if (tag) {
+      if (alertLevel === 'RED_ALERT') {
+        tag.style.background = '#ef4444';
+        tag.textContent = '🚨 RED ALERT';
+      } else if (alertLevel === 'ORANGE_ALERT') {
+        tag.style.background = '#f97316';
+        tag.textContent = '⚠️ ORANGE ALERT';
+      } else {
+        tag.style.background = '#eab308';
+        tag.textContent = '⚡ YELLOW ADVISORY';
+      }
+    }
+    if (urgency) {
+      urgency.textContent = data.urgency === 'IMMEDIATE' ? 'IMMEDIATE EVACUATION DIRECTIVE' : 'HEIGHTENED PREPAREDNESS & MONITORING';
+      urgency.style.color = alertLevel === 'RED_ALERT' ? '#f87171' : '#fb923c';
+    }
+
+    // Headlines & Summaries
+    if (headlineEn) headlineEn.textContent = data.headline_en || 'Emergency Evacuation Advisory';
+    const summaryEn = document.getElementById('adv-summary-en');
+    if (summaryEn) summaryEn.textContent = data.executive_summary_en || '';
+
+    const headlineBn = document.getElementById('adv-headline-bn');
+    if (headlineBn) headlineBn.textContent = data.headline_bn || 'জরুরী উচ্ছেদ নির্দেশিকা';
+    const summaryBn = document.getElementById('adv-summary-bn');
+    if (summaryBn) summaryBn.textContent = data.executive_summary_bn || '';
+
+    // Directives
+    const dirEn = document.getElementById('adv-directive');
+    if (dirEn) dirEn.textContent = data.evacuation_directive_en || '';
+    const dirBn = document.getElementById('adv-directive-bn');
+    if (dirBn) dirBn.textContent = data.evacuation_directive_bn || '';
+
+    // Hazard drivers grid
+    const hazGrid = document.getElementById('adv-hazard-drivers');
+    if (hazGrid && data.hazard_drivers) {
+      const icons = ['🌊', '🏔️', '💨', '🌿'];
+      hazGrid.innerHTML = data.hazard_drivers.map((h, i) => `
+        <div class="advisory-hazard-item">
+          <span style="font-size:16px;">${icons[i % icons.length]}</span>
+          <span>${escapeHtml(h)}</span>
+        </div>
+      `).join('');
+    }
+
+    // Shelters list
+    const shelterList = document.getElementById('adv-shelter-list');
+    if (shelterList && data.recommended_shelters) {
+      shelterList.innerHTML = data.recommended_shelters.map(s => `
+        <div class="advisory-shelter-card">
+          <div style="font-weight:700;color:#f8fafc;font-size:11px;">🏢 ${escapeHtml(s.name)}</div>
+          <div style="display:flex;gap:6px;align-items:center;">
+            <span style="font-size:9.5px;color:#38bdf8;">${s.distance_km || 2.5} km</span>
+            <span style="font-size:8.5px;font-weight:800;padding:1px 5px;border-radius:3px;background:rgba(34,197,94,0.2);color:#86efac;border:1px solid rgba(34,197,94,0.4);">${s.capacity_status || 'CAPACITY OK'}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // First responder notes
+    const respNotes = document.getElementById('adv-responder-notes');
+    if (respNotes) respNotes.textContent = data.first_responder_notes || 'Stage emergency assets at designated depots.';
+
+    // Timestamp
+    const timeEl = document.getElementById('adv-timestamp');
+    if (timeEl) timeEl.textContent = `Generated: ${new Date().toLocaleTimeString()} • ${data.source_engine || 'Gemini 2.5 Flash'}`;
+
+  } catch(e) {
+    console.error('Failed to fetch Gemini advisory:', e);
+    const headlineEn = document.getElementById('adv-headline-en');
+    if (headlineEn) headlineEn.textContent = `Advisory error: ${e.message || e}`;
+  }
+}
+
+function broadcastAdvisoryAlert() {
+  if (!activeAdvisoryData) return;
+  alert(
+    `🚨 SIMULATED EMERGENCY CELL BROADCAST (CAP PROTOCOL)\n\n` +
+    `AUTHORITY: West Bengal State Disaster Management Authority\n` +
+    `ZONE: ${activeAdvisoryData.zone_name || 'Coastal Belt'}\n` +
+    `ALERT: ${activeAdvisoryData.headline_en || 'Evacuate Now'}\n\n` +
+    `বাংলা:\n${activeAdvisoryData.headline_bn || 'নিরাপদ আশ্রয়ে যান'}\n\n` +
+    `Broadcast queued across 14 cell towers in Sector South 24 Parganas.`
+  );
+}
+
+async function onToggleGeoRisk(enable, forceReload = false) {
+  const card = document.getElementById('card-geo-risk');
+  if (card) card.classList.toggle('active', enable);
+
+  if (geoRiskLayer) {
+    try { map.removeLayer(geoRiskLayer); } catch(e){}
+    geoRiskLayer = null;
+  }
+  if (!enable) return;
+
+  try {
+    if (!geoRiskCache || forceReload) {
+      geoRiskCache = await apiFetch('/api/risk/hazard-map');
+    }
+    const data = geoRiskCache;
+    if (!data || !data.features) return;
+
+    if (data.metadata) {
+      const critEl = document.getElementById('gee-stat-risk-critical');
+      if (critEl) critEl.textContent = `${data.metadata.critical_zones || 0} Zones`;
+      const popEl = document.getElementById('gee-stat-risk-pop');
+      if (popEl) popEl.textContent = (data.metadata.total_at_risk_population || 0).toLocaleString();
+    }
+
+    geoRiskLayer = L.layerGroup();
+
+    data.features.forEach(feat => {
+      const coords = feat.geometry.coordinates; // [lon, lat]
+      const props = feat.properties;
+      const color = props.color || '#ef4444';
+      const radius = props.radius_meters || 3200;
+
+      const circle = L.circle([coords[1], coords[0]], {
+        radius: radius,
+        color: color,
+        fillColor: color,
+        fillOpacity: 0.32,
+        weight: 2,
+        dashArray: '3, 3'
+      });
+
+      circle.bindPopup(`
+        <div style="font-family:sans-serif;font-size:12px;color:#1e293b;padding:4px;min-width:230px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+            <b style="color:${color};font-size:13px;">🎯 ${props.name}</b>
+            <span style="font-size:9px;font-weight:800;padding:2px 6px;border-radius:4px;background:${color}22;color:${color};border:1px solid ${color}66;">${props.classification}</span>
+          </div>
+          <div style="background:#f1f5f9;border-radius:4px;padding:6px;margin:6px 0;font-size:11px;">
+            <div style="display:flex;justify-content:space-between;"><span>Composite Risk:</span><b style="color:${color};font-size:13px;">${props.composite_risk}/100</b></div>
+            <div style="display:flex;justify-content:space-between;"><span>Hazard (Surge/Wind):</span><b>${props.hazard_score}</b></div>
+            <div style="display:flex;justify-content:space-between;"><span>Exposure (Pop/Infra):</span><b>${props.exposure_score}</b></div>
+            <div style="display:flex;justify-content:space-between;"><span>Vulnerability (Deficit):</span><b>${props.vulnerability_score}</b></div>
+          </div>
+          <div style="font-size:10.5px;color:#475569;margin-bottom:4px;">
+            <b>Primary Threat:</b> ${props.primary_threat}
+          </div>
+          <div style="font-size:10px;font-weight:700;color:${color};">
+            Directive: ${props.evacuation_urgency}
+          </div>
+        </div>
+      `);
+
+      geoRiskLayer.addLayer(circle);
+    });
+
+    geoRiskLayer.addTo(map);
+  } catch(e) {
+    console.error('Error toggling Geo-Risk layer:', e);
+  }
+}
+
 let latestDispatchedId = null;
 let latestDispatchedTime = 0;
 
@@ -5594,12 +7022,22 @@ document.addEventListener('click', (e) => {
       closeIncidentsPanel();
     }
   }
+
+  const geePanel = document.getElementById('gee-popover');
+  const geeBtn = document.getElementById('gee-layers-btn');
+  if (geePanel && !geePanel.classList.contains('hidden')) {
+    if (!geePanel.contains(e.target) && (!geeBtn || !geeBtn.contains(e.target))) {
+      closeGeePanel();
+    }
+  }
 });
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     closeOperationsPanel();
     closeIncidentsPanel();
+    closeGeePanel();
+    closeWeatherModal();
   }
 });
 
@@ -8905,6 +10343,10 @@ function showZoneDetail(zone) {
 
         <button class="start-evac-primary-btn" onclick="openEvacuationPlanModal('${zone.id}')">
           🚨 START EVACUATION
+        </button>
+
+        <button class="ai-btn" onclick="openAdvisoryModal('${zone.id}')" style="margin-top:6px;width:100%;display:flex;align-items:center;justify-content:center;gap:6px;background:rgba(168,85,247,0.22);border:1px solid rgba(168,85,247,0.55);color:#f3e8ff;padding:7px 10px;font-size:11px;font-weight:700;border-radius:6px;cursor:pointer;">
+          <span style="font-size:13px">📢</span> VIEW GEMINI EARLY WARNING ADVISORY
         </button>
       </div>
     `;

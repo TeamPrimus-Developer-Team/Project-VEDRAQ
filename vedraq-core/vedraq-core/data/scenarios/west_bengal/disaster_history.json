@@ -1,0 +1,311 @@
+{
+  "WB01": [
+    {
+      "year": 2024,
+      "type": "Severe Cyclonic Storm Remal",
+      "severity": "Extreme",
+      "description": "135 km/h winds and 3.5m storm surge breached island ring embankments, submerging southern agricultural land.",
+      "affectedPopulation": 26000,
+      "duration": "5 days",
+      "outcome": "22,000 evacuated to MPCS cyclone shelters; NDRF motorboats mobilized."
+    },
+    {
+      "year": 2021,
+      "type": "Very Severe Cyclonic Storm Yaas",
+      "severity": "Critical",
+      "description": "Astronomical high tide synchronized with 2.8m surge overtopping river dikes across Sagar Block.",
+      "affectedPopulation": 29000,
+      "duration": "7 days",
+      "outcome": "Relief air-drops via Coast Guard ALH; saline water pumps deployed."
+    },
+    {
+      "year": 2020,
+      "type": "Super Cyclone Amphan",
+      "severity": "Catastrophic",
+      "description": "Category 5 equivalent landfall. Catastrophic tree uprooting, telecommunication tower collapse, 90% power grid destroyed.",
+      "affectedPopulation": 34000,
+      "duration": "14 days",
+      "outcome": "Army and NDRF restored lifeline roads; restoration took weeks."
+    }
+  ],
+  "WB02": [
+    {
+      "year": 2024,
+      "type": "Cyclone Remal",
+      "severity": "High",
+      "description": "Storm surge submerged Kakdwip fish landing center and damaged harbor jetties.",
+      "affectedPopulation": 19000,
+      "duration": "4 days",
+      "outcome": "Trawlers secured; emergency food distributed."
+    },
+    {
+      "year": 2020,
+      "type": "Super Cyclone Amphan",
+      "severity": "Extreme",
+      "description": "Severe gale winds tore off tin roofs across market complexes and snapped NH 12 feeder roads.",
+      "affectedPopulation": 32000,
+      "duration": "10 days",
+      "outcome": "SDRF rapid clearing of tree debris."
+    }
+  ],
+  "WB04": [
+    {
+      "year": 2024,
+      "type": "Cyclone Remal",
+      "severity": "Extreme",
+      "description": "Direct marine surge inundated Henry Island and Bakkhali beach resorts under 2 meters of seawater.",
+      "affectedPopulation": 14000,
+      "duration": "6 days",
+      "outcome": "Total coastal evacuation to concrete MPCS."
+    },
+    {
+      "year": 2019,
+      "type": "Severe Cyclonic Storm Bulbul",
+      "severity": "High",
+      "description": "Eye of cyclone passed near Bakkhali; coastal casuarina plantation devastated.",
+      "affectedPopulation": 12000,
+      "duration": "4 days",
+      "outcome": "Shelter occupancy reached 100%."
+    }
+  ],
+  "WB05": [
+    {
+      "year": 2024,
+      "type": "Cyclone Remal",
+      "severity": "Extreme",
+      "description": "Bidhyadhari and Matla river saline breaches submerged freshwater ponds across Gosaba island.",
+      "affectedPopulation": 31000,
+      "duration": "8 days",
+      "outcome": "Mobile RO water purification units dispatched by boat."
+    },
+    {
+      "year": 2021,
+      "type": "Cyclone Yaas",
+      "severity": "Critical",
+      "description": "Saline ingress ruined fertile paddy fields across 8 Gram Panchayats.",
+      "affectedPopulation": 28000,
+      "duration": "9 days",
+      "outcome": "State government initiated embankment reconstruction."
+    }
+  ],
+  "WB03": [
+    {
+      "year": 2024,
+      "type": "Cyclone Remal (Coastal Inundation)",
+      "severity": "High",
+      "description": "Heavy cyclonic downpours (>190mm) inundated low-lying areas of Namkhana Delta Sector.",
+      "affectedPopulation": 16800,
+      "duration": "4 days",
+      "outcome": "Community shelters activated; civil defense relief provided."
+    },
+    {
+      "year": 2020,
+      "type": "Super Cyclone Amphan",
+      "severity": "Extreme",
+      "description": "Wind gusts over 140 km/h caused widespread structural damage in Namkhana Delta Sector.",
+      "affectedPopulation": 21600,
+      "duration": "8 days",
+      "outcome": "National disaster response restored essential lifelines."
+    }
+  ],
+  "WB06": [
+    {
+      "year": 2024,
+      "type": "Cyclone Remal (Coastal Inundation)",
+      "severity": "High",
+      "description": "Heavy cyclonic downpours (>190mm) inundated low-lying areas of Canning Gateway.",
+      "affectedPopulation": 15399,
+      "duration": "4 days",
+      "outcome": "Community shelters activated; civil defense relief provided."
+    },
+    {
+      "year": 2020,
+      "type": "Super Cyclone Amphan",
+      "severity": "Extreme",
+      "description": "Wind gusts over 140 km/h caused widespread structural damage in Canning Gateway.",
+      "affectedPopulation": 19800,
+      "duration": "8 days",
+      "outcome": "National disaster response restored essential lifelines."
+    }
+  ],
+  "WB07": [
+    {
+      "year": 2024,
+      "type": "Cyclone Remal (Coastal Inundation)",
+      "severity": "High",
+      "description": "Heavy cyclonic downpours (>190mm) inundated low-lying areas of Diamond Harbour.",
+      "affectedPopulation": 18200,
+      "duration": "4 days",
+      "outcome": "Community shelters activated; civil defense relief provided."
+    },
+    {
+      "year": 2020,
+      "type": "Super Cyclone Amphan",
+      "severity": "Extreme",
+      "description": "Wind gusts over 140 km/h caused widespread structural damage in Diamond Harbour.",
+      "affectedPopulation": 23400,
+      "duration": "8 days",
+      "outcome": "National disaster response restored essential lifelines."
+    }
+  ],
+  "WB08": [
+    {
+      "year": 2024,
+      "type": "Cyclone Remal (Coastal Inundation)",
+      "severity": "High",
+      "description": "Heavy cyclonic downpours (>190mm) inundated low-lying areas of Kulpi Embankment Sector.",
+      "affectedPopulation": 18200,
+      "duration": "4 days",
+      "outcome": "Community shelters activated; civil defense relief provided."
+    },
+    {
+      "year": 2020,
+      "type": "Super Cyclone Amphan",
+      "severity": "Extreme",
+      "description": "Wind gusts over 140 km/h caused widespread structural damage in Kulpi Embankment Sector.",
+      "affectedPopulation": 23400,
+      "duration": "8 days",
+      "outcome": "National disaster response restored essential lifelines."
+    }
+  ],
+  "WB09": [
+    {
+      "year": 2024,
+      "type": "Cyclone Remal (Coastal Inundation)",
+      "severity": "High",
+      "description": "Heavy cyclonic downpours (>190mm) inundated low-lying areas of Patharpratima Island Block.",
+      "affectedPopulation": 19950,
+      "duration": "4 days",
+      "outcome": "Community shelters activated; civil defense relief provided."
+    },
+    {
+      "year": 2020,
+      "type": "Super Cyclone Amphan",
+      "severity": "Extreme",
+      "description": "Wind gusts over 140 km/h caused widespread structural damage in Patharpratima Island Block.",
+      "affectedPopulation": 25650,
+      "duration": "8 days",
+      "outcome": "National disaster response restored essential lifelines."
+    }
+  ],
+  "WB10": [
+    {
+      "year": 2024,
+      "type": "Cyclone Remal (Coastal Inundation)",
+      "severity": "High",
+      "description": "Heavy cyclonic downpours (>190mm) inundated low-lying areas of Kultali Mangrove Fringe.",
+      "affectedPopulation": 16099,
+      "duration": "4 days",
+      "outcome": "Community shelters activated; civil defense relief provided."
+    },
+    {
+      "year": 2020,
+      "type": "Super Cyclone Amphan",
+      "severity": "Extreme",
+      "description": "Wind gusts over 140 km/h caused widespread structural damage in Kultali Mangrove Fringe.",
+      "affectedPopulation": 20700,
+      "duration": "8 days",
+      "outcome": "National disaster response restored essential lifelines."
+    }
+  ],
+  "WB11": [
+    {
+      "year": 2024,
+      "type": "Cyclone Remal (Coastal Inundation)",
+      "severity": "High",
+      "description": "Heavy cyclonic downpours (>190mm) inundated low-lying areas of Basirhat Estuary Sector.",
+      "affectedPopulation": 19600,
+      "duration": "4 days",
+      "outcome": "Community shelters activated; civil defense relief provided."
+    },
+    {
+      "year": 2020,
+      "type": "Super Cyclone Amphan",
+      "severity": "Extreme",
+      "description": "Wind gusts over 140 km/h caused widespread structural damage in Basirhat Estuary Sector.",
+      "affectedPopulation": 25200,
+      "duration": "8 days",
+      "outcome": "National disaster response restored essential lifelines."
+    }
+  ],
+  "WB12": [
+    {
+      "year": 2024,
+      "type": "Cyclone Remal (Coastal Inundation)",
+      "severity": "High",
+      "description": "Heavy cyclonic downpours (>190mm) inundated low-lying areas of Haldia Industrial & Maritime Hub.",
+      "affectedPopulation": 21000,
+      "duration": "4 days",
+      "outcome": "Community shelters activated; civil defense relief provided."
+    },
+    {
+      "year": 2020,
+      "type": "Super Cyclone Amphan",
+      "severity": "Extreme",
+      "description": "Wind gusts over 140 km/h caused widespread structural damage in Haldia Industrial & Maritime Hub.",
+      "affectedPopulation": 27000,
+      "duration": "8 days",
+      "outcome": "National disaster response restored essential lifelines."
+    }
+  ],
+  "WB13": [
+    {
+      "year": 2024,
+      "type": "Cyclone Remal (Coastal Inundation)",
+      "severity": "High",
+      "description": "Heavy cyclonic downpours (>190mm) inundated low-lying areas of Digha Coastal Seafront.",
+      "affectedPopulation": 14699,
+      "duration": "4 days",
+      "outcome": "Community shelters activated; civil defense relief provided."
+    },
+    {
+      "year": 2020,
+      "type": "Super Cyclone Amphan",
+      "severity": "Extreme",
+      "description": "Wind gusts over 140 km/h caused widespread structural damage in Digha Coastal Seafront.",
+      "affectedPopulation": 18900,
+      "duration": "8 days",
+      "outcome": "National disaster response restored essential lifelines."
+    }
+  ],
+  "WB14": [
+    {
+      "year": 2024,
+      "type": "Cyclone Remal (Coastal Inundation)",
+      "severity": "High",
+      "description": "Heavy cyclonic downpours (>190mm) inundated low-lying areas of Contai (Kanthi) Logistics Hub.",
+      "affectedPopulation": 13300,
+      "duration": "4 days",
+      "outcome": "Community shelters activated; civil defense relief provided."
+    },
+    {
+      "year": 2020,
+      "type": "Super Cyclone Amphan",
+      "severity": "Extreme",
+      "description": "Wind gusts over 140 km/h caused widespread structural damage in Contai (Kanthi) Logistics Hub.",
+      "affectedPopulation": 17100,
+      "duration": "8 days",
+      "outcome": "National disaster response restored essential lifelines."
+    }
+  ],
+  "WB15": [
+    {
+      "year": 2024,
+      "type": "Cyclone Remal (Coastal Inundation)",
+      "severity": "High",
+      "description": "Heavy cyclonic downpours (>190mm) inundated low-lying areas of South 24 Parganas Regional Command.",
+      "affectedPopulation": 11200,
+      "duration": "4 days",
+      "outcome": "Community shelters activated; civil defense relief provided."
+    },
+    {
+      "year": 2020,
+      "type": "Super Cyclone Amphan",
+      "severity": "Extreme",
+      "description": "Wind gusts over 140 km/h caused widespread structural damage in South 24 Parganas Regional Command.",
+      "affectedPopulation": 14400,
+      "duration": "8 days",
+      "outcome": "National disaster response restored essential lifelines."
+    }
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "hospitals": [
+    {
+      "id": "WBH1",
+      "name": "Diamond Harbour Govt Medical College & Hospital",
+      "latitude": 22.196,
+      "longitude": 88.192,
+      "status": "functional",
+      "capacity": 350,
+      "zone_id": "WB07",
+      "available_beds": 210,
+      "specialization": "Emergency, Trauma, Super-Speciality"
+    },
+    {
+      "id": "WBH2",
+      "name": "Haldia Sub-Divisional Hospital",
+      "latitude": 22.06,
+      "longitude": 88.065,
+      "status": "functional",
+      "capacity": 250,
+      "zone_id": "WB12",
+      "available_beds": 165,
+      "specialization": "General, Industrial Trauma, Surgical"
+    },
+    {
+      "id": "WBH3",
+      "name": "Kakdwip Sub-Divisional Hospital",
+      "latitude": 21.878,
+      "longitude": 88.19,
+      "status": "functional",
+      "capacity": 150,
+      "zone_id": "WB02",
+      "available_beds": 62,
+      "specialization": "Maternal, Infectious, Emergency"
+    },
+    {
+      "id": "WBH4",
+      "name": "Canning Sub-Divisional Hospital",
+      "latitude": 22.31,
+      "longitude": 88.662,
+      "status": "functional",
+      "capacity": 120,
+      "zone_id": "WB06",
+      "available_beds": 48,
+      "specialization": "General, First Aid, Snakebite Treatment"
+    },
+    {
+      "id": "WBH5",
+      "name": "Contai Sub-Divisional Hospital",
+      "latitude": 21.78,
+      "longitude": 87.752,
+      "status": "functional",
+      "capacity": 200,
+      "zone_id": "WB14",
+      "available_beds": 135,
+      "specialization": "Trauma, Pediatric, General"
+    },
+    {
+      "id": "WBH6",
+      "name": "Kolkata Regional Apex Hospital (MR Bangur / SSKM)",
+      "latitude": 22.455,
+      "longitude": 88.325,
+      "status": "functional",
+      "capacity": 600,
+      "zone_id": "WB15",
+      "available_beds": 410,
+      "specialization": "Tertiary Care, Critical Care, Burn Unit"
+    },
+    {
+      "id": "WBH7",
+      "name": "Sagar Rural Hospital (Rudranagar)",
+      "latitude": 21.65,
+      "longitude": 88.09,
+      "status": "unavailable",
+      "capacity": 60,
+      "zone_id": "WB01",
+      "available_beds": 0,
+      "specialization": "Primary Care, Stabilization"
+    },
+    {
+      "id": "WBH8",
+      "name": "Gosaba Delta Rural Hospital",
+      "latitude": 22.16,
+      "longitude": 88.802,
+      "status": "unavailable",
+      "capacity": 50,
+      "zone_id": "WB05",
+      "available_beds": 0,
+      "specialization": "Primary Care, Outpatient"
+    }
+  ],
+  "shelters": [
+    {
+      "id": "WBS1",
+      "name": "Diamond Harbour Multipurpose Cyclone Shelter",
+      "latitude": 22.193,
+      "longitude": 88.188,
+      "capacity": 3500,
+      "current_occupancy": 1400,
+      "status": "open",
+      "food_stock_days": 6,
+      "water_supply": "functional"
+    },
+    {
+      "id": "WBS2",
+      "name": "Kakdwip Port Cyclone Shelter",
+      "latitude": 21.874,
+      "longitude": 88.186,
+      "capacity": 3000,
+      "current_occupancy": 1850,
+      "status": "open",
+      "food_stock_days": 4,
+      "water_supply": "functional"
+    },
+    {
+      "id": "WBS3",
+      "name": "Namkhana High School MPCS",
+      "latitude": 21.763,
+      "longitude": 88.23,
+      "capacity": 2200,
+      "current_occupancy": 1600,
+      "status": "open",
+      "food_stock_days": 2,
+      "water_supply": "partial"
+    },
+    {
+      "id": "WBS4",
+      "name": "Bakkhali Tourist Relief Complex",
+      "latitude": 21.562,
+      "longitude": 88.254,
+      "capacity": 1500,
+      "current_occupancy": 920,
+      "status": "open",
+      "food_stock_days": 1,
+      "water_supply": "none"
+    },
+    {
+      "id": "WBS5",
+      "name": "Sagar Gangasagar Pilgrim Shelter 01",
+      "latitude": 21.642,
+      "longitude": 88.082,
+      "capacity": 2800,
+      "current_occupancy": 1500,
+      "status": "open",
+      "food_stock_days": 2,
+      "water_supply": "none"
+    },
+    {
+      "id": "WBS6",
+      "name": "Gosaba Mangrove Cyclone Shelter",
+      "latitude": 22.162,
+      "longitude": 88.803,
+      "capacity": 2000,
+      "current_occupancy": 1400,
+      "status": "open",
+      "food_stock_days": 1,
+      "water_supply": "none"
+    },
+    {
+      "id": "WBS7",
+      "name": "Canning Stadium Emergency Camp",
+      "latitude": 22.314,
+      "longitude": 88.666,
+      "capacity": 4000,
+      "current_occupancy": 1800,
+      "status": "open",
+      "food_stock_days": 5,
+      "water_supply": "functional"
+    },
+    {
+      "id": "WBS8",
+      "name": "Haldia Township Cyclone Center",
+      "latitude": 22.064,
+      "longitude": 88.066,
+      "capacity": 3500,
+      "current_occupancy": 1200,
+      "status": "open",
+      "food_stock_days": 6,
+      "water_supply": "functional"
+    },
+    {
+      "id": "WBS9",
+      "name": "Digha Coastal Disaster Shelter",
+      "latitude": 21.626,
+      "longitude": 87.51,
+      "capacity": 2400,
+      "current_occupancy": 1800,
+      "status": "open",
+      "food_stock_days": 2,
+      "water_supply": "partial"
+    },
+    {
+      "id": "WBS10",
+      "name": "Contai Central Relief College",
+      "latitude": 21.784,
+      "longitude": 87.756,
+      "capacity": 3200,
+      "current_occupancy": 1100,
+      "status": "open",
+      "food_stock_days": 7,
+      "water_supply": "functional"
+    },
+    {
+      "id": "WBS11",
+      "name": "Patharpratima Island MPCS",
+      "latitude": 21.79,
+      "longitude": 88.356,
+      "capacity": 1800,
+      "current_occupancy": 1200,
+      "status": "open",
+      "food_stock_days": 1,
+      "water_supply": "none"
+    },
+    {
+      "id": "WBS12",
+      "name": "Kolkata South Evacuation Mega-Center",
+      "latitude": 22.448,
+      "longitude": 88.318,
+      "capacity": 8000,
+      "current_occupancy": 2100,
+      "status": "open",
+      "food_stock_days": 10,
+      "water_supply": "functional"
+    }
+  ],
+  "water_stations": [
+    {
+      "id": "WBW1",
+      "name": "Diamond Harbour Water Treatment Plant",
+      "latitude": 22.194,
+      "longitude": 88.191,
+      "status": "functional",
+      "capacity_liters": 180000,
+      "stock_liters": 140000
+    },
+    {
+      "id": "WBW2",
+      "name": "Kakdwip Reverse Osmosis Desalination Station",
+      "latitude": 21.876,
+      "longitude": 88.187,
+      "status": "functional",
+      "capacity_liters": 80000,
+      "stock_liters": 45000
+    },
+    {
+      "id": "WBW3",
+      "name": "Haldia Municipal Water Works",
+      "latitude": 22.063,
+      "longitude": 88.069,
+      "status": "functional",
+      "capacity_liters": 250000,
+      "stock_liters": 210000
+    },
+    {
+      "id": "WBW4",
+      "name": "Canning Riverine Water Depot",
+      "latitude": 22.311,
+      "longitude": 88.664,
+      "status": "functional",
+      "capacity_liters": 90000,
+      "stock_liters": 60000
+    }
+  ],
+  "depots": [
+    {
+      "id": "WB_DEPOT1",
+      "name": "NDRF 2nd Bn Coastal Staging Depot \u2014 Diamond Harbour",
+      "latitude": 22.198,
+      "longitude": 88.195,
+      "capacity": 600,
+      "water_stock_units": 12,
+      "food_stock_units": 18,
+      "medical_stock_units": 10
+    },
+    {
+      "id": "WB_DEPOT2",
+      "name": "Coast Guard & NDRF Relief Depot \u2014 Haldia Port",
+      "latitude": 22.065,
+      "longitude": 88.072,
+      "capacity": 550,
+      "water_stock_units": 10,
+      "food_stock_units": 15,
+      "medical_stock_units": 8
+    },
+    {
+      "id": "WB_DEPOT3",
+      "name": "SDRF Forward Emergency Base \u2014 Kakdwip",
+      "latitude": 21.872,
+      "longitude": 88.185,
+      "capacity": 450,
+      "water_stock_units": 8,
+      "food_stock_units": 12,
+      "medical_stock_units": 6
+    },
+    {
+      "id": "WB_DEPOT4",
+      "name": "Civil Defense Sundarbans Relief Depot \u2014 Canning",
+      "latitude": 22.315,
+      "longitude": 88.668,
+      "capacity": 400,
+      "water_stock_units": 7,
+      "food_stock_units": 10,
+      "medical_stock_units": 5
+    },
+    {
+      "id": "WB_DEPOT5",
+      "name": "Coastal Disaster Logistics Center \u2014 Contai",
+      "latitude": 21.785,
+      "longitude": 87.758,
+      "capacity": 500,
+      "water_stock_units": 9,
+      "food_stock_units": 14,
+      "medical_stock_units": 7
+    }
+  ],
+  "helicopter_bases": [
+    {
+      "id": "WBAIR1",
+      "name": "Coast Guard Air Enclave \u2014 Behala / Kolkata",
+      "latitude": 22.445,
+      "longitude": 88.315,
+      "helipad_count": 4,
+      "fuel_liters": 18000
+    },
+    {
+      "id": "WBAIR2",
+      "name": "Haldia Port Coast Guard Helipad Base",
+      "latitude": 22.058,
+      "longitude": 88.075,
+      "helipad_count": 2,
+      "fuel_liters": 9000
+    },
+    {
+      "id": "WBAIR3",
+      "name": "Kakdwip Coastal Air Response Helipad",
+      "latitude": 21.87,
+      "longitude": 88.18,
+      "helipad_count": 2,
+      "fuel_liters": 7000
+    }
+  ],
+  "depot": {
+    "id": "DEPOT",
+    "name": "NDRF 2nd Bn Coastal Staging Depot \u2014 Diamond Harbour",
+    "latitude": 22.198,
+    "longitude": 88.195
+  }
+}
