@@ -33,7 +33,7 @@ from app.services.routing import (
     compute_all_routes, find_route, get_road_geometry, RoutingService, haversine
 )
 from app.services.resource_optimizer import build_recommendations
-from app.services.simulation import SimulationState
+from app.services.simulation import SimulationState, get_cyclone_presets
 from app.services import gee_service
 from app.services.weather_service import weather_service
 from app.services.risk_engine import risk_engine
@@ -239,6 +239,13 @@ class SimEvent(BaseModel):
 
 class SimulationRequest(BaseModel):
     events: List[SimEvent]
+
+
+class ParametricCycloneRequest(BaseModel):
+    surge_height_m: Optional[float] = 3.0
+    wind_speed_kmh: Optional[float] = 130.0
+    rainfall_24h_mm: Optional[float] = 200.0
+    breach_locations: Optional[List[str]] = None
 
 
 class ScenarioSwitchRequest(BaseModel):
@@ -1399,6 +1406,25 @@ def reset_simulation():
     sim.reset()
     DISPATCHED_VEHICLES = {}
     return {"status": "reset", "message": "Simulation restored to baseline; all dispatches cleared."}
+
+
+@app.get("/api/simulation/cyclone-presets")
+def list_cyclone_presets():
+    return {"presets": get_cyclone_presets()}
+
+
+@app.post("/api/simulation/parametric-cyclone")
+def run_parametric_cyclone(req: ParametricCycloneRequest):
+    global DISPATCHED_VEHICLES
+    result = sim.apply_parametric_cyclone(
+        surge_height_m=req.surge_height_m if req.surge_height_m is not None else 3.0,
+        wind_speed_kmh=req.wind_speed_kmh if req.wind_speed_kmh is not None else 130.0,
+        rainfall_24h_mm=req.rainfall_24h_mm if req.rainfall_24h_mm is not None else 200.0,
+        breach_locations=req.breach_locations,
+        active_dispatches=list(DISPATCHED_VEHICLES.values())
+    )
+    result["active_dispatches"] = list(DISPATCHED_VEHICLES.values())
+    return result
 
 
 @app.get("/api/scenarios")

@@ -24,6 +24,7 @@ from .criticality import classify_all_zones
 from .routing import RoutingService, compute_all_routes, haversine
 from .resource_optimizer import build_recommendations, simulate_resource_effect
 from .evacuation import extend_affected_zone, upgrade_safe_zone
+from .risk_engine import ZONE_ELEVATION_MAPPING
 
 
 
@@ -211,6 +212,107 @@ class SimulationState:
                 zone["damage_percentage"] = min(100.0, float(zone.get("damage_percentage", 50.0)) + 10.0)
                 if zone.get("road_accessibility") == "open":
                     zone["road_accessibility"] = "degraded"
+
+        elif etype == "STORM_SURGE_INUNDATION":
+            # Physics-based storm surge inundation: compares elevation with surge water height
+            surge_h = float(event.get("surge_height_m", 3.0))
+            
+            # 1. Road inundation
+            for road in self.roads:
+                road_elev = float(road.get("elevation_m", 0.0))
+                if road_elev <= 0.0:
+                    fn = road.get("from_node", "")
+                    tn = road.get("to_node", "")
+                    fn_elev = ZONE_ELEVATION_MAPPING.get(fn, 3.5)
+                    tn_elev = ZONE_ELEVATION_MAPPING.get(tn, 3.5)
+                    road_elev = min(fn_elev, tn_elev)
+                    road["elevation_m"] = road_elev
+                # Low-lying roads or high flood vulnerability segments are submerged
+                if road_elev < surge_h or road.get("flood_vulnerability") in ("HIGH", "EXTREME"):
+                    depth = round(max(0.1, surge_h - road_elev), 2)
+                    road["status"] = "blocked"
+                    road["condition"] = "submerged"
+                    road["submerged"] = True
+                    road["inundation_depth_m"] = depth
+
+            # 2. Zone flooding
+            for zone in self.zones:
+                zid = zone.get("id", "")
+                zone_elev = float(zone.get("elevation_m", 0.0))
+                if zone_elev <= 0.0:
+                    zone_elev = ZONE_ELEVATION_MAPPING.get(zid, 2.8)
+                    zone["elevation_m"] = zone_elev
+                if zone_elev < surge_h:
+                    depth = round(max(0.2, surge_h - zone_elev), 2)
+                    zone["flooded"] = True
+                    zone["inundation_depth_m"] = depth
+                    zone["damage_percentage"] = min(100.0, float(zone.get("damage_percentage", 45.0)) + (depth * 15.0))
+                    pop = int(zone.get("population", 5000))
+                    zone["affected_population"] = min(pop, int(zone.get("affected_population", pop * 0.6) * (1.0 + min(0.7, depth * 0.22))))
+                    zone["peopleAtRisk"] = zone["affected_population"]
+                    zone["water_availability"] = "none"
+
+            # 3. Cyclone shelter ground-floor inundation
+            for s in self.facilities.get("shelters", []):
+                shelter_elev = float(s.get("elevation_m", 0.0))
+                if shelter_elev <= 0.0:
+                    slat = float(s.get("latitude", 0.0))
+                    slon = float(s.get("longitude", 0.0))
+                    nearest_z_elev = 2.8
+                    min_dist_sq = float("inf")
+                    for z in self.zones:
+                        zlat = float(z.get("latitude", 0.0))
+                        zlon = float(z.get("longitude", 0.0))
+                        dist_sq = (zlat - slat)**2 + (zlon - slon)**2
+                        if dist_sq < min_dist_sq:
+                            min_dist_sq = dist_sq
+                            nearest_z_elev = ZONE_ELEVATION_MAPPING.get(z.get("id"), 2.8)
+                    shelter_elev = round(nearest_z_elev + 0.6, 2)
+                    s["elevation_m"] = shelter_elev
+
+                if "available_capacity" not in s:
+                    s["available_capacity"] = max(0, int(s.get("capacity", 1000)) - int(s.get("current_occupancy", 0)))
+
+                if shelter_elev < surge_h:
+                    s["ground_floor_flooded"] = True
+                    s["inundation_depth_m"] = round(surge_h - shelter_elev, 2)
+                    s["available_capacity"] = max(0, int(s["available_capacity"] * 0.35))
+                    if (surge_h - shelter_elev) > 1.5:
+                        s["status"] = "unavailable"
+                        s["available_capacity"] = 0
+
+        elif etype == "CYCLONE_LANDFALL":
+            wind_speed = float(event.get("wind_speed_kmh", 140.0))
+            eye_zone = event.get("landfall_zone_id", "WB01")
+            for zone in self.zones:
+                zone["damage_percentage"] = min(100.0, float(zone.get("damage_percentage", 40.0)) + (wind_speed / 18.0))
+                if wind_speed >= 120.0:
+                    zone["communication_status"] = "none"
+            for road in self.roads:
+                if road.get("status") == "open" and (road.get("from_node") == eye_zone or road.get("to_node") == eye_zone):
+                    road["status"] = "blocked"
+                    road["condition"] = "debris_blocked"
+
+        elif etype == "EMBANKMENT_BREACH":
+            breaches = event.get("locations", ["WB01", "WB04", "WB05"])
+            for loc in breaches:
+                for zone in self.zones:
+                    if zone.get("id") == loc:
+                        zone["embankment_breached"] = True
+                        zone["damage_percentage"] = min(100.0, float(zone.get("damage_percentage", 50.0)) + 28.0)
+                        zone["road_accessibility"] = "INACCESSIBLE"
+                for road in self.roads:
+                    if road.get("from_node") == loc or road.get("to_node") == loc:
+                        road["status"] = "blocked"
+                        road["condition"] = "embankment_breached"
+
+        elif etype == "TORRENTIAL_PRECIPITATION":
+            rain_mm = float(event.get("rainfall_24h_mm", 220.0))
+            speed_factor = max(0.35, 1.0 - (rain_mm / 450.0))
+            for road in self.roads:
+                if road.get("status") == "open":
+                    road["status"] = "degraded"
+                    road["speed_kmh"] = max(10.0, float(road.get("speed_kmh", 25.0)) * speed_factor)
 
 
     def _build_nodes_dict(self) -> Dict[str, Dict]:
@@ -689,6 +791,160 @@ class SimulationState:
                 "alternate_route": blocked_a,
             }
 
+    def apply_parametric_cyclone(
+        self,
+        surge_height_m: float = 3.0,
+        wind_speed_kmh: float = 130.0,
+        rainfall_24h_mm: float = 200.0,
+        breach_locations: Optional[List[str]] = None,
+        active_dispatches: Optional[List[Dict]] = None
+    ) -> Dict[str, Any]:
+        """
+        Executes a physics-grounded, multi-hazard parametric cyclone simulation.
+        Translates continuous environmental variables into spatial cascading failures:
+        - Storm Surge (m) -> Inundation depth, road submersion, shelter capacity loss
+        - Wind Speed (km/h) -> Structural damage, telecom failure, debris blockages
+        - 24h Rainfall (mm) -> Road degradation, drainage congestion
+        - Embankment Breaches -> Severe saline intrusion & zone isolation
+        Returns the computed full state plus an extensive Before vs After impact delta.
+        """
+        # 1. Capture baseline state for delta comparison
+        self.reset()
+        base_state = self.compute_full_state(active_dispatches=active_dispatches)
+        base_zones = {z["id"]: deepcopy(z) for z in base_state["zones"]}
+        base_roads = {r["id"]: deepcopy(r) for r in base_state["roads"]}
+        base_shelters = {s["id"]: deepcopy(s) for s in base_state.get("facilities", {}).get("shelters", [])}
+        
+        # 2. Build multi-hazard event bundle
+        events = [
+            {"type": "STORM_SURGE_INUNDATION", "surge_height_m": surge_height_m},
+            {"type": "CYCLONE_LANDFALL", "wind_speed_kmh": wind_speed_kmh},
+            {"type": "TORRENTIAL_PRECIPITATION", "rainfall_24h_mm": rainfall_24h_mm},
+        ]
+        if breach_locations:
+            events.append({"type": "EMBANKMENT_BREACH", "locations": breach_locations})
+
+        # 3. Apply events and compute full cascading state
+        sim_state = self.apply_events(events, active_dispatches=active_dispatches)
+        
+        # 4. Build Before vs After comparison delta
+        newly_blocked_roads = []
+        for r in sim_state["roads"]:
+            rid = r["id"]
+            if r.get("status") == "blocked" and base_roads.get(rid, {}).get("status") != "blocked":
+                newly_blocked_roads.append({
+                    "road_id": rid,
+                    "from_node": r.get("from_node"),
+                    "to_node": r.get("to_node"),
+                    "reason": r.get("condition", "submerged"),
+                    "distance_km": r.get("distance_km", 2.0),
+                    "depth_m": r.get("inundation_depth_m", 0.0)
+                })
+
+        escalated_zones = []
+        for z in sim_state["zones"]:
+            zid = z["id"]
+            bz = base_zones.get(zid, {})
+            delta_hci = round(float(z.get("hci_score", 0)) - float(bz.get("hci_score", 0)), 1)
+            air_escalated = (
+                z.get("response_plan", {}).get("mode") == "AIR"
+                and bz.get("response_plan", {}).get("mode") != "AIR"
+            )
+            class_changed = z.get("classification") != bz.get("classification")
+            
+            if delta_hci >= 2.0 or air_escalated or class_changed or z.get("flooded"):
+                escalated_zones.append({
+                    "zone_id": zid,
+                    "name": z.get("name"),
+                    "baseline_hci": bz.get("hci_score"),
+                    "simulated_hci": z.get("hci_score"),
+                    "delta_hci": delta_hci,
+                    "baseline_class": bz.get("classification"),
+                    "simulated_class": z.get("classification"),
+                    "air_escalated": air_escalated,
+                    "inundation_depth_m": z.get("inundation_depth_m", 0.0),
+                    "people_at_risk_delta": int(z.get("affected_population", 0)) - int(bz.get("affected_population", 0))
+                })
+
+        flooded_shelters = []
+        for s in sim_state.get("facilities", {}).get("shelters", []):
+            sid = s["id"]
+            bs = base_shelters.get(sid, {})
+            if s.get("ground_floor_flooded") or s.get("status") == "unavailable":
+                flooded_shelters.append({
+                    "shelter_id": sid,
+                    "name": s.get("name"),
+                    "status": s.get("status"),
+                    "capacity_loss": int(bs.get("available_capacity", 0)) - int(s.get("available_capacity", 0))
+                })
+
+        return {
+            "parameters": {
+                "surge_height_m": surge_height_m,
+                "wind_speed_kmh": wind_speed_kmh,
+                "rainfall_24h_mm": rainfall_24h_mm,
+                "breach_locations": breach_locations or []
+            },
+            "summary": {
+                "newly_blocked_roads_count": len(newly_blocked_roads),
+                "escalated_zones_count": len(escalated_zones),
+                "air_evacuation_zones_count": sum(1 for ez in escalated_zones if ez.get("air_escalated")),
+                "flooded_shelters_count": len(flooded_shelters),
+                "total_affected_population": sum(z.get("affected_population", 0) for z in sim_state["zones"]),
+                "critical_zones_count": sum(1 for z in sim_state["zones"] if z.get("classification") == "CRITICAL")
+            },
+            "newly_blocked_roads": newly_blocked_roads,
+            "escalated_zones": escalated_zones,
+            "flooded_shelters": flooded_shelters,
+            "state": sim_state
+        }
+
+
+def get_cyclone_presets() -> List[Dict[str, Any]]:
+    """Return historical cyclone benchmarks for rapid scenario injection."""
+    return [
+        {
+            "id": "AMPHAN_2020",
+            "name": "Super Cyclone Amphan (2020)",
+            "category": "Super Cyclonic Storm (Cat 5 Eq.)",
+            "surge_height_m": 4.5,
+            "wind_speed_kmh": 185.0,
+            "rainfall_24h_mm": 240.0,
+            "breach_locations": ["WB01", "WB05", "WB04"],
+            "description": "Historical landfall at Bakkhali/Sagar Island with 4.5m storm surge and severe mangrove bio-shield breach."
+        },
+        {
+            "id": "YAAS_2021",
+            "name": "Very Severe Cyclone Yaas (2021)",
+            "category": "Very Severe Cyclonic Storm",
+            "surge_height_m": 3.8,
+            "wind_speed_kmh": 140.0,
+            "rainfall_24h_mm": 180.0,
+            "breach_locations": ["WB04", "WB03"],
+            "description": "Coincident with full moon astronomical spring tide, breaching coastal embankments in Namkhana and Digha."
+        },
+        {
+            "id": "REMAL_2024",
+            "name": "Severe Cyclone Remal (2024)",
+            "category": "Severe Cyclonic Storm",
+            "surge_height_m": 3.2,
+            "wind_speed_kmh": 125.0,
+            "rainfall_24h_mm": 210.0,
+            "breach_locations": ["WB01", "WB09"],
+            "description": "Extended monsoon cyclonic crossing with heavy precipitation across Sagar Island and Kakdwip."
+        },
+        {
+            "id": "CATASTROPHIC_SPRING_SURGE",
+            "name": "Worst-Case Catastrophic Surge (5.8m)",
+            "category": "Extreme High-Tide Surge",
+            "surge_height_m": 5.8,
+            "wind_speed_kmh": 200.0,
+            "rainfall_24h_mm": 350.0,
+            "breach_locations": ["WB01", "WB02", "WB03", "WB04", "WB05"],
+            "description": "Simulates 5.8m storm surge overtopping delta embankments, severing coastal roads, and mandating air bridges."
+        }
+    ]
+
 
 def _stock_key(resource_type: str) -> str:
     mapping = {
@@ -697,3 +953,4 @@ def _stock_key(resource_type: str) -> str:
         "medical_team": "medical_stock_units",
     }
     return mapping.get(resource_type, "capacity")
+

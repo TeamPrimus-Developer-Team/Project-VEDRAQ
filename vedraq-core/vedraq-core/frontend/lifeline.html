@@ -488,6 +488,26 @@ input:checked + .gee-slider:before{transform:translateX(18px);background-color:#
 .reset-btn{width:100%;padding:6px;background:rgba(59,130,246,0.15);border:1px solid var(--accent);border-radius:6px;color:var(--accent);font-size:11px;font-weight:600;cursor:pointer;margin-top:6px;transition:all .2s;}
 .reset-btn:hover{background:rgba(59,130,246,0.3);}
 
+.sim-mode-chip{padding:2px 7px;font-size:9.5px;font-weight:700;border-radius:4px;border:1px solid var(--border);background:var(--bg-card3);color:var(--text-muted);cursor:pointer;transition:all .2s;}
+.sim-mode-chip.active{border-color:#38bdf8;background:rgba(56,189,248,0.15);color:#38bdf8;}
+.cyclone-physics-container{display:flex;flex-direction:column;gap:7px;padding:2px 0;}
+.preset-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;}
+.preset-btn{padding:4px 5px;font-size:9px;font-weight:700;border-radius:4px;border:1px solid rgba(255,255,255,0.08);background:var(--bg-card2);color:var(--text-muted);cursor:pointer;text-align:center;transition:all .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.preset-btn:hover{border-color:#38bdf8;color:#fff;background:rgba(56,189,248,0.12);}
+.preset-btn.active{border-color:#f59e0b;color:#f59e0b;background:rgba(245,158,11,0.15);}
+.slider-group{background:var(--bg-card2);border:1px solid var(--border);border-radius:6px;padding:5px 7px;display:flex;flex-direction:column;gap:3px;}
+.slider-header{display:flex;justify-content:space-between;align-items:center;font-size:10px;}
+.slider-label{font-weight:700;color:var(--text);display:flex;align-items:center;gap:4px;}
+.slider-val{font-weight:800;font-size:11px;color:#38bdf8;}
+.cyclone-slider{width:100%;height:4px;border-radius:2px;background:rgba(255,255,255,0.12);outline:none;cursor:pointer;accent-color:#38bdf8;}
+.breach-section{background:var(--bg-card2);border:1px solid var(--border);border-radius:6px;padding:5px 7px;}
+.breach-header{font-size:9.5px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.3px;margin-bottom:4px;display:flex;justify-content:space-between;}
+.breach-chips{display:flex;flex-wrap:wrap;gap:4px;}
+.breach-chip{padding:2px 5px;font-size:8.5px;font-weight:700;border-radius:4px;border:1px solid rgba(255,255,255,0.08);background:var(--bg-card3);color:var(--text-muted);cursor:pointer;transition:all .15s;}
+.breach-chip.active{border-color:var(--critical);background:rgba(239,68,68,0.18);color:#fca5a5;}
+.run-cyclone-btn{width:100%;padding:6px;background:linear-gradient(135deg,rgba(6,182,212,0.25),rgba(59,130,246,0.35));border:1px solid #38bdf8;border-radius:6px;color:#e0f2fe;font-size:10.5px;font-weight:800;letter-spacing:.3px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:5px;}
+.run-cyclone-btn:hover{background:linear-gradient(135deg,rgba(6,182,212,0.4),rgba(59,130,246,0.55));box-shadow:0 0 10px rgba(56,189,248,0.35);}
+
 .compare-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;min-width:0;}
 .compare-col{background:var(--bg-card2);border-radius:6px;padding:8px;min-width:0;overflow:hidden;}
 .compare-col h5{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:6px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
@@ -2689,14 +2709,98 @@ body.emergency-screen-pulse::before {
     </div>
     <div class="bottom-section">
       <div class="bottom-title" style="display:flex;align-items:center;justify-content:space-between;flex-shrink:0">
-        <span>🎛 What-If Simulator</span>
-        <span style="font-size:9.5px;color:var(--accent2)">Groq AI Autonomous Mode</span>
+        <span style="font-weight:700">🎛 What-If Simulator</span>
+        <div style="display:flex;gap:4px">
+          <button id="sim-tab-physics" class="sim-mode-chip active" onclick="switchSimTab('physics')">🌪️ Cyclone Physics</button>
+          <button id="sim-tab-events" class="sim-mode-chip" onclick="switchSimTab('events')">⚡ Event Toggles</button>
+        </div>
       </div>
       <div class="bottom-scroll" id="sim-controls-scroll">
-        <div class="sim-controls" id="sim-controls"></div>
-        <div style="display:flex;gap:6px;margin-top:6px">
-          <button class="reset-btn" style="flex:1" onclick="resetSim()">↺ Reset</button>
-          <button class="auto-sim-btn" style="flex:2" onclick="openAutonomousModal()">⚡ Run AI Simulation</button>
+        <!-- CYCLONE PHYSICS TAB -->
+        <div id="cyclone-physics-panel" class="cyclone-physics-container">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <span style="font-size:9px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.3px">Historical Presets</span>
+            <span id="cyclone-category-badge" style="font-size:8.5px;padding:1px 5px;border-radius:3px;background:rgba(245,158,11,0.2);color:#f59e0b;font-weight:700">VSCS (140 km/h)</span>
+          </div>
+          <div class="preset-bar">
+            <button class="preset-btn" onclick="applyPreset('AMPHAN')">Amphan '20</button>
+            <button class="preset-btn" onclick="applyPreset('YAAS')">Yaas '21</button>
+            <button class="preset-btn" onclick="applyPreset('REMAL')">Remal '24</button>
+            <button class="preset-btn" onclick="applyPreset('SPRING')">5.8m Surge</button>
+          </div>
+
+          <!-- Surge Slider -->
+          <div class="slider-group">
+            <div class="slider-header">
+              <span class="slider-label">🌊 Storm Surge Height</span>
+              <span class="slider-val" id="val-surge">3.5 m</span>
+            </div>
+            <input type="range" class="cyclone-slider" id="slider-surge" min="0.0" max="6.0" step="0.1" value="3.5" oninput="onSurgeSliderChange(this.value)">
+            <div style="display:flex;justify-content:space-between;font-size:8px;color:var(--text-muted)">
+              <span>0m</span>
+              <span id="surge-submerge-hint" style="color:#f59e0b">Roads &lt;3.5m Submerged</span>
+              <span>6.0m</span>
+            </div>
+          </div>
+
+          <!-- Wind Slider -->
+          <div class="slider-group">
+            <div class="slider-header">
+              <span class="slider-label">🌪️ Cyclonic Gale Wind</span>
+              <span class="slider-val" id="val-wind">140 km/h</span>
+            </div>
+            <input type="range" class="cyclone-slider" id="slider-wind" min="40" max="220" step="5" value="140" oninput="onWindSliderChange(this.value)">
+            <div style="display:flex;justify-content:space-between;font-size:8px;color:var(--text-muted)">
+              <span>40 km/h</span>
+              <span id="wind-damage-hint" style="color:#38bdf8">Telecom & Debris Cutoff</span>
+              <span>220 km/h</span>
+            </div>
+          </div>
+
+          <!-- Rainfall Slider -->
+          <div class="slider-group">
+            <div class="slider-header">
+              <span class="slider-label">🌧️ 24h Rainfall Total</span>
+              <span class="slider-val" id="val-rain">220 mm</span>
+            </div>
+            <input type="range" class="cyclone-slider" id="slider-rain" min="0" max="400" step="10" value="220" oninput="onRainSliderChange(this.value)">
+            <div style="display:flex;justify-content:space-between;font-size:8px;color:var(--text-muted)">
+              <span>0 mm</span>
+              <span id="rain-speed-hint" style="color:#10b981">Convoy Speed Factor 0.51x</span>
+              <span>400 mm</span>
+            </div>
+          </div>
+
+          <!-- Embankment Breaches -->
+          <div class="breach-section">
+            <div class="breach-header">
+              <span>Embankment Breach Hotspots</span>
+              <span id="breach-count-tag" style="color:#ef4444">2 Breached</span>
+            </div>
+            <div class="breach-chips">
+              <div class="breach-chip active" id="chip-WB01" onclick="toggleBreachChip('WB01')">WB01 Sagar</div>
+              <div class="breach-chip" id="chip-WB03" onclick="toggleBreachChip('WB03')">WB03 Namkhana</div>
+              <div class="breach-chip active" id="chip-WB04" onclick="toggleBreachChip('WB04')">WB04 Bakkhali</div>
+              <div class="breach-chip" id="chip-WB05" onclick="toggleBreachChip('WB05')">WB05 Gosaba</div>
+              <div class="breach-chip" id="chip-WB09" onclick="toggleBreachChip('WB09')">WB09 Patharpratima</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:5px;margin-top:2px">
+            <button class="run-cyclone-btn" style="flex:2" onclick="runParametricCycloneSim()">
+              <span>🚀</span> <span>Execute Cyclone Physics</span>
+            </button>
+            <button class="reset-btn" style="flex:1;margin-top:0" onclick="resetSim()">↺ Reset</button>
+          </div>
+        </div>
+
+        <!-- LEGACY EVENT TOGGLES TAB -->
+        <div id="legacy-events-panel" style="display:none">
+          <div class="sim-controls" id="sim-controls"></div>
+          <div style="display:flex;gap:6px;margin-top:6px">
+            <button class="reset-btn" style="flex:1" onclick="resetSim()">↺ Reset</button>
+            <button class="auto-sim-btn" style="flex:2" onclick="openAutonomousModal()">⚡ Run AI Simulation</button>
+          </div>
         </div>
       </div>
     </div>
@@ -3819,6 +3923,7 @@ async function init() {
     ]);
     renderAll();
     renderZoneEmptyState();
+    loadCyclonePresets();
     document.getElementById('loading').classList.add('hidden');
     setTimeout(() => {
       if (typeof map !== 'undefined' && map) {
@@ -4320,25 +4425,36 @@ async function renderRoads() {
     catch(e) { console.warn('Road geometry unavailable:', road.id); return; }
     if (renderToken !== roadRenderToken || !roadShape.geometry || roadShape.geometry.length < 2) return;
 
-    const color = road.status === 'blocked' ? '#ef4444'
+    const isSubmerged = road.submerged || road.condition === 'submerged';
+    const color = isSubmerged ? '#06b6d4'
+                : road.status === 'blocked' ? '#ef4444'
                 : road.status === 'degraded' ? '#eab308'
                 : '#3b82f6';
-    const dash  = road.status === 'blocked' ? '8,4'
+    const dash  = isSubmerged ? '6,3'
+                : road.status === 'blocked' ? '8,4'
                 : road.status === 'degraded' ? '4,4'
                 : null;
-    const weight = road.status === 'blocked' ? 4 : (road.status === 'degraded' ? 3 : 2);
-    const opacity = road.status === 'blocked' ? 0.92 : (road.status === 'degraded' ? 0.75 : 0.42);
+    const weight = isSubmerged ? 4.5 : (road.status === 'blocked' ? 4 : (road.status === 'degraded' ? 3 : 2));
+    const opacity = isSubmerged ? 0.95 : (road.status === 'blocked' ? 0.92 : (road.status === 'degraded' ? 0.75 : 0.42));
 
     const opts = {color, weight, opacity, lineCap:'round', lineJoin:'round'};
     if (dash) opts.dashArray = dash;
 
     const roleText = getRoadRoleText(road.id);
+    const subText = isSubmerged ? `<br><span style="color:#06b6d4;font-weight:700">🌊 STORM SURGE SUBMERGED (Depth: ${road.inundation_depth_m || 0.5}m)</span>` : '';
     const line = L.polyline(roadShape.geometry, opts)
-      .bindTooltip(`<b>Road ${road.id}</b>${roleText}<br>Status: ${road.status.toUpperCase()} · ${road.distance_km}km · ${road.travel_time_min}min`,
+      .bindTooltip(`<b>Road ${road.id}</b>${roleText}<br>Status: ${road.status.toUpperCase()} · ${road.distance_km}km · ${road.travel_time_min}min${subText}`,
                     {className:'', sticky:true, direction:'top'})
       .addTo(map);
     roadLines[road.id] = line;
-    if (road.status === 'blocked') {
+    if (isSubmerged) {
+      const midpoint = roadShape.geometry[Math.floor(roadShape.geometry.length / 2)];
+      const incident = L.marker(midpoint, {icon:L.divIcon({
+        html:'<div style="font-size:18px;filter:drop-shadow(0 1px 4px #0891b2)">🌊</div>',
+        className:'',iconAnchor:[9,9]
+      })}).bindTooltip(`${road.id} — STORM SURGE SUBMERGED · Depth ${road.inundation_depth_m || 0.5}m · Inaccessible`, {sticky:true}).addTo(map);
+      roadLines[road.id + '-incident'] = incident;
+    } else if (road.status === 'blocked') {
       const midpoint = roadShape.geometry[Math.floor(roadShape.geometry.length / 2)];
       const incident = L.marker(midpoint, {icon:L.divIcon({
         html:'<div style="font-size:18px;filter:drop-shadow(0 1px 3px #000)">🚧</div>',
@@ -10942,6 +11058,8 @@ async function applyCurrentEvents() {
 
 async function resetSim() {
   activeEvents = {};
+  latestCycloneDelta = null;
+  selectedBreachLocations = new Set(['WB01', 'WB04']);
   window.activeEmergencyZones = new Set();
   if (sirenAudioElement) {
     try {
@@ -10950,6 +11068,23 @@ async function resetSim() {
     } catch(e){}
   }
   document.body.classList.remove('emergency-screen-pulse');
+
+  // Reset sliders to defaults
+  const sSurge = document.getElementById('slider-surge');
+  const sWind = document.getElementById('slider-wind');
+  const sRain = document.getElementById('slider-rain');
+  if (sSurge) { sSurge.value = 3.5; onSurgeSliderChange(3.5); }
+  if (sWind) { sWind.value = 140; onWindSliderChange(140); }
+  if (sRain) { sRain.value = 220; onRainSliderChange(220); }
+  ['WB01', 'WB03', 'WB04', 'WB05', 'WB09'].forEach(loc => {
+    const chip = document.getElementById(`chip-${loc}`);
+    if (chip) {
+      if (['WB01', 'WB04'].includes(loc)) chip.classList.add('active');
+      else chip.classList.remove('active');
+    }
+  });
+  const tag = document.getElementById('breach-count-tag');
+  if (tag) tag.textContent = '2 Breached';
 
   // Clear all local dispatches (backend clears too)
   Object.values(dispatchAnimTimers).forEach(t => clearInterval(t));
@@ -10968,6 +11103,168 @@ async function resetSim() {
   renderAll();
 }
 
+// ═══════════════════════════════════════════════════════
+// CYCLONE PHYSICS SIMULATOR (PHASE 4)
+// ═══════════════════════════════════════════════════════
+let latestCycloneDelta = null;
+let selectedBreachLocations = new Set(['WB01', 'WB04']);
+let cyclonePresets = [];
+
+async function loadCyclonePresets() {
+  try {
+    const res = await apiFetch('/api/simulation/cyclone-presets');
+    if (res && res.presets) {
+      cyclonePresets = res.presets;
+    }
+  } catch (e) {
+    console.warn('Could not fetch cyclone presets:', e);
+  }
+}
+
+function switchSimTab(tab) {
+  const pPanel = document.getElementById('cyclone-physics-panel');
+  const ePanel = document.getElementById('legacy-events-panel');
+  const pTab = document.getElementById('sim-tab-physics');
+  const eTab = document.getElementById('sim-tab-events');
+  if (tab === 'physics') {
+    if (pPanel) pPanel.style.display = 'flex';
+    if (ePanel) ePanel.style.display = 'none';
+    if (pTab) pTab.classList.add('active');
+    if (eTab) eTab.classList.remove('active');
+  } else {
+    if (pPanel) pPanel.style.display = 'none';
+    if (ePanel) ePanel.style.display = 'block';
+    if (pTab) pTab.classList.remove('active');
+    if (eTab) eTab.classList.add('active');
+  }
+}
+
+function onSurgeSliderChange(val) {
+  val = parseFloat(val).toFixed(1);
+  const el = document.getElementById('val-surge');
+  if (el) el.textContent = `${val} m`;
+  const hint = document.getElementById('surge-submerge-hint');
+  if (hint) {
+    if (val < 1.5) hint.textContent = 'Minimal Road Submergence';
+    else if (val < 3.0) hint.textContent = 'Sagar, Bakkhali roads submerged';
+    else if (val < 4.5) hint.textContent = 'Severe Delta Inundation (<4.5m)';
+    else hint.textContent = 'Catastrophic Causeway Overtopping';
+  }
+}
+
+function onWindSliderChange(val) {
+  const el = document.getElementById('val-wind');
+  if (el) el.textContent = `${val} km/h`;
+  const badge = document.getElementById('cyclone-category-badge');
+  const hint = document.getElementById('wind-damage-hint');
+  let cat = 'Depression', color = '#38bdf8';
+  if (val >= 222) { cat = 'Super CS'; color = '#dc2626'; }
+  else if (val >= 167) { cat = 'ESCS'; color = '#ea580c'; }
+  else if (val >= 118) { cat = 'VSCS'; color = '#f59e0b'; }
+  else if (val >= 89) { cat = 'SCS'; color = '#eab308'; }
+  else if (val >= 62) { cat = 'CS'; color = '#38bdf8'; }
+  if (badge) {
+    badge.textContent = `${cat} (${val} km/h)`;
+    badge.style.color = color;
+    badge.style.background = `${color}25`;
+  }
+  if (hint) {
+    hint.textContent = val >= 120 ? 'Telecom & Debris Cutoff' : 'Gale Winds';
+  }
+}
+
+function onRainSliderChange(val) {
+  const el = document.getElementById('val-rain');
+  if (el) el.textContent = `${val} mm`;
+  const hint = document.getElementById('rain-speed-hint');
+  if (hint) {
+    const factor = Math.max(0.35, 1.0 - (val / 450.0)).toFixed(2);
+    hint.textContent = `Convoy Speed Factor ${factor}x`;
+  }
+}
+
+function toggleBreachChip(loc) {
+  const chip = document.getElementById(`chip-${loc}`);
+  if (selectedBreachLocations.has(loc)) {
+    selectedBreachLocations.delete(loc);
+    if (chip) chip.classList.remove('active');
+  } else {
+    selectedBreachLocations.add(loc);
+    if (chip) chip.classList.add('active');
+  }
+  const tag = document.getElementById('breach-count-tag');
+  if (tag) tag.textContent = `${selectedBreachLocations.size} Breached`;
+}
+
+function applyPreset(presetId) {
+  const fallbackPresets = {
+    AMPHAN: { name: 'Amphan (2020)', surge_height_m: 4.5, wind_speed_kmh: 185, rainfall_24h_mm: 240, breach_locations: ['WB01', 'WB05', 'WB04'] },
+    YAAS: { name: 'Yaas (2021)', surge_height_m: 3.8, wind_speed_kmh: 140, rainfall_24h_mm: 180, breach_locations: ['WB04', 'WB03'] },
+    REMAL: { name: 'Remal (2024)', surge_height_m: 3.2, wind_speed_kmh: 125, rainfall_24h_mm: 210, breach_locations: ['WB01', 'WB09'] },
+    SPRING: { name: '5.8m Catastrophic', surge_height_m: 5.8, wind_speed_kmh: 200, rainfall_24h_mm: 350, breach_locations: ['WB01', 'WB02', 'WB03', 'WB04', 'WB05'] },
+  };
+  const found = (cyclonePresets || []).find(p => p.id && p.id.includes(presetId)) || fallbackPresets[presetId];
+  if (!found) return;
+
+  const sSurge = document.getElementById('slider-surge');
+  const sWind = document.getElementById('slider-wind');
+  const sRain = document.getElementById('slider-rain');
+  if (sSurge) { sSurge.value = found.surge_height_m; onSurgeSliderChange(found.surge_height_m); }
+  if (sWind) { sWind.value = found.wind_speed_kmh; onWindSliderChange(found.wind_speed_kmh); }
+  if (sRain) { sRain.value = found.rainfall_24h_mm; onRainSliderChange(found.rainfall_24h_mm); }
+  
+  selectedBreachLocations.clear();
+  ['WB01', 'WB03', 'WB04', 'WB05', 'WB09'].forEach(loc => {
+    const chip = document.getElementById(`chip-${loc}`);
+    if (found.breach_locations && found.breach_locations.includes(loc)) {
+      selectedBreachLocations.add(loc);
+      if (chip) chip.classList.add('active');
+    } else {
+      if (chip) chip.classList.remove('active');
+    }
+  });
+  const tag = document.getElementById('breach-count-tag');
+  if (tag) tag.textContent = `${selectedBreachLocations.size} Breached`;
+  
+  showToast(`⚡ Loaded Preset: ${found.name || presetId} (${found.surge_height_m}m Surge, ${found.wind_speed_kmh}km/h Wind)`);
+}
+
+async function runParametricCycloneSim() {
+  const sSurge = document.getElementById('slider-surge');
+  const sWind = document.getElementById('slider-wind');
+  const sRain = document.getElementById('slider-rain');
+  const surge = sSurge ? parseFloat(sSurge.value) : 3.5;
+  const wind = sWind ? parseFloat(sWind.value) : 140.0;
+  const rain = sRain ? parseFloat(sRain.value) : 220.0;
+  const breaches = Array.from(selectedBreachLocations);
+
+  showToast('🌪️ Executing Cyclone Physics & Inundation Simulation...');
+  try {
+    const res = await apiPost('/api/simulation/parametric-cyclone', {
+      surge_height_m: surge,
+      wind_speed_kmh: wind,
+      rainfall_24h_mm: rain,
+      breach_locations: breaches
+    });
+    if (res && res.state) {
+      latestCycloneDelta = res;
+      state = res.state;
+      renderAll();
+      logActivity(
+        'CYCLONE_SIMULATION',
+        '🌪️',
+        `Parametric Cyclone executed: ${surge}m surge, ${wind}km/h wind. ${res.summary?.newly_blocked_roads_count || 0} roads submerged, ${res.summary?.escalated_zones_count || 0} zones escalated, ${res.summary?.air_evacuation_zones_count || 0} air bridges required.`,
+        'SIMULATED',
+        '#ef4444'
+      );
+      showToast(`🌪️ Cyclone Complete: ${res.summary?.newly_blocked_roads_count || 0} roads submerged · ${res.summary?.air_evacuation_zones_count || 0} air bridges triggered`);
+    }
+  } catch (err) {
+    console.error('Cyclone simulation error:', err);
+    showToast('❌ Failed to execute cyclone simulation');
+  }
+}
+
 function updateEventTags() {
   const el = document.getElementById('event-tags');
   el.innerHTML = Object.values(activeEvents).map(e =>
@@ -10982,9 +11279,10 @@ function renderCompare() {
   const hasAiRun = (typeof autoSimSteps !== 'undefined' && autoSimSteps.length > 0 && typeof whatIfInitialState !== 'undefined' && whatIfInitialState);
   const hasActiveEvac = Object.keys(activeEvacuations).length > 0;
   const hasEvacuated = (state.zones || []).some(z => (z.evacuated_people || 0) > 0);
+  const hasCyclone = !!latestCycloneDelta;
 
-  if (!hasWhatIf && !hasAiRun && !hasActiveEvac && !hasEvacuated) {
-    el.innerHTML = `<div style="color:var(--text-muted);font-size:11px;padding:8px;">Toggle a what-if event or start an evacuation to see Before → After impact.</div>`;
+  if (!hasWhatIf && !hasAiRun && !hasActiveEvac && !hasEvacuated && !hasCyclone) {
+    el.innerHTML = `<div style="color:var(--text-muted);font-size:11px;padding:8px;">Toggle a what-if event, execute cyclone physics, or start an evacuation to see Before → After impact.</div>`;
     return;
   }
 
@@ -10992,7 +11290,58 @@ function renderCompare() {
   if (!beforeRef) return;
 
   const beforeTitle = hasAiRun ? 'Before (What-If State)' : 'Before (Baseline)';
-  const afterTitle = hasAiRun ? 'After (AI Interventions)' : 'After (Simulated)';
+  const afterTitle = hasCyclone ? 'After (Cyclone Surge)' : (hasAiRun ? 'After (AI Interventions)' : 'After (Simulated)');
+
+  let cycloneCardHtml = '';
+  if (latestCycloneDelta) {
+    const p = latestCycloneDelta.parameters || {};
+    const s = latestCycloneDelta.summary || {};
+    const blockedList = (latestCycloneDelta.newly_blocked_roads || []).slice(0, 6);
+    const escalatedList = (latestCycloneDelta.escalated_zones || []).slice(0, 5);
+
+    cycloneCardHtml = `
+      <div style="background:linear-gradient(135deg, rgba(239,68,68,0.12), rgba(6,182,212,0.12));border:1px solid rgba(239,68,68,0.4);border-radius:6px;padding:7px;margin-bottom:8px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px">
+          <div style="font-weight:800;font-size:10.5px;color:#fca5a5;display:flex;align-items:center;gap:4px">
+            <span>🌪️</span> <span>CYCLONE CASCADE IMPACT</span>
+          </div>
+          <span style="font-size:8.5px;padding:2px 5px;border-radius:3px;background:rgba(239,68,68,0.25);color:#fca5a5;font-weight:700">
+            ${p.surge_height_m}m SURGE · ${p.wind_speed_kmh}km/h
+          </span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(2, 1fr);gap:4px;font-size:10px">
+          <div style="background:var(--bg-card3);padding:4px 6px;border-radius:4px;border:1px solid var(--border)">
+            <div style="color:var(--text-muted);font-size:8px;text-transform:uppercase">Newly Submerged Corridors</div>
+            <div style="font-size:12.5px;font-weight:800;color:#06b6d4">${s.newly_blocked_roads_count || 0} <span style="font-size:9px;color:var(--text-muted);font-weight:500">roads</span></div>
+          </div>
+          <div style="background:var(--bg-card3);padding:4px 6px;border-radius:4px;border:1px solid var(--border)">
+            <div style="color:var(--text-muted);font-size:8px;text-transform:uppercase">Air Bridges Triggered</div>
+            <div style="font-size:12.5px;font-weight:800;color:#38bdf8">${s.air_evacuation_zones_count || 0} <span style="font-size:9px;color:var(--text-muted);font-weight:500">zones</span></div>
+          </div>
+          <div style="background:var(--bg-card3);padding:4px 6px;border-radius:4px;border:1px solid var(--border)">
+            <div style="color:var(--text-muted);font-size:8px;text-transform:uppercase">Flooded Shelters</div>
+            <div style="font-size:12.5px;font-weight:800;color:#f59e0b">${s.flooded_shelters_count || 0} <span style="font-size:9px;color:var(--text-muted);font-weight:500">units</span></div>
+          </div>
+          <div style="background:var(--bg-card3);padding:4px 6px;border-radius:4px;border:1px solid var(--border)">
+            <div style="color:var(--text-muted);font-size:8px;text-transform:uppercase">Critical Priority Zones</div>
+            <div style="font-size:12.5px;font-weight:800;color:var(--critical)">${s.critical_zones_count || 0} <span style="font-size:9px;color:var(--text-muted);font-weight:500">zones</span></div>
+          </div>
+        </div>
+        ${blockedList.length ? `
+          <div style="margin-top:5px;font-size:9px;color:var(--text-muted);padding-top:4px;border-top:1px solid rgba(255,255,255,0.06)">
+            <span style="font-weight:700;color:#06b6d4">🌊 Submerged Corridors:</span>
+            ${blockedList.map(r => `<span style="display:inline-block;padding:1px 4px;margin:1px;background:rgba(6,182,212,0.15);border:1px solid rgba(6,182,212,0.3);border-radius:3px;color:#67e8f9">${r.road_id} (${r.from_node}→${r.to_node}: ${r.depth_m || 0.4}m deep)</span>`).join('')}
+          </div>
+        ` : ''}
+        ${escalatedList.length ? `
+          <div style="margin-top:4px;font-size:9px;color:var(--text-muted)">
+            <span style="font-weight:700;color:#fca5a5">⚠️ Escalated Zones:</span>
+            ${escalatedList.map(z => `<span style="display:inline-block;padding:1px 4px;margin:1px;background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.3);border-radius:3px;color:#fca5a5">${z.zone_id} ${z.name ? z.name.split(' ')[0] : ''} (+${z.delta_hci} HCI${z.air_escalated ? ' · 🚁 AIR' : ''})</span>`).join('')}
+          </div>
+        ` : ''}
+      </div>
+    `;
+  }
 
   const baseMap = {};
   (beforeRef.zones||[]).forEach(z => { baseMap[z.id] = z; });
@@ -11161,7 +11510,7 @@ function renderCompare() {
     `;
   }
 
-  el.innerHTML = impactSummaryHtml + hciHtml + metricsHtml +
+  el.innerHTML = cycloneCardHtml + impactSummaryHtml + hciHtml + metricsHtml +
     `<div style="font-size:10px;color:var(--text-muted);margin-top:6px;padding:4px">
       ↑ HCI = worse &nbsp; ↓ HCI = better &nbsp; · &nbsp; GROUND UNAVAILABLE → helicopter recommended.
     </div>`;
