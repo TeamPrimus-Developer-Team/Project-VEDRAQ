@@ -37,11 +37,12 @@ from app.services.simulation import SimulationState
 from app.services import gee_service
 from app.services.weather_service import weather_service
 from app.services.risk_engine import risk_engine
-from app.services.groq_service import (
+from app.services.gemini_service import (
     build_systemic_risk_context,
     analyze_systemic_risk,
     query_ai,
     get_ai_status,
+    generate_disaster_advisory,
 )
 from app.services.autonomous_sim import (
     execute_autonomous_step,
@@ -266,6 +267,11 @@ class SystemicRiskRequest(BaseModel):
 class AIQueryRequest(BaseModel):
     question: str
     include_baseline: Optional[bool] = True
+
+
+class AdvisoryRequest(BaseModel):
+    zone_id: Optional[str] = None
+    language: Optional[str] = "both"
 
 
 class AutonomousStepRequest(BaseModel):
@@ -1501,6 +1507,50 @@ def ask_ai(req: AIQueryRequest):
         "response": answer_obj,
         "answered_at": __import__("datetime").datetime.now().isoformat(),
     }
+
+
+@app.post("/api/ai/advisory")
+def generate_ai_advisory(req: Optional[AdvisoryRequest] = None):
+    """
+    Google Gemini Multimodal Early Warning & Community Advisory Engine (Phase 3).
+    Synthesizes SRTM elevation, Dynamic World LULC, real-time cyclonic weather,
+    and composite Geo-Risk scores into actionable bilingual advisories.
+    """
+    zone_id = req.zone_id if req and req.zone_id else None
+    current_state = _full_state()
+    zones = current_state.get("zones", [])
+    
+    zone_data = next((z for z in zones if z.get("id") == zone_id), None) if zone_id else None
+    if not zone_data and zones:
+        # Default to highest criticality zone
+        zone_data = zones[0]
+        zone_id = zone_data.get("id")
+
+    # Local shelters & roads
+    facilities = current_state.get("facilities", {})
+    shelters = facilities.get("shelters", [])
+    roads = current_state.get("roads", [])
+
+    # Real-time meteorological data
+    weather_data = weather_service.get_current_weather()
+
+    # Zone composite risk assessment
+    risk_assessment = risk_engine.compute_zone_risk(zone_data, roads, weather_data) if zone_data else None
+
+    # Earth Engine context
+    gee_summary = gee_service.get_gee_status()
+
+    advisory = generate_disaster_advisory(
+        zone_id=zone_id,
+        zone_data=zone_data,
+        weather_data=weather_data,
+        risk_data=risk_assessment,
+        gee_data=gee_summary,
+        shelters=shelters,
+        roads=roads,
+    )
+    return advisory
+
 
 
 # ─────────────────────────────────────────────────────────────────────────────

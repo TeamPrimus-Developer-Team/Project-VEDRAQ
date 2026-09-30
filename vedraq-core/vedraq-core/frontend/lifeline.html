@@ -2070,6 +2070,140 @@ body.emergency-screen-pulse::before {
   letter-spacing: .4px;
 }
 
+/* ─── GOOGLE GEMINI EARLY WARNING ADVISORY ─── */
+.strip-advisory-pill {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(30,16,48,0.92);
+  border: 1px solid rgba(168,85,247,0.45);
+  border-radius: 6px;
+  padding: 3px 10px;
+  cursor: pointer;
+  transition: all .2s ease;
+  user-select: none;
+  flex-shrink: 0;
+}
+.strip-advisory-pill:hover {
+  background: rgba(45,24,75,0.98);
+  border-color: #c084fc;
+  box-shadow: 0 0 14px rgba(168,85,247,0.45);
+  transform: translateY(-1px);
+}
+.advisory-dot {
+  background: #c084fc;
+  box-shadow: 0 0 8px #c084fc;
+}
+.advisory-txt {
+  font-size: 10px;
+  font-weight: 700;
+  color: #faf5ff;
+  letter-spacing: .5px;
+}
+.advisory-badge {
+  font-size: 8.5px;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: rgba(168,85,247,0.25);
+  color: #e9d5ff;
+  border: 1px solid rgba(168,85,247,0.5);
+  letter-spacing: .4px;
+}
+.advisory-modal-container {
+  width: 760px;
+  max-width: 95vw;
+  background: rgba(13, 16, 28, 0.98);
+  border: 1px solid rgba(168,85,247,0.45);
+  border-radius: 12px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.85), 0 0 24px rgba(168,85,247,0.2);
+  backdrop-filter: blur(16px);
+  color: #f8fafc;
+  overflow: hidden;
+}
+.advisory-alert-banner {
+  padding: 14px 16px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: 1px solid;
+}
+.advisory-alert-banner.RED_ALERT {
+  background: rgba(239,68,68,0.12);
+  border-color: rgba(239,68,68,0.5);
+  box-shadow: 0 0 20px rgba(239,68,68,0.15);
+}
+.advisory-alert-banner.ORANGE_ALERT {
+  background: rgba(249,115,22,0.12);
+  border-color: rgba(249,115,22,0.5);
+}
+.advisory-alert-banner.YELLOW_ADVISORY {
+  background: rgba(234,179,8,0.12);
+  border-color: rgba(234,179,8,0.5);
+}
+.advisory-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+}
+.advisory-lang-tabs {
+  display: flex;
+  gap: 4px;
+  background: rgba(10,14,24,0.6);
+  padding: 3px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.advisory-lang-tab {
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  background: transparent;
+  color: #94a3b8;
+  border: none;
+  transition: all .2s ease;
+}
+.advisory-lang-tab.active {
+  background: rgba(168,85,247,0.3);
+  color: #f3e8ff;
+  border: 1px solid rgba(168,85,247,0.5);
+}
+.advisory-hazard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.advisory-hazard-item {
+  background: rgba(18,24,38,0.7);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 6px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  color: #cbd5e1;
+}
+.advisory-shelter-card {
+  background: rgba(20,28,45,0.75);
+  border: 1px solid rgba(56,189,248,0.25);
+  border-radius: 6px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
 .weather-modal-container {
   width: 680px;
   max-width: 95vw;
@@ -2159,6 +2293,13 @@ body.emergency-screen-pulse::before {
       <span class="weather-txt" id="strip-weather-wind">GUSTS 128 KM/H</span>
       <span class="weather-sub" id="strip-weather-pressure">974.5 hPa</span>
       <span class="weather-badge" id="strip-weather-alert">RED ALERT</span>
+    </div>
+    <!-- GOOGLE GEMINI EARLY WARNING ADVISORY PILL -->
+    <div class="strip-advisory-pill" id="strip-advisory-pill" onclick="openAdvisoryModal()" title="View Google Gemini Multimodal Early Warning & Community Advisory">
+      <span class="pulse-dot advisory-dot"></span>
+      <span style="font-size:12px;">📢</span>
+      <span class="advisory-txt">GEMINI ADVISORY</span>
+      <span class="advisory-badge" id="strip-advisory-badge">AI LIVE</span>
     </div>
     <div class="strip-status"><span class="status-indicator"></span> SYSTEM: ONLINE</div>
   </div>
@@ -2658,6 +2799,129 @@ body.emergency-screen-pulse::before {
           </div>
           <div class="weather-timeline-container" id="weather-timeline-list">
             <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GOOGLE GEMINI MULTIMODAL EARLY WARNING ADVISORY MODAL -->
+  <div id="advisory-modal" class="modal-backdrop hidden" onclick="closeAdvisoryModal()">
+    <div class="advisory-modal-container" onclick="event.stopPropagation()">
+      <div class="ops-popover-header" style="border-bottom:1px solid rgba(168,85,247,0.35);padding:14px 18px;background:rgba(20,12,35,0.85);display:flex;align-items:center;justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:24px;filter:drop-shadow(0 0 8px #c084fc)">📢</span>
+          <div>
+            <div style="font-size:13.5px;font-weight:800;color:#f3e8ff;letter-spacing:.6px;display:flex;align-items:center;gap:8px;">
+              <span>EARLY WARNING &amp; DISASTER ADVISORY</span>
+              <span id="adv-engine-badge" style="font-size:9.5px;font-weight:800;padding:2px 7px;border-radius:4px;background:rgba(168,85,247,0.25);color:#d8b4fe;border:1px solid rgba(168,85,247,0.5);">GOOGLE GEMINI 2.5 FLASH</span>
+            </div>
+            <div style="font-size:10px;color:#a855f7;">Bilingual Multimodal Decision Support &bull; West Bengal State Disaster Authority</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="display:flex;align-items:center;gap:6px;">
+            <label style="font-size:10px;color:#94a3b8;font-weight:600;">ZONE:</label>
+            <select id="advisory-zone-select" onchange="fetchGeminiAdvisory(this.value)" style="background:rgba(15,23,42,0.9);color:#f8fafc;border:1px solid rgba(168,85,247,0.4);border-radius:5px;padding:3px 8px;font-size:11px;font-weight:700;outline:none;">
+              <!-- Dynamically populated with West Bengal zones -->
+            </select>
+          </div>
+          <button class="ops-popover-close" onclick="closeAdvisoryModal()">&times;</button>
+        </div>
+      </div>
+
+      <div style="padding:16px;display:flex;flex-direction:column;gap:14px;max-height:78vh;overflow-y:auto;">
+        <!-- Alert Level Banner -->
+        <div id="adv-banner" class="advisory-alert-banner RED_ALERT">
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span id="adv-tag" class="advisory-tag" style="background:#ef4444;color:#fff;">🚨 RED ALERT</span>
+              <span id="adv-urgency" style="font-size:11px;font-weight:800;color:#f87171;letter-spacing:.5px;">IMMEDIATE EVACUATION ORDER</span>
+            </div>
+            <div class="advisory-lang-tabs">
+              <button id="adv-tab-en" class="advisory-lang-tab active" onclick="switchAdvisoryLang('en')">English</button>
+              <button id="adv-tab-bn" class="advisory-lang-tab" onclick="switchAdvisoryLang('bn')">বাংলা (Bengali)</button>
+              <button id="adv-tab-both" class="advisory-lang-tab" onclick="switchAdvisoryLang('both')">Dual View</button>
+            </div>
+          </div>
+
+          <!-- English Headline & Summary View -->
+          <div id="adv-view-en" style="margin-top:6px;">
+            <div id="adv-headline-en" style="font-size:13.5px;font-weight:800;color:#f8fafc;line-height:1.4;">
+              EMERGENCY EVACUATION ORDER: Severe Storm Surge & Gale-Force Winds
+            </div>
+            <div id="adv-summary-en" style="font-size:11.5px;color:#cbd5e1;line-height:1.5;margin-top:6px;">
+              SRTM elevation indicates this coastal zone lies below 3.0m elevation. Immediate evacuation required.
+            </div>
+          </div>
+
+          <!-- Bengali Headline & Summary View -->
+          <div id="adv-view-bn" style="margin-top:6px;display:none;">
+            <div id="adv-headline-bn" style="font-size:14px;font-weight:800;color:#fef08a;line-height:1.4;">
+              জরুরী উচ্ছেদ নির্দেশিকা: মারাত্মক জলোচ্ছ্বাস ও ধ্বংসাত্মক ঘূর্ণিঝড়
+            </div>
+            <div id="adv-summary-bn" style="font-size:12px;color:#f1f5f9;line-height:1.6;margin-top:6px;">
+              উপকূলীয় কাঁচা বাঁধের নিকটবর্তী সকল বাসিন্দাকে অবিলম্বে পাকা সাইক্লোন শেল্টারে আশ্রয় নিতে নির্দেশ দেওয়া হচ্ছে।
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Key Hazard Drivers Grid -->
+        <div>
+          <div style="font-size:10px;font-weight:800;color:#a855f7;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;">
+            CRITICAL HAZARD &amp; VULNERABILITY DRIVERS
+          </div>
+          <div class="advisory-hazard-grid" id="adv-hazard-drivers">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Evacuation Directive & Shelters -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <!-- Evacuation Directive -->
+          <div style="background:rgba(15,23,42,0.7);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:12px;">
+            <div style="font-size:10px;font-weight:800;color:#38bdf8;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;">
+              CIVILIAN EVACUATION DIRECTIVE
+            </div>
+            <div id="adv-directive" style="font-size:11.5px;color:#e2e8f0;line-height:1.5;">
+              Move inland immediately along designated high-ridge embankments.
+            </div>
+            <div id="adv-directive-bn" style="font-size:11.5px;color:#fef08a;line-height:1.5;margin-top:8px;padding-top:8px;border-top:1px dashed rgba(255,255,255,0.1);">
+              উঁচু সড়ক ও বাঁধ ধরে অবিলম্বে নিরাপদ আশ্রয়ে যান।
+            </div>
+          </div>
+
+          <!-- Safe Cyclone Shelters (MPCS) -->
+          <div style="background:rgba(15,23,42,0.7);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:12px;">
+            <div style="font-size:10px;font-weight:800;color:#22c55e;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;">
+              RECOMMENDED REINFORCED SHELTERS
+            </div>
+            <div id="adv-shelter-list" style="display:flex;flex-direction:column;gap:6px;">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+
+        <!-- First Responder Tactical Notes -->
+        <div style="background:rgba(24,18,36,0.75);border:1px solid rgba(168,85,247,0.3);border-radius:8px;padding:12px;">
+          <div style="font-size:10px;font-weight:800;color:#c084fc;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;">
+            TACTICAL FIRST RESPONDER DIRECTIVE (NDRF / SDRF / COAST GUARD)
+          </div>
+          <div id="adv-responder-notes" style="font-size:11.5px;color:#cbd5e1;line-height:1.5;">
+            Stage inflatable rescue boats at high school depot. Pre-position dewatering pumps.
+          </div>
+        </div>
+
+        <!-- Action Footer -->
+        <div style="display:flex;align-items:center;justify-content:space-between;padding-top:6px;border-top:1px solid rgba(255,255,255,0.08);">
+          <div style="font-size:10px;color:#94a3b8;" id="adv-timestamp">Generated just now</div>
+          <div style="display:flex;gap:8px;">
+            <button class="ai-btn" onclick="broadcastAdvisoryAlert()" style="background:rgba(239,68,68,0.2);border-color:#ef4444;color:#fca5a5;">
+              📢 Broadcast Community Alert
+            </button>
+            <button class="ai-btn" onclick="fetchGeminiAdvisory(document.getElementById('advisory-zone-select').value)">
+              ↺ Re-Evaluate (Gemini)
+            </button>
           </div>
         </div>
       </div>
@@ -5708,6 +5972,172 @@ async function openWeatherModal() {
 function closeWeatherModal() {
   const modal = document.getElementById('weather-modal');
   if (modal) modal.classList.add('hidden');
+}
+
+// ═══════════════════════════════════════════════════════
+// GOOGLE GEMINI MULTIMODAL EARLY WARNING ADVISORY SYSTEM
+// ═══════════════════════════════════════════════════════
+let activeAdvisoryData = null;
+let currentAdvisoryLang = 'en';
+
+async function openAdvisoryModal(targetZoneId = null) {
+  const modal = document.getElementById('advisory-modal');
+  if (!modal) return;
+  modal.classList.remove('hidden');
+
+  // Populate zones select dropdown
+  const sel = document.getElementById('advisory-zone-select');
+  if (sel && state.zones && state.zones.length > 0) {
+    const prevVal = sel.value;
+    sel.innerHTML = state.zones.map(z => 
+      `<option value="${z.id}" ${z.id === (targetZoneId || selectedZoneId || prevVal || state.zones[0].id) ? 'selected' : ''}>${z.name} (${z.id})</option>`
+    ).join('');
+  }
+
+  const zoneToFetch = targetZoneId || (sel ? sel.value : (selectedZoneId || (state.zones && state.zones[0]?.id)));
+  await fetchGeminiAdvisory(zoneToFetch);
+}
+
+function closeAdvisoryModal() {
+  const modal = document.getElementById('advisory-modal');
+  if (modal) modal.classList.add('hidden');
+}
+
+function switchAdvisoryLang(lang) {
+  currentAdvisoryLang = lang;
+  const btnEn = document.getElementById('adv-tab-en');
+  const btnBn = document.getElementById('adv-tab-bn');
+  const btnBoth = document.getElementById('adv-tab-both');
+  const viewEn = document.getElementById('adv-view-en');
+  const viewBn = document.getElementById('adv-view-bn');
+
+  if (btnEn) btnEn.classList.toggle('active', lang === 'en');
+  if (btnBn) btnBn.classList.toggle('active', lang === 'bn');
+  if (btnBoth) btnBoth.classList.toggle('active', lang === 'both');
+
+  if (lang === 'en') {
+    if (viewEn) viewEn.style.display = 'block';
+    if (viewBn) viewBn.style.display = 'none';
+  } else if (lang === 'bn') {
+    if (viewEn) viewEn.style.display = 'none';
+    if (viewBn) viewBn.style.display = 'block';
+  } else {
+    if (viewEn) viewEn.style.display = 'block';
+    if (viewBn) {
+      viewBn.style.display = 'block';
+      viewBn.style.marginTop = '10px';
+      viewBn.style.paddingTop = '10px';
+      viewBn.style.borderTop = '1px dashed rgba(255,255,255,0.15)';
+    }
+  }
+}
+
+async function fetchGeminiAdvisory(zoneId) {
+  try {
+    const headlineEn = document.getElementById('adv-headline-en');
+    if (headlineEn) headlineEn.innerHTML = `<span style="color:#c084fc;">⚡ Synthesizing Gemini 2.5 Flash Advisory for Zone ${zoneId || ''}...</span>`;
+
+    const data = await apiPost('/api/ai/advisory', { zone_id: zoneId });
+    if (!data) return;
+    activeAdvisoryData = data;
+
+    // Badge engine
+    const badgeEl = document.getElementById('adv-engine-badge');
+    if (badgeEl) badgeEl.textContent = (data.source_engine || 'GOOGLE GEMINI 2.5 FLASH').toUpperCase();
+
+    // Banner & alert level
+    const banner = document.getElementById('adv-banner');
+    const tag = document.getElementById('adv-tag');
+    const urgency = document.getElementById('adv-urgency');
+    const alertLevel = data.alert_level || 'RED_ALERT';
+
+    if (banner) {
+      banner.className = `advisory-alert-banner ${alertLevel}`;
+    }
+    if (tag) {
+      if (alertLevel === 'RED_ALERT') {
+        tag.style.background = '#ef4444';
+        tag.textContent = '🚨 RED ALERT';
+      } else if (alertLevel === 'ORANGE_ALERT') {
+        tag.style.background = '#f97316';
+        tag.textContent = '⚠️ ORANGE ALERT';
+      } else {
+        tag.style.background = '#eab308';
+        tag.textContent = '⚡ YELLOW ADVISORY';
+      }
+    }
+    if (urgency) {
+      urgency.textContent = data.urgency === 'IMMEDIATE' ? 'IMMEDIATE EVACUATION DIRECTIVE' : 'HEIGHTENED PREPAREDNESS & MONITORING';
+      urgency.style.color = alertLevel === 'RED_ALERT' ? '#f87171' : '#fb923c';
+    }
+
+    // Headlines & Summaries
+    if (headlineEn) headlineEn.textContent = data.headline_en || 'Emergency Evacuation Advisory';
+    const summaryEn = document.getElementById('adv-summary-en');
+    if (summaryEn) summaryEn.textContent = data.executive_summary_en || '';
+
+    const headlineBn = document.getElementById('adv-headline-bn');
+    if (headlineBn) headlineBn.textContent = data.headline_bn || 'জরুরী উচ্ছেদ নির্দেশিকা';
+    const summaryBn = document.getElementById('adv-summary-bn');
+    if (summaryBn) summaryBn.textContent = data.executive_summary_bn || '';
+
+    // Directives
+    const dirEn = document.getElementById('adv-directive');
+    if (dirEn) dirEn.textContent = data.evacuation_directive_en || '';
+    const dirBn = document.getElementById('adv-directive-bn');
+    if (dirBn) dirBn.textContent = data.evacuation_directive_bn || '';
+
+    // Hazard drivers grid
+    const hazGrid = document.getElementById('adv-hazard-drivers');
+    if (hazGrid && data.hazard_drivers) {
+      const icons = ['🌊', '🏔️', '💨', '🌿'];
+      hazGrid.innerHTML = data.hazard_drivers.map((h, i) => `
+        <div class="advisory-hazard-item">
+          <span style="font-size:16px;">${icons[i % icons.length]}</span>
+          <span>${escapeHtml(h)}</span>
+        </div>
+      `).join('');
+    }
+
+    // Shelters list
+    const shelterList = document.getElementById('adv-shelter-list');
+    if (shelterList && data.recommended_shelters) {
+      shelterList.innerHTML = data.recommended_shelters.map(s => `
+        <div class="advisory-shelter-card">
+          <div style="font-weight:700;color:#f8fafc;font-size:11px;">🏢 ${escapeHtml(s.name)}</div>
+          <div style="display:flex;gap:6px;align-items:center;">
+            <span style="font-size:9.5px;color:#38bdf8;">${s.distance_km || 2.5} km</span>
+            <span style="font-size:8.5px;font-weight:800;padding:1px 5px;border-radius:3px;background:rgba(34,197,94,0.2);color:#86efac;border:1px solid rgba(34,197,94,0.4);">${s.capacity_status || 'CAPACITY OK'}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // First responder notes
+    const respNotes = document.getElementById('adv-responder-notes');
+    if (respNotes) respNotes.textContent = data.first_responder_notes || 'Stage emergency assets at designated depots.';
+
+    // Timestamp
+    const timeEl = document.getElementById('adv-timestamp');
+    if (timeEl) timeEl.textContent = `Generated: ${new Date().toLocaleTimeString()} • ${data.source_engine || 'Gemini 2.5 Flash'}`;
+
+  } catch(e) {
+    console.error('Failed to fetch Gemini advisory:', e);
+    const headlineEn = document.getElementById('adv-headline-en');
+    if (headlineEn) headlineEn.textContent = `Advisory error: ${e.message || e}`;
+  }
+}
+
+function broadcastAdvisoryAlert() {
+  if (!activeAdvisoryData) return;
+  alert(
+    `🚨 SIMULATED EMERGENCY CELL BROADCAST (CAP PROTOCOL)\n\n` +
+    `AUTHORITY: West Bengal State Disaster Management Authority\n` +
+    `ZONE: ${activeAdvisoryData.zone_name || 'Coastal Belt'}\n` +
+    `ALERT: ${activeAdvisoryData.headline_en || 'Evacuate Now'}\n\n` +
+    `বাংলা:\n${activeAdvisoryData.headline_bn || 'নিরাপদ আশ্রয়ে যান'}\n\n` +
+    `Broadcast queued across 14 cell towers in Sector South 24 Parganas.`
+  );
 }
 
 async function onToggleGeoRisk(enable, forceReload = false) {
@@ -9913,6 +10343,10 @@ function showZoneDetail(zone) {
 
         <button class="start-evac-primary-btn" onclick="openEvacuationPlanModal('${zone.id}')">
           🚨 START EVACUATION
+        </button>
+
+        <button class="ai-btn" onclick="openAdvisoryModal('${zone.id}')" style="margin-top:6px;width:100%;display:flex;align-items:center;justify-content:center;gap:6px;background:rgba(168,85,247,0.22);border:1px solid rgba(168,85,247,0.55);color:#f3e8ff;padding:7px 10px;font-size:11px;font-weight:700;border-radius:6px;cursor:pointer;">
+          <span style="font-size:13px">📢</span> VIEW GEMINI EARLY WARNING ADVISORY
         </button>
       </div>
     `;
